@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bookstore.MControl;
+using Microsoft.Data.Sqlite;
 
 namespace Bookstrore.MControl.Control
 {
@@ -17,7 +18,7 @@ namespace Bookstrore.MControl.Control
 
             if (existsByMail is not null || existsByName is not null)
             {
-                throw new Exception("Пользователь с таким именем уже зарегистрирован");
+                throw new SqliteException("Пользователь с таким именем уже зарегистрирован",4);
             }
             else
             {
