@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Bookstore.MControl
 {
-    public partial class DatabaseContext : DbContext
+    public partial class BookstoreDb : DbContext
     {
-        public DatabaseContext()
+        public BookstoreDb()
         {
         }
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options)
+        public BookstoreDb(DbContextOptions<BookstoreDb> options)
             : base(options)
         {
         }
