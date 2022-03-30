@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bookstrore.MControl\Bookstrore.MControl.csproj" />
+  </ItemGroup>
+
 </Project>
