@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="470" Width="270">
+    <Grid Height="430">
+        <Border x:Name="Border" Background="#FF004040" CornerRadius="20,20,20,20" Margin="0,0,0,0" Width="250" Height="430">
+            <Grid>
+                <Image x:Name="Picture" Height="80" Source="books2.jpg" Width="250" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
+                    <Image.Clip>
+                        <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                    </Image.Clip>
+                </Image>
+
+                <Label x:Name="Title" Content="Book Store" Margin="0,70,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                       FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="5,5,0,5" HorizontalContentAlignment="Center" >
+                </Label>
+                <TextBox x:Name="Box_user" TextWrapping="Wrap" Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,204,50,196" />
+                <PasswordBox x:Name="Box_pass"  Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,257,50,143"/>
+                <Label Content="Sign In" HorizontalAlignment="Center" Margin="0,126,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" Width="80" Foreground="#FFFFEEA0" FontStyle="Italic"/>
+                <Label x:Name="Regisrty" Content="Registry" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" Width="100" Foreground="#FFFFEEA0" FontStyle="Italic" IsEnabled="False" Height="34" HorizontalContentAlignment="Center"/>
+                <Label x:Name="UserName" Content="Username" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="120" Foreground="#FFFFEEA0" FontStyle="Normal" Height="35"/>
+                <Label x:Name="Password" Content="Password" HorizontalAlignment="Left" Margin="45,228,0,0" VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="120" Foreground="#FFFFEEA0" FontStyle="Normal" Height="35"/>
+                <Label x:Name="Top" Content="" Margin="0,410,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                    Width="250"  Height="20" Padding="5,5,0,5" HorizontalContentAlignment="Center" Visibility="Visible" RenderTransformOrigin="0.5,0.5" >
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                    <Label.Clip>
+                        <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                    </Label.Clip>
+                </Label>
+                <Button x:Name="Button_login" Content="Log In"
+                    Width="100" Height="30" FontSize="22" FontFamily="AngryBirds" Margin="50,300,50,100" Background="#FFFFEEA0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+
+                </Button>
+
+
+
+
+            </Grid>
+        </Border>
+
 
     </Grid>
 </Window>
+
