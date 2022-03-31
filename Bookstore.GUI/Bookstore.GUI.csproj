@@ -8,7 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="books2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bookstrore.MControl\Bookstrore.MControl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="books2.jpg" />
   </ItemGroup>
 
 </Project>
