@@ -10,13 +10,11 @@ namespace Bookstore.CMD
         {
             Console.Write("Введите логин: ");
             var login = Console.ReadLine();
-            Console.WriteLine("Введите пароль: ");
+            Console.Write("Введите пароль: ");
             var pass = Console.ReadLine();
-            Console.WriteLine("Введите мейл: ");
-            var mail = Console.ReadLine();
             try
             {
-                AccountManager.Registration(login,pass,mail);
+                var db = AccountManager.Autorization(login, pass);
             }
             catch (SqliteException e)
             {

@@ -27,7 +27,7 @@ namespace Bookstrore.MControl.Control
             }
         }
 
-        private static BookstoreDb Autorization(string name, string pass)
+        public static BookstoreDb Autorization(string name, string pass)
         {
             BookstoreDb db = new BookstoreDb();
             var exist = (from e in db.Accounts where e.Name == name && e.Password == pass select e).FirstOrDefault();
@@ -37,7 +37,7 @@ namespace Bookstrore.MControl.Control
             }
             else
             {
-                throw new Exception("Ошибка авторизации");
+                throw new SqliteException("Ошибка авторизации",4);
             }
         }
     }
