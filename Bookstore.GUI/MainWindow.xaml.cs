@@ -24,5 +24,10 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
         }
+
+        private void Button_login_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

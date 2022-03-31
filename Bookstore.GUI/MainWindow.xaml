@@ -38,7 +38,7 @@
                         <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
                     </Label.Clip>
                 </Label>
-                <Button x:Name="Button_login" Content="Log In"
+                <Button x:Name="Button_login" Content="Log In" Click="Button_login_OnClick"
                     Width="100" Height="30" FontSize="22" FontFamily="AngryBirds" Margin="50,300,50,100" Background="#FFFFEEA0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
