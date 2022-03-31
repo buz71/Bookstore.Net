@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="270">
+        Title="Bookstore" Height="470" Width="270">
     <Grid Height="430">
         <Border x:Name="Border" Background="#FF004040" CornerRadius="20,20,20,20" Margin="0,0,0,0" Width="250" Height="430">
             <Grid>
