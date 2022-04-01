@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # matches all files 'Connection.txt' in any directory
 Connection.txt
+Bookstore.MControl/Connection.txt
+Bookstore.GUI/bin/Debug/net5.0-windows/Connection.txt
+Bookstore.MControl/bin/Debug/net5.0-windows/Connection.txt
