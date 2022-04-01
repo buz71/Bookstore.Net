@@ -1,1 +1,1 @@
-﻿F:\StepAcademy\Репозитории\.NET Cource Project\Bookstore\Database.db
+﻿C:\Users\Елена\source\repos\Bookstore.Net\Database.db

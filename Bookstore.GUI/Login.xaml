@@ -1,0 +1,194 @@
+﻿<Window x:Class="Bookstore.GUI.MainWindow" x:Name="LogWindow" WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookstore.GUI"
+        mc:Ignorable="d"
+        Title="Bookstore" Height="470" Width="270" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="Button_log" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FFFFEEA0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="100"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Button_reg" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+             <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="100"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Border CornerRadius="30,30,30,30">
+
+            </Border>
+        </Grid>
+
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="210"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid>
+                    <Image x:Name="Picture" Height="80" Source="books2.jpg" Width="250" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
+                        <Image.Clip>
+                            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                        </Image.Clip>
+                    </Image>
+
+                    <Label x:Name="Title" Content="Книжный магазин" Margin="0,75,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                       FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="5,5,0,5" HorizontalContentAlignment="Center" >
+                    </Label>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border Background="#FF004040" Margin="0,0,0,0" Width="250" Height="300">
+                    <Grid>
+                        <TextBox x:Name="Box_user" TextWrapping="Wrap" Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,110,50,160" />
+                        <PasswordBox x:Name="Box_pass"  Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,170,50,100"/>
+                        <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" Width="150" Foreground="#FFFFEEA0" FontStyle="Italic"/>
+                        <Label x:Name="UserName" Content="Пользователь" HorizontalAlignment="Left" Margin="45,80,0,0" VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="150" Foreground="#FFFFEEA0" FontStyle="Normal" Height="35"/>
+                        <Label x:Name="Password" Content="Пароль" HorizontalAlignment="Left" Margin="45,140,0,0" VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="120" Foreground="#FFFFEEA0" FontStyle="Normal" Height="36"/>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="2" Background="#FF004040" Height="30" Width="250">
+                <Border Height="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="5"
+                       Background="#FFFFEEA0" Margin="85,0,0,0">
+                    <FrameworkElement.Resources>
+                        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="Coral"/>
+                    </FrameworkElement.Resources>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Background" Value="#FF004040"/>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="PreviewMouseDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0.100" To="#FF004040"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="PreviewMouseUp">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0.100" To="#FFFFEEA0"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <Button x:Name="Login" Click="Button_login_OnClick" Style="{StaticResource Button_log}" Content="Вход" 
+                            Background="#FFFFEEA0" Margin="0,0,0,0" Foreground="#FF004040" FontFamily="Arial" FontSize="22" FontStyle="Italic">
+                    </Button>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="3" Background="#FF004040" Width="250"/>
+
+            <Grid Grid.Row="4" Height="30" Width="250">
+                <Border Background="#FF004040" Height="30" Width="250">
+                    <Button x:Name="registry" Content="Регистрация" Style="{StaticResource Button_reg}" Height="30" Width="100" Background="#FF004040" 
+                        FontFamily="Arial" FontSize="14" Foreground="#FFFFEEA0" Margin="75,0,75,0">
+                    </Button>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Background" Value="#FF004040"/>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="PreviewMouseDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0.100" To="#FF004040"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="PreviewMouseUp">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0.100" To="#FF004040"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+            </Grid>
+            
+            <Grid Grid.Row="5" Background="#FF004040" Width="250"/>
+
+            <Grid Grid.Row="6" Width="250">
+                <Border Background="#FFFFEEA0" CornerRadius="0,0,20,20"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+
+</Window>
+
