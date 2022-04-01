@@ -8,7 +8,7 @@ using Microsoft.Data.Sqlite;
 
 namespace Bookstrore.MControl.Control
 {
-    public static class AccountManager
+    public static class AccountManager 
     {
         public static void Registration(string name, string pass, string mail)
         {
