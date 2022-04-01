@@ -362,4 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-*.txt
+# matches all files 'Connection.txt' in any directory
+Connection.txt
