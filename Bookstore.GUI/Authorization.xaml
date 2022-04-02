@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
         Title="Authorization" Height="470" Width="250">
+
+
     <Grid>
         <Grid>
             <Border CornerRadius="30,30,30,30">
@@ -42,10 +44,60 @@
 
 
 
-            <Grid Grid.Row="2" Width="250" >
-                <TextBox x:Name="User_name" Background="#FFFFEEA0" Width="150" Height="30"
-                       FontSize="22" FontFamily="Times New Roman" Margin="50,30,50,140"  Padding="5,5,0,5" 
-                           HorizontalAlignment="Center" TextWrapping="NoWrap" Text=""/>
+            <Grid Grid.Row="2" Width="250" Background="#FFFFEEA0">
+                <Label Content="Пользователь" Margin="50,7,50,170" Padding="0,6,0,0"  HorizontalAlignment="Left" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="Black"/>
+                <TextBox x:Name="tb1" Margin="50,30,50,140" Width="150" Height="30" VerticalContentAlignment="Center" 
+                         TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите имя пользователя"
+                    Margin="50,30,50,140" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Content="Пароль" Margin="50,60,50,110" Padding="0,6,0,0"  HorizontalAlignment="Left" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="Black"/>
+                <TextBox x:Name="tb2" Margin="50,70,50,70" Width="150" Height="30" VerticalContentAlignment="Center" 
+                          TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите пароль"
+                    Margin="50,70,50,70" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb2}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                
+                <Label Content="Эл.почта" Margin="50,115,50,50" Padding="0,6,0,0"  HorizontalAlignment="Left" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="Black"/>
+                <TextBox x:Name="tb3" Margin="50,140,50,30" Width="150" Height="30" VerticalContentAlignment="Center" 
+                          TextChanged="tb3_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите эл.почту"
+                    Margin="50,140,50,30" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb3}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
             </Grid>
             <Grid Grid.Row="3" Width="250"/>
 

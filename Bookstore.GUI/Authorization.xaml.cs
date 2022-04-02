@@ -24,7 +24,12 @@ namespace Bookstore.GUI
             InitializeComponent();
         }
 
-        private void User_name_TextChanged(object sender, TextChangedEventArgs e)
+        private void tb1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb2_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
