@@ -42,9 +42,11 @@
 
 
 
-            <Grid Grid.Row="2" Width="250"/>
-
-
+            <Grid Grid.Row="2" Width="250" >
+                <TextBox x:Name="User_name" Background="#FFFFEEA0" Width="150" Height="30"
+                       FontSize="22" FontFamily="Times New Roman" Margin="50,30,50,140"  Padding="5,5,0,5" 
+                           HorizontalAlignment="Center" TextWrapping="NoWrap" Text=""/>
+            </Grid>
             <Grid Grid.Row="3" Width="250"/>
 
 

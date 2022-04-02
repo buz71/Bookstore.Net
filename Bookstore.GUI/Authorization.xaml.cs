@@ -23,5 +23,10 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
         }
+
+        private void User_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

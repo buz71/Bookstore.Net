@@ -39,7 +39,7 @@
 
         <Style x:Key="Button_reg" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-             <Setter Property="Template">
+            <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}" >
@@ -96,7 +96,7 @@
                         </Image.Clip>
                     </Image>
 
-                    <Label x:Name="Title" Content="Книжный магазин" Margin="0,75,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                    <Label x:Name="Name_title" Content="Книжный магазин" Margin="10,81,10,0" VerticalAlignment="Top" Background="#FFFFEEA1"
                        FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="5,5,0,5" HorizontalContentAlignment="Center" >
                     </Label>
                 </Grid>
@@ -179,7 +179,7 @@
                     </Border.Style>
                 </Border>
             </Grid>
-            
+
             <Grid Grid.Row="5" Background="#FF004040" Width="250"/>
 
             <Grid Grid.Row="6" Width="250">
