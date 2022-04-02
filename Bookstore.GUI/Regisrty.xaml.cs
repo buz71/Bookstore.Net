@@ -12,14 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for Authorization.xaml
+    /// Interaction logic for Registry.xaml
     /// </summary>
-    public partial class Authorization : Window
+    public partial class Registry : Window
     {
-        public Authorization()
+        public Registry()
         {
             InitializeComponent();
         }
@@ -30,6 +31,11 @@ namespace Bookstore.GUI
         }
 
         private void tb2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb3_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

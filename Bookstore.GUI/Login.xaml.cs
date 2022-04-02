@@ -24,7 +24,8 @@ namespace Bookstore.GUI
         /// Переменная которая хравнит объект подключения для работы с БД.
         /// В случае успешной авторизации, метод Autorization возвращает объект подключения к БД
         /// </summary>
-        private BookstoreDb db; 
+        private BookstoreDb db;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,14 +36,19 @@ namespace Bookstore.GUI
             try
             {
                 //Для тестирования можно попробовать login:admin, password:admin 
-                db=AccountManager.Autorization(Box_user.Text,Box_pass.Password);
-                MessageBox.Show("Добро пожаловать в книжный магазин","Авторизация",MessageBoxButton.OK,MessageBoxImage.Information);
+                db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
+                MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                 //LogWindow.Close(); //Скрытие окна авторизации
             }
             catch (SqliteException exeption)
             {
-                MessageBox.Show(exeption.Message,"Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show(exeption.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Button_reg_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
+
     }
 }

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
-        Title="Bookstore" Height="470" Width="270" WindowStyle="None">
+        Title="Bookstore" Height="450" Width="250">
+    
     <Window.Resources>
         <Style x:Key="Button_log" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -68,7 +69,7 @@
 
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,10,0,0">
         <Grid>
             <Border CornerRadius="30,30,30,30">
 
@@ -88,7 +89,7 @@
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" >
                 <Grid>
                     <Image x:Name="Picture" Height="80" Source="books2.jpg" Width="250" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
                         <Image.Clip>
@@ -96,8 +97,8 @@
                         </Image.Clip>
                     </Image>
 
-                    <Label x:Name="Name_title" Content="Книжный магазин" Margin="10,81,10,0" VerticalAlignment="Top" Background="#FFFFEEA1"
-                       FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="5,5,0,5" HorizontalContentAlignment="Center" >
+                    <Label x:Name="Name_title" Content="Книжный магазин" Margin="0,80,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                       FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="0,0,0,0" HorizontalContentAlignment="Center" >
                     </Label>
                 </Grid>
             </Grid>
@@ -153,7 +154,7 @@
 
             <Grid Grid.Row="4" Height="30" Width="250">
                 <Border Background="#FF004040" Height="30" Width="250">
-                    <Button x:Name="registry" Content="Регистрация" Style="{StaticResource Button_reg}" Height="30" Width="100" Background="#FF004040" 
+                    <Button x:Name="registry" Click="Button_reg_OnClick"  Content="Регистрация" Style="{StaticResource Button_reg}" Height="30" Width="100" Background="#FF004040" 
                         FontFamily="Arial" FontSize="14" Foreground="#FFFFEEA0" Margin="75,0,75,0">
                     </Button>
                     <Border.Style>
