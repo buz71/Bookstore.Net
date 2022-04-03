@@ -144,7 +144,7 @@
                         </Style>
                     </Border.Style>
 
-                    <Button x:Name="Login" Click="Button_login_OnClick" Style="{StaticResource Button_log}" Content="Вход" 
+                    <Button x:Name="Login" Click="Button_Login_OnClick"  Content="Вход" 
                             Background="#FFFFEEA0" Margin="0,0,0,0" Foreground="#FF004040" FontFamily="Arial" FontSize="22" FontStyle="Italic">
                     </Button>
                 </Border>
@@ -154,7 +154,7 @@
 
             <Grid Grid.Row="4" Height="30" Width="250">
                 <Border Background="#FF004040" Height="30" Width="250">
-                    <Button x:Name="registry" Click="Button_reg_OnClick"  Content="Регистрация" Style="{StaticResource Button_reg}" Height="30" Width="100" Background="#FF004040" 
+                    <Button x:Name="registry" Click="Registry_OnClick" Content="Регистрация"  Height="30" Width="100" Background="#FF004040" 
                         FontFamily="Arial" FontSize="14" Foreground="#FFFFEEA0" Margin="75,0,75,0">
                     </Button>
                     <Border.Style>

@@ -31,7 +31,7 @@ namespace Bookstore.GUI
             InitializeComponent();
         }
 
-        private void Button_login_OnClick(object sender, RoutedEventArgs e)
+        private void Button_Login_OnClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -46,9 +46,9 @@ namespace Bookstore.GUI
             }
         }
 
-        private void Button_reg_OnClick(object sender, RoutedEventArgs e)
+        private void Registry_OnClick(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Нажал");
         }
 
     }
