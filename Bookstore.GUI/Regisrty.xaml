@@ -49,7 +49,7 @@
                        FontSize="16" Width="150" Foreground="Black"/>
                 <TextBox x:Name="tb1" Margin="50,30,50,140" Width="150" Height="30" VerticalContentAlignment="Center" 
                          TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
-                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите имя пользователя"
+                <TextBlock x:Name="TextBlock_Name" IsHitTestVisible="False" FontSize="10" Text="Введите имя пользователя"
                     Margin="50,30,50,140" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -67,7 +67,7 @@
                        FontSize="16" Width="150" Foreground="Black"/>
                 <TextBox x:Name="tb2" Margin="50,70,50,70" Width="150" Height="30" VerticalContentAlignment="Center" 
                           TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
-                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите пароль"
+                <TextBlock IsHitTestVisible="False" x:Name="TextBlock_Pass" FontSize="10" Text="Введите пароль"
                     Margin="50,70,50,70" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -84,8 +84,8 @@
                 <Label Content="Эл.почта" Margin="50,115,50,50" Padding="0,6,0,0"  HorizontalAlignment="Left" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="Black"/>
                 <TextBox x:Name="tb3" Margin="50,140,50,30" Width="150" Height="30" VerticalContentAlignment="Center" 
-                          TextChanged="tb3_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
-                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите эл.почту"
+                           FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0"/>
+                <TextBlock IsHitTestVisible="False" x:Name="TextBlock_Mail" FontSize="10" Text="Введите эл.почту"
                     Margin="50,140,50,30" Foreground="Black" Padding="5,0,0,0" VerticalAlignment="Center">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -100,7 +100,7 @@
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="3" Width="250"/>
-            <Button Grid.Row="3"  Width="50" Content="Regig"></Button>
+            <Button Grid.Row="3"  Width="50" Content="Regig" Click="ButtonBase_OnClick"></Button>
 
 
         </Grid>
