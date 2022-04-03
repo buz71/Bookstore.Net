@@ -46,7 +46,7 @@ namespace Bookstore.GUI
             }
         }
 
-        private void Registry_OnClick(object sender, RoutedEventArgs e)
+        private void Button_Registry_OnClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Нажал");
         }
