@@ -48,6 +48,7 @@ namespace Bookstore.GUI
 
         private void Button_reg_OnClick(object sender, RoutedEventArgs e)
         {
+
         }
 
     }
