@@ -52,7 +52,7 @@ namespace Bookstore.MControl
             }
             else
             {
-                throw new SqliteException("Не найдена строк подключения", 4);
+                throw new SqliteException("Не найдена строка подключения", 4);
             }
             
         }
