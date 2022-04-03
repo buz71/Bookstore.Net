@@ -27,28 +27,27 @@ namespace Bookstore.GUI
         }
 
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void Button_Registration_OnClick(object sender, RoutedEventArgs e)
         {
-            string name, pass, mail;
-            if (String.IsNullOrWhiteSpace(TextBlock_Name.Text.ToString()) || String.IsNullOrWhiteSpace(TextBlock_Pass.Text.ToString()) || String.IsNullOrWhiteSpace(TextBlock_Mail.Text.ToString()))
+            //TODO: Нужно добавить Имя, Фамилия, Логин
+            string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
+            string pass = (TextBox_Pass.Text.ToString().Replace(" ", ""));
+            string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
+
+            if (TextBox_Name.Text==""|| TextBox_Pass.Text == ""|| TextBox_Mail.Text == "")
             {
                 MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else
-            {
-                name = (TextBlock_Name.Text.ToString().Replace(" ", ""));
-                pass = (TextBlock_Pass.Text.ToString().Replace(" ", ""));
-                mail = (TextBlock_Mail.Text.ToString().Replace(" ", ""));
-            }
 
             try
             {
-                AccountManager.Registration(name, pass, mail);
+               AccountManager.Registration(name, pass, mail);
+               MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
+                MessageBox.Show("Пользователь уже зарегистрирован", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
