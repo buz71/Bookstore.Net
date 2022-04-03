@@ -38,7 +38,7 @@ namespace Bookstore.GUI
                 //Для тестирования можно попробовать login:admin, password:admin 
                 db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
-                //LogWindow.Close(); //Скрытие окна авторизации
+                LogWindow.Close(); //Скрытие окна авторизации
             }
             catch (SqliteException exeption)
             {
@@ -48,7 +48,8 @@ namespace Bookstore.GUI
 
         private void Button_Registry_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Нажал");
+            Registry registry = new Registry();
+            registry.ShowDialog();
         }
 
     }
