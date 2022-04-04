@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -45,7 +46,15 @@ namespace Bookstore.MControl
 
         private string Connection()
         {
-            return File.ReadAllText("Connection.txt");
+            if (File.Exists("Connection.txt"))
+            {
+                return File.ReadAllText("Connection.txt");
+            }
+            else
+            {
+                throw new SqliteException("Не найдена строка подключения", 4);
+            }
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
