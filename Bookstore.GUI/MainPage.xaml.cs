@@ -12,30 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for Registry.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class Registry : Window
+    public partial class MainPage : Window
     {
-        public Registry()
+        public MainPage()
         {
             InitializeComponent();
         }
 
-        private void tb1_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_catalog(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void tb2_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_cart(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void tb3_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_persona(object sender, RoutedEventArgs e)
         {
 
         }

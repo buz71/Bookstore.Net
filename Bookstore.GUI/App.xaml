@@ -1,9 +1,17 @@
 ﻿<Application x:Class="Bookstore.GUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Bookstore.GUI"
-             StartupUri="regisrty.xaml">
-    <Application.Resources>
+             xmlns:local="clr-namespace:Bookstore.GUI">
+    
+    <Application.StartupUri>
+        <!-- MainPage.xaml     -->
+        <!--  Login.xaml -->
+        Registr.xaml
 
-    </Application.Resources>
+    </Application.StartupUri>
+
+    <Application.Resources/>
+
+
+
 </Application>
