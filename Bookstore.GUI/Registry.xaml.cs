@@ -29,26 +29,31 @@ namespace Bookstore.GUI
 
         private void Button_Registration_OnClick(object sender, RoutedEventArgs e)
         {
-            ////TODO: Нужно добавить Имя, Фамилия, Логин
+            //TODO: Нужно добавить Имя, Фамилия, Логин
+            string login = (TextBox_Login.Text.ToString().Replace(" ", ""));
+            string pass = (TextBox_Pass.Text.ToString().Replace(" ", ""));
+            string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
+
+            //
             //string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
-            //string pass = (TextBox_Pass.Text.ToString().Replace(" ", ""));
-            //string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
+            //string surname = (TextBox_Surname.Text.ToString().Replace(" ", ""));
+            //
 
-            //if (TextBox_Name.Text==""|| TextBox_Pass.Text == ""|| TextBox_Mail.Text == "")
-            //{
-            //    MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
+            if (TextBox_Login.Text == "" || TextBox_Pass.Text == "" || TextBox_Mail.Text == "")
+            {
+                MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-            //try
-            //{
-            //   AccountManager.Registration(name, pass, mail);
-            //   MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show("Пользователь уже зарегистрирован", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            try
+            {
+                AccountManager.Registration(login, pass, mail);
+                MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Пользователь уже зарегистрирован", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         //Зачем нужны эти методы?
@@ -66,7 +71,16 @@ namespace Bookstore.GUI
         {
 
         }
-        //
+
+        private void tb4_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb5_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
 
     }
 }

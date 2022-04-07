@@ -95,7 +95,7 @@
             <Grid Grid.Row="2" Width="250" Height="340"  Background="#FFFFEEA0">
                 <Label Content="Логин" Margin="0,10,0,300" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="tb1" Margin="50,35,50,277" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Login" Margin="50,35,50,277" Width="150" Height="30" VerticalContentAlignment="Center" 
                          TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите логин"
                     Margin="50,41,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -103,7 +103,7 @@
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBox_Name}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -113,7 +113,7 @@
 
                 <Label Content="Пароль" Margin="0,64,0,250" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="tb2" Margin="50,88,50,222" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Pass" Margin="50,88,50,222" Width="150" Height="30" VerticalContentAlignment="Center" 
                           TextChanged="tb2_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите пароль"
                     Margin="50,96,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -121,7 +121,7 @@
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tb2}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBox_Pass}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -131,7 +131,7 @@
 
                 <Label Content="Эл.почта" Margin="0,117,0,196" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="tb3" Margin="50,141,50,169" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Mail" Margin="50,141,50,169" Width="150" Height="30" VerticalContentAlignment="Center" 
                           TextChanged="tb3_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите эл.почту"
                     Margin="50,149,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -139,7 +139,7 @@
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tb3}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBox_Mail}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -149,7 +149,7 @@
 
                 <Label Content="Фамилия" Margin="0,170,0,144" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="tb4" Margin="50,193,50,117" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Name" Margin="50,193,50,117" Width="150" Height="30" VerticalContentAlignment="Center" 
                            FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите фамилию"
                     Margin="50,201,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -157,7 +157,7 @@
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tb4}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBox_Name}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -167,7 +167,7 @@
 
                 <Label Content="Имя" Margin="0,224,0,89" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="tb5" Margin="50,247,50,63" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Surname" Margin="50,247,50,63" Width="150" Height="30" VerticalContentAlignment="Center" 
                           FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите имя"
                     Margin="50,254,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -175,7 +175,7 @@
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tb5}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBox_Surname}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>
