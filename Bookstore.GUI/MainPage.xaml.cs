@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bookstore.MControl;
 
 namespace Bookstore.GUI
 {
@@ -19,11 +20,24 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
+        private BookstoreDb db;
+
+        public BookstoreDb Db
+        {
+            set
+            {
+                db = value;
+            }
+        }
         public MainPage()
         {
             InitializeComponent();
         }
 
+
+
+
+        #region StylesMethods
         private void Button_catalog(object sender, RoutedEventArgs e)
         {
 
@@ -35,6 +49,7 @@ namespace Bookstore.GUI
         private void Button_persona(object sender, RoutedEventArgs e)
         {
 
-        }
+        } 
+        #endregion
     }
 }
