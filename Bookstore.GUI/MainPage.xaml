@@ -1,0 +1,119 @@
+﻿<Window x:Class="Bookstore.GUI.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookstore.GUI"
+        mc:Ignorable="d"
+        Title="MainPage" SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <Style x:Key="Button_left" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border TextBlock.Foreground="#FFFFEEA0"
+                                BorderThickness="1"
+                                x:Name="Border">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.0,0" EndPoint="0.0,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#FF004040" Offset="0"/>
+                                        <GradientStop Color="#FF004040" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ComStat">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        <VisualTransition GeneratedDuration="0" To="Pressed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF037B7B"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MousePressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Border.Background" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF037B7B"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59"/>
+            <RowDefinition Height="261"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.RowSpan="6" Background="#FFFFEEA1">
+            <Image x:Name="Picture" Height="59" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top"/>
+
+            <TextBlock x:Name="Name_title" Text="Книжный магазин" Margin="0,58,0,0" VerticalAlignment="Top" Background="#FFFFEEA1" TextWrapping="Wrap"
+                       FontFamily="AngryBirds" FontSize="16" Height="39" Padding="0,0,0,0" TextAlignment="Center" Foreground="#FF004040"/>
+
+            <!-- Кнопки -->
+            <Button x:Name="Books" Style="{StaticResource Button_left}" Click="Button_catalog" Height="45" Width="110" Margin="5,109,5,266" 
+                    Background="#FF004040" Content="Каталог книг" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    FontSize="14" FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
+
+            <Button x:Name="Cart" Style="{StaticResource Button_left}" Click="Button_cart" Height="45" Width="110" Margin="0,170,0,0" 
+                    Background="#FF004040" Content="Корзина" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
+                    FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
+
+            <Button x:Name="Persona" Style="{StaticResource Button_left}" Click="Button_persona" Height="45" Width="110" Margin="0,232,0,0"
+                    Background="#FF004040" Content="Личный кабинет" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
+                    FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
+        </Grid>
+
+
+        <Grid Grid.Column="2" Grid.RowSpan="6">
+            <ScrollViewer >
+                <Button/>
+            </ScrollViewer>
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>
