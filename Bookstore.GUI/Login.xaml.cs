@@ -24,6 +24,7 @@ namespace Bookstore.GUI
         /// Переменная которая хравнит объект подключения для работы с БД.
         /// В случае успешной авторизации, метод Autorization возвращает объект подключения к БД
         /// </summary>
+        //TODO: Переместить db в главное окно
         private BookstoreDb db;
 
         public MainWindow()
@@ -36,6 +37,7 @@ namespace Bookstore.GUI
             try
             {
                 //Для тестирования можно попробовать login:admin, password:admin 
+                //TODO: Переместить db в главное окно
                 db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainPage mainPage = new MainPage();
