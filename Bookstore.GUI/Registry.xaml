@@ -1,0 +1,195 @@
+﻿<Window x:Class="Bookstore.GUI.Registry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookstore.GUI"
+        mc:Ignorable="d"
+        Title="Registr" SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <Style x:Key="Button_save" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border TextBlock.Foreground="#FF004040"
+                                BorderThickness="1"
+                                x:Name="Border">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.0,0" EndPoint="0.0,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#FFFFEEA0" Offset="0"/>
+                                        <GradientStop Color="#FFFFEEA0" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ComStat">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        <VisualTransition GeneratedDuration="0" To="Pressed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF037B7B"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MousePressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Border.Background" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF037B7B"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="340"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Width="250" Height="40" Background="#FFFFEEA0">
+                <Grid>
+                    <Image x:Name="Picture" Height="40" Source="books2.jpg" Width="250" Visibility="Visible" 
+                           Stretch="Fill" VerticalAlignment="Top"/>
+                </Grid>
+            </Grid>
+
+
+            <Grid Grid.Row="1" Width="250" Height="70" Background="#FFFFEEA0">
+                <TextBlock Text="РЕГИСТРАЦИЯ" TextAlignment="Center" Margin="0,0,0,0"
+                           VerticalAlignment="Top" Background="#FFFFEEA1" FontFamily="Arial"
+                           FontSize="22" Width="250" Height="35" Padding="5,5,0,5" 
+                           HorizontalAlignment="Center" Foreground="#FF004040" TextWrapping="NoWrap">
+                </TextBlock>
+                <TextBlock Text="Пожалуйста, введите данные для создания своей учетной записи на сайте"
+                           Margin="0,35,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                           FontFamily="Arial" FontSize="10" Width="250" Height="35" Padding="5,5,5,5"
+                           TextWrapping="Wrap" Foreground="#FF004040">
+                </TextBlock>
+            </Grid>
+
+
+            <Grid Grid.Row="2" Width="250" Height="340"  Background="#FFFFEEA0">
+                <Label Content="Логин" Margin="0,10,0,300" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="#FF004040"/>
+                <TextBox x:Name="tb1" Margin="50,35,50,277" Width="150" Height="30" VerticalContentAlignment="Center" 
+                         TextChanged="tb1_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите логин"
+                    Margin="50,41,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Content="Пароль" Margin="0,64,0,250" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="#FF004040"/>
+                <TextBox x:Name="tb2" Margin="50,88,50,222" Width="150" Height="30" VerticalContentAlignment="Center" 
+                          TextChanged="tb2_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите пароль"
+                    Margin="50,96,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb2}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Content="Эл.почта" Margin="0,117,0,196" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="#FF004040"/>
+                <TextBox x:Name="tb3" Margin="50,141,50,169" Width="150" Height="30" VerticalContentAlignment="Center" 
+                          TextChanged="tb3_TextChanged" FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите эл.почту"
+                    Margin="50,149,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb3}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Content="Фамилия" Margin="0,170,0,144" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="#FF004040"/>
+                <TextBox x:Name="tb4" Margin="50,193,50,117" Width="150" Height="30" VerticalContentAlignment="Center" 
+                           FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите фамилию"
+                    Margin="50,201,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb4}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Content="Имя" Margin="0,224,0,89" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
+                       FontSize="16" Width="150" Foreground="#FF004040"/>
+                <TextBox x:Name="tb5" Margin="50,247,50,63" Width="150" Height="30" VerticalContentAlignment="Center" 
+                          FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
+                <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите имя"
+                    Margin="50,254,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb5}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Button x:Name="Save" Style="{StaticResource Button_save}" Content="Сохранить" Height="30"
+                        Width="80" Background="#FFFFEEA0" Margin="82,284,88,26" BorderBrush="#FFFFEEA0" 
+                        Foreground="#FF004040" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+
+</Window>
