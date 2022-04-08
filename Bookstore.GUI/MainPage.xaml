@@ -60,17 +60,67 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <Style x:Key="Button_Top" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+           
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border TextBlock.Foreground="#FF004040"
+                                BorderThickness="1"
+                                x:Name="Border">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.0,0" EndPoint="0.0,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#FFFFEEA0" Offset="0"/>
+                                        <GradientStop Color="#FFFFEEA0" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ComStat">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        <VisualTransition GeneratedDuration="0" To="Pressed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FFF1DE85"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MousePressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Border.Background" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FFF1DE85"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="59"/>
-            <RowDefinition Height="261"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="360"/>
+
 
         </Grid.RowDefinitions>
 
@@ -81,28 +131,77 @@
         </Grid.ColumnDefinitions>
 
 
-        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="0" Grid.Column="1"  Background="#FFFFEEA0">
+            <Button x:Name="Genre" Style="{StaticResource Button_Top}" Background="#FFFFEEA0" BorderBrush="#FFFFEEA0" 
+                    Height="30" Width="50" Margin="46,10,304,10" FontFamily="Times New Roman" FontSize="14" Content="Жанр">
 
+            </Button >
+            <Button x:Name="New_Books" Style="{StaticResource Button_Top}" Background="#FFFFEEA0" BorderBrush="#FFFFEEA0" 
+                    Height="30" Width="70" Margin="99,10,231,10"  FontFamily="Times New Roman" FontSize="14" Content="Новинки">
+
+            </Button>
+            <Button x:Name="Popular" Style="{StaticResource Button_Top}" Background="#FFFFEEA0" BorderBrush="#FFFFEEA0" 
+                    Height="30" Width="80" FontFamily="Times New Roman" FontSize="14" Margin="276,10,44,10"  Content="Популярное">
+
+            </Button>
+            <Button x:Name="Recommend" Style="{StaticResource Button_Top}" Background="#FFFFEEA0" BorderBrush="#FFFFEEA0" 
+                    Height="30" Width="100" FontFamily="Times New Roman" FontSize="14" Margin="172,10,128,10"  Content="Рекомендации">
+
+            </Button>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.RowSpan="6" Background="#FFFFEEA1">
-            <Image x:Name="Picture" Height="59" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top"/>
+        <Grid Grid.Row="0"  Grid.Column="0"  Background="#FFFFEEA1">
+            <Image x:Name="Picture" Height="59" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top" Margin="0,-4,0,0"/>
+        </Grid>
 
-            <TextBlock x:Name="Name_title" Text="Книжный магазин" Margin="0,58,0,0" VerticalAlignment="Top" Background="#FFFFEEA1" TextWrapping="Wrap"
+
+        <Grid Grid.Row="1" Grid.Column="0" Background="#FFFFEEA1">
+            <TextBlock x:Name="Name_title" Text="Книжный магазин" VerticalAlignment="Top" Background="#FFFFEEA1" TextWrapping="Wrap"
                        FontFamily="AngryBirds" FontSize="16" Height="39" Padding="0,0,0,0" TextAlignment="Center" Foreground="#FF004040"/>
 
             <!-- Кнопки -->
-            <Button x:Name="Books" Style="{StaticResource Button_left}" Click="Button_catalog" Height="45" Width="110" Margin="5,109,5,266" 
-                    Background="#FF004040" Content="Каталог книг" HorizontalAlignment="Center" VerticalAlignment="Center"
+            <Button x:Name="Books" Style="{StaticResource Button_left}" Click="Button_catalog" Height="45" Width="110" Margin="0,75,0,0" 
+                    Background="#FF004040" Content="Каталог книг" HorizontalAlignment="Center" VerticalAlignment="Top"
                     FontSize="14" FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
 
-            <Button x:Name="Cart" Style="{StaticResource Button_left}" Click="Button_cart" Height="45" Width="110" Margin="0,170,0,0" 
+            <Button x:Name="Cart" Style="{StaticResource Button_left}" Click="Button_cart" Height="44" Width="110" 
                     Background="#FF004040" Content="Корзина" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
-                    FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
+                    FontFamily="Times New Roman" Foreground="#FFFFEEA1" Margin="0,144,0,0"/>
 
-            <Button x:Name="Persona" Style="{StaticResource Button_left}" Click="Button_persona" Height="45" Width="110" Margin="0,232,0,0"
+            <Button x:Name="Persona" Style="{StaticResource Button_left}" Click="Button_persona" Height="45" Width="110" Margin="0,212,0,0"
                     Background="#FF004040" Content="Личный кабинет" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6">
+            <WrapPanel>
+                <Button Height="70" Width="70">
+                    <Button.ToolTip>
+                        <TextBlock x:Name="Description1" Text="Подсказка"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Height="70" Width="70">
+                    <Button.ToolTip>
+                        <TextBlock x:Name="Description2" Text="Подсказка"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Height="70" Width="70">
+                    <Button.ToolTip>
+                        <TextBlock x:Name="Description3" Text="Подсказка"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Height="70" Width="70">
+                    <Button.ToolTip>
+                        <TextBlock x:Name="Description4" Text="Подсказка"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Height="70" Width="70">
+                    <Button.ToolTip>
+                        <TextBlock x:Name="Description5" Text="Подсказка"/>
+                    </Button.ToolTip>
+                </Button>
+            </WrapPanel>
+
         </Grid>
 
 
