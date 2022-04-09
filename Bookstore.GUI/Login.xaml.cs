@@ -19,12 +19,20 @@ namespace Bookstore.GUI
             Window = this;
             InitializeComponent();
         }
+
+        // метод позволяет двигать окно мышкой
         private void Drag(object sender, RoutedEventArgs e)
         {
             if(Mouse.LeftButton==MouseButtonState.Pressed)
             {
                 MainWindow.Window.DragMove();
             }
+        }
+
+        //метод позволяет закрыть окно "крестиком"
+        private void Window_Log_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void Button_Login_OnClick(object sender, RoutedEventArgs e)
@@ -46,11 +54,6 @@ namespace Bookstore.GUI
         {
             Registry registry = new Registry();
             registry.ShowDialog();
-        }
-
-        private void Window_Log_Close(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown(); 
         }
     }
 }
