@@ -7,7 +7,7 @@ using Bookstore.MControl;
 
 namespace Bookstrore.MControl.Model
 {
-    internal class User
+    public class User
     {
         private BookstoreDb _db;
         private SMTP _smtp;

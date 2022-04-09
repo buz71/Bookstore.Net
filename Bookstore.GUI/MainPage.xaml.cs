@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bookstore.MControl;
+using Bookstrore.MControl.Model;
 
 namespace Bookstore.GUI
 {
@@ -20,15 +21,14 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
-        private BookstoreDb db;
+        private User _user;
 
-        public BookstoreDb Db
+        public User User
         {
-            set
-            {
-                db = value;
-            }
+            get { return User; }
+            set { _user = value; }
         }
+
         public MainPage()
         {
             InitializeComponent();
