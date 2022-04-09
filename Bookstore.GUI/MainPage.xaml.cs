@@ -22,20 +22,15 @@ namespace Bookstore.GUI
     public partial class MainPage : Window
     {
         private User _user;
-
         public User User
         {
             get { return User; }
             set { _user = value; }
         }
-
         public MainPage()
         {
             InitializeComponent();
         }
-
-
-
 
         #region StylesMethods
         private void Button_catalog(object sender, RoutedEventArgs e)
@@ -51,5 +46,6 @@ namespace Bookstore.GUI
 
         } 
         #endregion
+
     }
 }

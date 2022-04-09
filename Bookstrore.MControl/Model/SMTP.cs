@@ -31,7 +31,6 @@ namespace Bookstrore.MControl.Model
             _client.UseDefaultCredentials = false;
             _client.Credentials = new NetworkCredential(_FROM, _PASS);
         }
-
         private void ConfigMessage(string theme, string message)
         {
             _message.From = new MailAddress(_FROM);
@@ -41,7 +40,7 @@ namespace Bookstrore.MControl.Model
 
         }
 
-        public void SendMessage(string theme, string message)
+        public void SendMessage(string theme,string message)
         {
             ConfigSMTPClient();
             ConfigMessage(theme,message);

@@ -10,7 +10,7 @@ namespace Bookstrore.MControl.Model
     public class User
     {
         private BookstoreDb _db;
-        private SMTP _smtp;
+        public SMTP _smtp;
         private string _log;
 
         public BookstoreDb DB
@@ -23,6 +23,16 @@ namespace Bookstrore.MControl.Model
         {
             get { return _log;}
             set { _log = value; }
+        }
+
+        public User(string mail)
+        {
+            _smtp = new SMTP(mail);
+        }
+        
+        public void SendMessage(string theme, string text)
+        {
+          _smtp.SendMessage(theme,text);  
         }
     }
 }
