@@ -44,6 +44,7 @@ namespace Bookstore.GUI
             {
                 AccountManager.Registration(login, pass, mail, name, surname);
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                RegWindow.Close();
             }
             catch (Exception exception)
             {
