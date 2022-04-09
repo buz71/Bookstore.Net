@@ -39,10 +39,14 @@ namespace Bookstore.GUI
         {
             try
             {
-                //Для тестирования можно попробовать login:admin, password:admin 
-                db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
+                //Для тестирования можно попробовать login:admin, password:admin
+
+                MainPage mainPage = new MainPage();
+                mainPage.Db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
-                LogWindow.Close(); //Скрытие окна авторизации
+                mainPage.Show();
+                LogWindow.Close();
+
             }
             catch (SqliteException exeption)
             {

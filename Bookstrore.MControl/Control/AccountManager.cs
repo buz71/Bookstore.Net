@@ -10,20 +10,22 @@ namespace Bookstrore.MControl.Control
 {
     public static class AccountManager 
     {
-        public static void Registration(string name, string pass, string mail)
+        public static void Registration(string login, string pass, string mail, string surname, string name)
         {
             BookstoreDb db = new BookstoreDb();
-            var existsByName = (from e in db.Accounts where e.Name == name select e).FirstOrDefault();
+            var existsByLogin = (from e in db.Accounts where e.Name == name select e).FirstOrDefault();
             var existsByMail = (from e in db.Accounts where e.Mail == mail select e).FirstOrDefault();
 
-            if (existsByMail is not null || existsByName is not null)
+
+
+            if (existsByMail is not null || existsByLogin is not null)
             {
-                throw new SqliteException("Пользователь с таким именем уже зарегистрирован",4);
+                throw new SqliteException("Пользователь с таким именем уже зарегистрирован", 4);
             }
             else
             {
-                //TODO: Нужно связать таблицу с клиентами с таблицей аккаунтов
-                db.Accounts.Add(new Account { Name = name, Password = pass, Mail = mail });
+                db.Accounts.Add(new Account { Name = login, Password = pass, Mail = mail });
+                db.Clients.Add(new Client { Name = name + " " + surname, Mail = mail });
                 db.SaveChanges();
             }
         }
@@ -41,5 +43,7 @@ namespace Bookstrore.MControl.Control
                 throw new SqliteException("Ошибка авторизации",4);
             }
         }
+
+
     }
 }

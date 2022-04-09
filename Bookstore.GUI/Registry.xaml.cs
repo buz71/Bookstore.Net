@@ -35,19 +35,15 @@ namespace Bookstore.GUI
         }
 
 
-        private void Button_Registration_OnClick(object sender, RoutedEventArgs e)
+        private void Save_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO: Нужно добавить Имя, Фамилия, Логин
             string login = (TextBox_Login.Text.ToString().Replace(" ", ""));
             string pass = (TextBox_Pass.Text.ToString().Replace(" ", ""));
             string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
+            string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
+            string surname = (TextBox_Surname.Text.ToString().Replace(" ", ""));
 
-            //
-            //string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
-            //string surname = (TextBox_Surname.Text.ToString().Replace(" ", ""));
-            //
-
-            if (TextBox_Login.Text == "" || TextBox_Pass.Text == "" || TextBox_Mail.Text == "")
+            if (login == "" || pass == "" || mail == "" || surname == "" || name == "" || !mail.Contains("@"))
             {
                 MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -55,8 +51,9 @@ namespace Bookstore.GUI
 
             try
             {
-                AccountManager.Registration(login, pass, mail);
+                AccountManager.Registration(login, pass, mail, name, surname);
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                RegWindow.Close();
             }
             catch (Exception exception)
             {
@@ -64,7 +61,8 @@ namespace Bookstore.GUI
             }
         }
 
-        //Зачем нужны эти методы?
+
+        #region Styles Methods
         private void tb1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -89,5 +87,6 @@ namespace Bookstore.GUI
         {
 
         }
+        #endregion
     }
 }

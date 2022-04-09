@@ -124,7 +124,7 @@
         <Style x:Key="Button_Wrap_Panel" TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="ToolTip" Value="{Binding ElementName=Prompt}"/>
+            <Setter Property="ToolTip" Value="{Binding ElementName=Prompt}"/> <!-- уточнить метод -->
             <Setter Property="Width" Value="70"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="Margin" Value="10"/>          <!-- отредактировать отступы в рабочем коде, когда будет заполнен контент  -->
@@ -233,7 +233,7 @@
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
 
 
-            <Button x:Name="Exit" Style="{StaticResource Button_left}" Click="Button_persona" Height="45" Width="110" Margin="0,278,0,0"
+            <Button x:Name="Exit" Style="{StaticResource Button_left}" Click="Button_exit" Height="45" Width="110" Margin="0,278,0,0"
                     Background="#FF004040" Content="Выход" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
         </Grid>
