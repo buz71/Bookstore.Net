@@ -20,12 +20,6 @@ namespace Bookstore.GUI
 {
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// Переменная которая хравнит объект подключения для работы с БД.
-        /// В случае успешной авторизации, метод Autorization возвращает объект подключения к БД
-        /// </summary>
-        private BookstoreDb db;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -35,10 +29,14 @@ namespace Bookstore.GUI
         {
             try
             {
-                //Для тестирования можно попробовать login:admin, password:admin 
-                db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
+                //Для тестирования можно попробовать login:admin, password:admin
+                
+                MainPage mainPage = new MainPage();
+                mainPage.Db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
-                LogWindow.Close(); //Скрытие окна авторизации
+                mainPage.Show();
+                LogWindow.Close();
+                
             }
             catch (SqliteException exeption)
             {
