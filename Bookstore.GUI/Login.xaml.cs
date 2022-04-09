@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
 using Microsoft.Data.Sqlite;
@@ -25,10 +13,18 @@ namespace Bookstore.GUI
         /// В случае успешной авторизации, метод Autorization возвращает объект подключения к БД
         /// </summary>
         private BookstoreDb db;
-
+        public static MainWindow Window;
         public MainWindow()
         {
+            Window = this;
             InitializeComponent();
+        }
+        private void Drag(object sender, RoutedEventArgs e)
+        {
+            if(Mouse.LeftButton==MouseButtonState.Pressed)
+            {
+                MainWindow.Window.DragMove();
+            }
         }
 
         private void Button_Login_OnClick(object sender, RoutedEventArgs e)
@@ -52,5 +48,9 @@ namespace Bookstore.GUI
             registry.ShowDialog();
         }
 
+        private void Window_Log_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(); 
+        }
     }
 }

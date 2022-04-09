@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
-        Title="Registr" SizeToContent="WidthAndHeight">
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Drag"
+        
+        Title="Registr">
 
     <Window.Resources>
         <Style x:Key="Button_save" TargetType="Button">
@@ -75,6 +81,10 @@
                     <Image x:Name="Picture" Height="40" Source="books2.jpg" Width="250" Visibility="Visible" 
                            Stretch="Fill" VerticalAlignment="Top"/>
                 </Grid>
+                
+                <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+                        Click="Window_Reg_Close" Width="20" Height="20" Margin="230,0,0,20">
+                </Button>
             </Grid>
 
 

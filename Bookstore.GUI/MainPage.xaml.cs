@@ -19,9 +19,24 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
+        public static MainPage Window;
         public MainPage()
         {
+            Window = this;
             InitializeComponent();
+        }
+
+        private void Drag(object sender, RoutedEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                MainPage.Window.DragMove();
+            }
+        }
+
+        private void Window_Main_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void Button_catalog(object sender, RoutedEventArgs e)
