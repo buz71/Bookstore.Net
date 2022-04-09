@@ -22,7 +22,7 @@ namespace Bookstrore.MControl.Control
             }
             else
             {
-                //TODO: Нужно связать таблицу с клиентами с таблицей аккаунтов
+                //TODO: Добавить запись в таблицу с клиентами
                 db.Accounts.Add(new Account { Name = name, Password = pass, Mail = mail });
                 db.SaveChanges();
             }

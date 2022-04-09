@@ -183,7 +183,7 @@
                     </TextBlock.Style>
                 </TextBlock>
 
-                <Button x:Name="Save" Style="{StaticResource Button_save}" Content="Сохранить" Height="30"
+                <Button x:Name="Save" Style="{StaticResource Button_save}" Content="Сохранить" Height="30" Click="Save_OnClick"
                         Width="80" Background="#FFFFEEA0" Margin="82,284,88,26" BorderBrush="#FFFFEEA0" 
                         Foreground="#FF004040" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
             </Grid>
