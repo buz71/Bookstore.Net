@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,18 +10,42 @@ namespace Bookstrore.MControl.Model
 {
     public class SMTP
     {
-        //переменная - адрес отправителя
-        private MailAddress _sender = new MailAddress("Bookstore.Net@yandex.ru","Книжный магазин .NET");
-        
-        //переменная - адрес получателя
-        private readonly MailAddress _resipient;
+        #region Fields
+        private const string _FROM = "Bookstore.Net@yandex.ru";
+        private const string _PASS = "yvikffakkkrcuxdm";
+        private readonly string _TO;
+        private SmtpClient _client = new SmtpClient{Host = "smtp.yandex.ru",Port = 25};
+        private MailMessage _message = new MailMessage();
 
-        //TODO: Может быть стоит использовать enum?
-        private readonly MailMessage _message;
+        #endregion
 
-        private enum _messageType
+        public SMTP(string mail)
         {
-            
+            _TO=mail;
+        }
+
+        private void ConfigSMTPClient()
+        {
+            _client.EnableSsl = true;
+            _client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            _client.UseDefaultCredentials = false;
+            _client.Credentials = new NetworkCredential(_FROM, _PASS);
+        }
+
+        private void ConfigMessage(string theme, string message)
+        {
+            _message.From = new MailAddress(_FROM);
+            _message.To.Add(_TO);
+            _message.Subject = theme;
+            _message.Body = message;
+
+        }
+
+        public void SendMessage(string theme, string message)
+        {
+            ConfigSMTPClient();
+            ConfigMessage(theme,message);
+            _client.Send(_message);
         }
 
     }
