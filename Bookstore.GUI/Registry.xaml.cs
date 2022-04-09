@@ -31,10 +31,10 @@ namespace Bookstore.GUI
             string login = (TextBox_Login.Text.ToString().Replace(" ", ""));
             string pass = (TextBox_Pass.Text.ToString().Replace(" ", ""));
             string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
+            string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
             string surname = (TextBox_Surname.Text.ToString().Replace(" ", ""));
-            string firstName = (TextBox_Name.Text.ToString().Replace(" ", ""));
-
-            if (login == "" || pass == "" || mail == "" || surname == "" || firstName == ""||!mail.Contains("@"))
+            
+            if (login == "" || pass == "" || mail == "" || surname == "" || name == ""||!mail.Contains("@"))
             {
                 MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -42,8 +42,7 @@ namespace Bookstore.GUI
 
             try
             {
-                //TODO: Добавить запись в таблицу клиенты
-                AccountManager.Registration(login, pass, mail);
+                AccountManager.Registration(login, pass, mail, name, surname);
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception exception)

@@ -149,7 +149,7 @@
 
                 <Label Content="Фамилия" Margin="0,170,0,144" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="TextBox_Name" Margin="50,193,50,117" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Surname" Margin="50,193,50,117" Width="150" Height="30" VerticalContentAlignment="Center" 
                            FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите фамилию"
                     Margin="50,201,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
@@ -167,7 +167,7 @@
 
                 <Label Content="Имя" Margin="0,224,0,89" Padding="0,6,0,0"  HorizontalAlignment="Center" FontFamily="Arial" 
                        FontSize="16" Width="150" Foreground="#FF004040"/>
-                <TextBox x:Name="TextBox_Surname" Margin="50,247,50,63" Width="150" Height="30" VerticalContentAlignment="Center" 
+                <TextBox x:Name="TextBox_Name" Margin="50,247,50,63" Width="150" Height="30" VerticalContentAlignment="Center" 
                           FontFamily="AngryBirds" FontSize="14" Background="#FFFAFAF0" Foreground="#FF004040"/>
                 <TextBlock IsHitTestVisible="False" FontSize="10" Text="Введите имя"
                     Margin="50,254,50,0" Foreground="#FF004040" Padding="5,0,0,0" VerticalAlignment="Top">
