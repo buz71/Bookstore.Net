@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
+using Bookstrore.MControl.Model;
 using Microsoft.Data.Sqlite;
 
 namespace Bookstore.GUI
@@ -30,9 +31,11 @@ namespace Bookstore.GUI
             try
             {
                 //Для тестирования можно попробовать login:admin, password:admin
-                
+
                 MainPage mainPage = new MainPage();
                 mainPage.Db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
+                mainPage.Account = (from a in mainPage.Db.Accounts where a.Mail == Box_user.Text.ToString() select a).FirstOrDefault();
+                mainPage.Smtp = new SMTP(mainPage.Account.Mail);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                 mainPage.Show();
                 LogWindow.Close();
