@@ -11,12 +11,13 @@ namespace Bookstrore.MControl.Control
     {
         private static void CreateFile(string accName)
         {
-            File.CreateText($"{accName}.txt");
+            using StreamWriter writer = new StreamWriter($"{accName}.txt", true);
+            writer.WriteLine($"{DateTime.Now}==> Аккаунт зарегистрирован");
         }
 
         private static bool CheckFile(string fileName)
         {
-            if (File.Exists(fileName))
+            if (File.Exists($"{fileName}.txt"))
             {
                 return true;
             }
@@ -28,7 +29,8 @@ namespace Bookstrore.MControl.Control
 
         private static void WriteMess(string path, string message)
         {
-            File.WriteAllText(path, $"{DateTime.Now}::{message}");
+            using StreamWriter writer = new StreamWriter($"{path}.txt", true);
+            writer.WriteLine($"{DateTime.Now}::{message}");
         }
 
         public static async void CreateLog(string accName)

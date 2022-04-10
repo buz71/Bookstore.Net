@@ -38,13 +38,13 @@ namespace Bookstore.GUI
                 mainPage.smtp = new SMTP(mainPage.Account.Mail);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                 SMTP.SendMessage((mainPage.Account.Mail), "Вход в аккаунт Bookstore.NET",$"В Ваш аккаунт выполнен вход {DateTime.Now}");
-                if (!File.Exists($"{mainPage.Account.Name}"))
+                if (File.Exists($"{mainPage.Account.Name}.txt"))
                 {
-                    Logger.CreateLog((mainPage.Account.Name));
+                    Logger.WriteLog(mainPage.Account.Name, "Выполнен вход в приложение");
                 }
                 else
                 {
-                    Logger.WriteLog(mainPage.Account.Name, "Выполнен вход в приложение");
+                    Logger.CreateLog((mainPage.Account.Name));
                 }
                 mainPage.Show();
                 LogWindow.Close();
