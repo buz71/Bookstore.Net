@@ -22,7 +22,7 @@ namespace Bookstore.GUI
     public partial class MainPage : Window
     {
         private BookstoreDb _db;
-        private SMTP _smtp;
+        public SMTP smtp;
         private Account _account;
 
         public BookstoreDb Db
@@ -35,12 +35,6 @@ namespace Bookstore.GUI
         {
             get { return _account; }
             set { _account = value; }
-        }
-
-        public SMTP Smtp
-        {
-            get { return _smtp; }
-            set { _smtp = value; }
         }
 
         public MainPage()
