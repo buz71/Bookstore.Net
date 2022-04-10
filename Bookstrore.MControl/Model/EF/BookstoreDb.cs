@@ -244,7 +244,7 @@ namespace Bookstore.MControl
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.BiikId).HasColumnName("biik_id");
+                entity.Property(e => e.BookId).HasColumnName("book_id");
 
                 entity.Property(e => e.CostPrice).HasColumnName("cost_price");
 
@@ -256,9 +256,9 @@ namespace Bookstore.MControl
 
                 entity.Property(e => e.Year).HasColumnName("year");
 
-                entity.HasOne(d => d.Biik)
+                entity.HasOne(d => d.Book)
                     .WithMany(p => p.Publications)
-                    .HasForeignKey(d => d.BiikId)
+                    .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
                 entity.HasOne(d => d.Publishing)
