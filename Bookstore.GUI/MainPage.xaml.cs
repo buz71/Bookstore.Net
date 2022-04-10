@@ -21,12 +21,22 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
-        private User _user;
-        public User User
+        private BookstoreDb _db;
+        public SMTP smtp;
+        private Account _account;
+
+        public BookstoreDb Db
         {
-            get { return User; }
-            set { _user = value; }
+            get { return _db;}
+            set { _db = value; }
         }
+
+        public Account Account
+        {
+            get { return _account; }
+            set { _account = value; }
+        }
+
         public MainPage()
         {
             InitializeComponent();

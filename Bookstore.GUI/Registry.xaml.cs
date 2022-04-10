@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bookstrore.MControl.Control;
+using Bookstrore.MControl.Model;
 
 
 namespace Bookstore.GUI
@@ -44,6 +45,7 @@ namespace Bookstore.GUI
             {
                 AccountManager.Registration(login, pass, mail, name, surname);
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                SMTP.SendMessage(mail, "Регистрация в Bookstore.NET", "Спасибо за регистрацию в книжном магазине Bookstore.NET");
                 RegWindow.Close();
             }
             catch (Exception exception)
