@@ -22,9 +22,11 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class Registry : Window
     {
+        public static Registry Window;
         public Registry()
         {
             InitializeComponent();
+            Window = this;
         }
 
         private void Save_OnClick(object sender, RoutedEventArgs e)
@@ -34,8 +36,8 @@ namespace Bookstore.GUI
             string mail = (TextBox_Mail.Text.ToString().Replace(" ", ""));
             string name = (TextBox_Name.Text.ToString().Replace(" ", ""));
             string surname = (TextBox_Surname.Text.ToString().Replace(" ", ""));
-            
-            if (login == "" || pass == "" || mail == "" || surname == "" || name == ""||!mail.Contains("@"))
+
+            if (login == "" || pass == "" || mail == "" || surname == "" || name == "" || !mail.Contains("@"))
             {
                 MessageBox.Show("Введены не корректные данные", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -47,7 +49,7 @@ namespace Bookstore.GUI
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 SMTP.SendMessage(mail, "Регистрация в Bookstore.NET", "Спасибо за регистрацию в книжном магазине Bookstore.NET");
                 Logger.CreateLog(login);
-                Logger.WriteLog($"{login}.txt","Пользователь зарегистрирован");
+                Logger.WriteLog($"{login}.txt", "Пользователь зарегистрирован");
                 RegWindow.Close();
             }
             catch (Exception exception)
@@ -81,9 +83,23 @@ namespace Bookstore.GUI
         private void tb5_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        } 
+        }
         #endregion
 
-        
+        // метод позволяет двигать окно мышкой
+        private void Drag(object sender, RoutedEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                Registry.Window.DragMove();
+            }
+        }
+
+        //метод позволяет закрыть окно "крестиком"
+        private void Window_Reg_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
     }
 }

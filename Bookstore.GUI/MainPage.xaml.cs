@@ -21,13 +21,14 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
+        private static MainPage Window;
         private BookstoreDb _db;
         public SMTP smtp;
         private Account _account;
 
         public BookstoreDb Db
         {
-            get { return _db;}
+            get { return _db; }
             set { _db = value; }
         }
 
@@ -40,6 +41,7 @@ namespace Bookstore.GUI
         public MainPage()
         {
             InitializeComponent();
+            Window = this;
         }
 
         #region StylesMethods
@@ -54,8 +56,23 @@ namespace Bookstore.GUI
         private void Button_persona(object sender, RoutedEventArgs e)
         {
 
-        } 
+        }
         #endregion
+
+        // метод позволяет двигать окно мышкой
+        private void Drag(object sender, RoutedEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                MainPage.Window.DragMove();
+            }
+        }
+
+        //метод позволяет закрыть окно "крестиком"
+        private void Window_Main_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
 
     }
 }
