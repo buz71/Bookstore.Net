@@ -1,11 +1,16 @@
-﻿<Window x:Class="Bookstore.GUI.MainWindow" x:Name="LogWindow" WindowStartupLocation="CenterScreen"
+﻿<Window x:Class="Bookstore.GUI.MainWindow" x:Name="LogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore.GUI"
         mc:Ignorable="d"
-        Title="Bookstore" SizeToContent="WidthAndHeight">
+         WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Drag"
+        Title="Bookstore">
 
     <Window.Resources>
         <!-- стиль кнопки "Вход"-->
@@ -138,6 +143,9 @@
                 <Label x:Name="Name_title" Content="Книжный магазин" Margin="0,80,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
                        FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="0,0,0,0" HorizontalContentAlignment="Center" >
                 </Label>
+
+                <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+                        Click="Window_Log_Close" Width="20" Height="20" Margin="226,6,6,84"/>
             </Grid>
         </Grid>
 
@@ -170,20 +178,11 @@
 
         </Grid>
 
-
-
-
-
-
-
         <Grid Grid.Row="3" Width="250" Height="30">
             <Border Background="#FFFFEEA0" CornerRadius="0,0,20,20"/>
         </Grid>
 
     </Grid>
-
-
-
 </Window>
 
 
