@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,14 @@ namespace Bookstore.GUI
                 mainPage.smtp = new SMTP(mainPage.Account.Mail);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                 SMTP.SendMessage((mainPage.Account.Mail), "Вход в аккаунт Bookstore.NET",$"В Ваш аккаунт выполнен вход {DateTime.Now}");
+                if (File.Exists($"{mainPage.Account.Name}.txt"))
+                {
+                    Logger.WriteLog(mainPage.Account.Name, "Выполнен вход в приложение");
+                }
+                else
+                {
+                    Logger.CreateLog((mainPage.Account.Name));
+                }
                 mainPage.Show();
                 LogWindow.Close();
 
