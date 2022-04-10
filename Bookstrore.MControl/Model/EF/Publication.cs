@@ -13,14 +13,14 @@ namespace Bookstore.MControl
         }
 
         public long Id { get; set; }
-        public long BiikId { get; set; }
+        public long BookId { get; set; }
         public long PublishingId { get; set; }
         public long Pages { get; set; }
         public long SeriesId { get; set; }
         public long Year { get; set; }
         public double CostPrice { get; set; }
 
-        public virtual Book Biik { get; set; }
+        public virtual Book Book { get; set; }
         public virtual Publishing Publishing { get; set; }
         public virtual Series Series { get; set; }
         public virtual ICollection<Store> Stores { get; set; }
