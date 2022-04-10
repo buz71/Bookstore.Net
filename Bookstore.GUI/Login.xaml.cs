@@ -31,15 +31,15 @@ namespace Bookstore.GUI
             try
             {
                 //Для тестирования можно попробовать login:admin, password:admin
-
                 MainPage mainPage = new MainPage();
                 mainPage.Db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
-                mainPage.Account = (from a in mainPage.Db.Accounts where a.Mail == Box_user.Text.ToString() select a).FirstOrDefault();
+                mainPage.Account = (from a in mainPage.Db.Accounts where a.Name == Box_user.Text select a).FirstOrDefault();
                 mainPage.smtp = new SMTP(mainPage.Account.Mail);
                 MessageBox.Show("Добро пожаловать в книжный магазин", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
+                SMTP.SendMessage((mainPage.Account.Mail), "Вход в аккаунт Bookstore.NET",$"В Ваш аккаунт выполнен вход {DateTime.Now}");
                 mainPage.Show();
                 LogWindow.Close();
-                
+
             }
             catch (SqliteException exeption)
             {
