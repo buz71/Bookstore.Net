@@ -27,6 +27,11 @@ namespace Bookstrore.MControl.Control
 
         }
 
+        private static void WriteMess(string path, string message)
+        {
+            File.WriteAllText(path, $"{DateTime.Now}::{message}");
+        }
+
         public static async void CreateLog(string accName)
         {
             await Task.Run(() => CreateFile(accName));
@@ -35,6 +40,11 @@ namespace Bookstrore.MControl.Control
         public static async Task<FileStream> LoadLog(string fileName)
         {
            return await Task.Run(() => LoadFile(fileName));
+        }
+
+        public static async void WriteLog(string path, string message)
+        {
+            await Task.Run(() => WriteMess(path, message));
         }
     }
 }
