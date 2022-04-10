@@ -14,17 +14,16 @@ namespace Bookstrore.MControl.Control
             File.CreateText($"{accName}.txt");
         }
 
-        private static FileStream LoadFile(string fileName)
+        private static bool CheckFile(string fileName)
         {
             if (File.Exists(fileName))
             {
-                return new FileStream(fileName,FileMode.Open);
+                return true;
             }
             else
             {
-                throw new FileLoadException("Файл не найден");
+                return false;
             }
-
         }
 
         private static void WriteMess(string path, string message)
@@ -37,14 +36,17 @@ namespace Bookstrore.MControl.Control
             await Task.Run(() => CreateFile(accName));
         }
 
-        public static async Task<FileStream> LoadLog(string fileName)
-        {
-           return await Task.Run(() => LoadFile(fileName));
-        }
-
         public static async void WriteLog(string path, string message)
         {
-            await Task.Run(() => WriteMess(path, message));
+            if (CheckFile(path))
+            {
+                await Task.Run(() => WriteMess(path, message));
+            }
+            else
+            {
+                throw new FileNotFoundException("Файл не найден");
+            }
+
         }
     }
 }
