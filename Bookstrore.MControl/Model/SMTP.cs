@@ -47,5 +47,19 @@ namespace Bookstrore.MControl.Model
             _client.Send(_message);
         }
 
+        public static void SendMessage(string mail,string theme,string text)
+        {
+            SmtpClient client = new SmtpClient { Host = "smtp.yandex.ru", Port = 25 };
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential(_FROM, _PASS);
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(_FROM);
+            message.To.Add(mail);
+            message.Subject=theme;
+            message.Body = text;
+            client.Send(message);
+        }
     }
 }
