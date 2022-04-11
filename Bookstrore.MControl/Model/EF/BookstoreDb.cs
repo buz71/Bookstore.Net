@@ -40,7 +40,7 @@ namespace Bookstore.MControl
             if (!optionsBuilder.IsConfigured)
             {
                 string conString = Connection();
-                optionsBuilder.UseSqlite($"Data Source={conString}");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite($"Data Source={conString}");
             }
         }
 
