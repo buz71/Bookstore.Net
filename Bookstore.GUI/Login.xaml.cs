@@ -48,6 +48,7 @@ namespace Bookstore.GUI
                 {
                     Logger.CreateLog((mainPage.Account.Name));
                 }
+                mainPage.FillStore(mainPage.panel);
                 mainPage.Show();
                 LogWindow.Close();
 

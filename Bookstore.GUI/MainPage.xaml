@@ -248,7 +248,7 @@
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Background="#FFFFEEA0">
-            <WrapPanel Grid.ColumnSpan="2">
+            <WrapPanel Grid.ColumnSpan="2" x:Name="panel">
                 <!-- пример кнокпки, в дальнейшем удалить -->
                 <Button Style="{StaticResource Button_Wrap_Panel}"/>
             </WrapPanel>

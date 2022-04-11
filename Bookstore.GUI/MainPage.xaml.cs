@@ -21,11 +21,13 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class MainPage : Window
     {
+        #region Fields
         private static MainPage Window;
         private BookstoreDb _db;
         public SMTP smtp;
-        private Account _account;
-
+        private Account _account; 
+        #endregion
+        #region Properties
         public BookstoreDb Db
         {
             get { return _db; }
@@ -37,27 +39,29 @@ namespace Bookstore.GUI
             get { return _account; }
             set { _account = value; }
         }
-
-        public MainPage()
-        {
-            InitializeComponent();
-            Window = this;
-        }
-
-        #region StylesMethods
-        private void Button_catalog(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_cart(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_persona(object sender, RoutedEventArgs e)
-        {
-
-        }
         #endregion
+        #region Methods
+        public void FillStore(WrapPanel panel)
+        {
+            var store = _db.Stores.ToList();
+            foreach (var item in store)
+            {
+                Button button = new Button();
+                button.Style = (Style)Resources["Button_Wrap_Panel"];
+                //TODO: Добавить LazyLoading
+                string content = $"Книга: {item.Product.Book.Name}\n" +
+                                 $"Автор: {item.Product.Book.Autor.Name}\n" +
+                                 $"Год печати: {item.Product.Year}\n" +
+                                 $"В наличии: {item.Quantity}";
+                button.Content = content;
+                panel.Children.Add(button);
+            }
+        }
+        //void UpdateStore(BookstoreDB db, WrapPanel panel)
+        //{
+        //    panel.Children.Clear();
+        //    FillStore(db, panel);
+        //} 
 
         // метод позволяет двигать окно мышкой
         private void Drag(object sender, RoutedEventArgs e)
@@ -85,5 +89,30 @@ namespace Bookstore.GUI
             window.Show();
             Close();
         }
+
+        #endregion
+        #region StylesMethods
+        private void Button_catalog(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_cart(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_persona(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        public MainPage()
+        {
+            InitializeComponent();
+            Window = this;
+        }
+
+
+      
     }
 }
