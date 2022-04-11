@@ -353,8 +353,7 @@
             <Button x:Name="Add_Book" Click="Add_Book_Cart" Style="{StaticResource Button_Add}" Content="Добавить" 
                     Width="100" Height="50" Margin="890,530,90,70"/>
 
-            <Button Style="{StaticResource Button_Book}" Content="Длинный текст"/>
-
+         
 
         </Grid>
 
