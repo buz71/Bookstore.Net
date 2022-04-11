@@ -47,7 +47,7 @@ namespace Bookstore.GUI
             foreach (var item in store)
             {
                 Button button = new Button();
-                button.Style = (Style)Resources["Button_Wrap_Panel"];
+                button.Style = (Style)Resources["Button_Book"];
                 //TODO: Добавить LazyLoading
                 string content = $"{item.Product.Book.Name}\n" +
                                  $"{item.Product.Book.Autor.Name}\n";
@@ -76,7 +76,7 @@ namespace Bookstore.GUI
             Application.Current.Shutdown();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Add_Book_Cart(object sender, RoutedEventArgs e)
         {
 
         }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="Bookstore.GUI.Cart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookstore.GUI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Drag"
+        Title="Cart">
+    <Grid>
+
+        <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+                        Click="Window_Cart_Close" Width="20" Height="20" Margin="773,10,7,420"/>
+    </Grid>
+</Window>
