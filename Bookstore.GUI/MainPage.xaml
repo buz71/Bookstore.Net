@@ -18,8 +18,8 @@
         <Style x:Key="Button_left" TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="100"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -242,16 +242,13 @@
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
 
 
-            <Button x:Name="Exit" Style="{StaticResource Button_left}" Click="Window_Main_Close" Height="45" Width="110" Margin="0,278,0,0"
+            <Button x:Name="Exit" Style="{StaticResource Button_left}" Click="LogOff_Click" Height="45" Width="110" Margin="0,278,0,0"
                     Background="#FF004040" Content="Выход" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" 
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Background="#FFFFEEA0">
-            <WrapPanel Grid.ColumnSpan="2">
-                <!-- пример кнокпки, в дальнейшем удалить -->
-                <Button Style="{StaticResource Button_Wrap_Panel}"/>
-            </WrapPanel>
+            <WrapPanel Grid.ColumnSpan="2" x:Name="panel"/>
 
         </Grid>
 
