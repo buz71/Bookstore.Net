@@ -18,8 +18,8 @@
         <Style x:Key="Button_left" TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="100"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -248,10 +248,7 @@
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Background="#FFFFEEA0">
-            <WrapPanel Grid.ColumnSpan="2" x:Name="panel">
-                <!-- пример кнокпки, в дальнейшем удалить -->
-                <Button Style="{StaticResource Button_Wrap_Panel}"/>
-            </WrapPanel>
+            <WrapPanel Grid.ColumnSpan="2" x:Name="panel"/>
 
         </Grid>
 

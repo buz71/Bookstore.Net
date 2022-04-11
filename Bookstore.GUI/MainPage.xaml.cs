@@ -49,11 +49,9 @@ namespace Bookstore.GUI
                 Button button = new Button();
                 button.Style = (Style)Resources["Button_Wrap_Panel"];
                 //TODO: Добавить LazyLoading
-                string content = $"Книга: {item.Product.Book.Name}\n" +
-                                 $"Автор: {item.Product.Book.Autor.Name}\n" +
-                                 $"Год печати: {item.Product.Year}\n" +
-                                 $"В наличии: {item.Quantity}";
-                button.Content = content;
+                string content = $"{item.Product.Book.Name}\n" +
+                                 $"{item.Product.Book.Autor.Name}\n";
+                                 button.Content = content;
                 panel.Children.Add(button);
             }
         }
