@@ -74,5 +74,16 @@ namespace Bookstore.GUI
             Application.Current.Shutdown();
         }
 
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOff_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            Close();
+        }
     }
 }
