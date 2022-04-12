@@ -48,7 +48,6 @@ namespace Bookstore.GUI
             {
                 Button button = new Button();
                 button.Style = (Style)Resources["Button_Book"];
-                //TODO: Добавить LazyLoading
                 string content = $"{item.Product.Book.Name}\n" +
                                  $"{item.Product.Book.Autor.Name}\n";
                                  button.Content = content;
