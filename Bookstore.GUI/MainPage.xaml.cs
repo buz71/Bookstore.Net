@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -46,11 +47,13 @@ namespace Bookstore.GUI
             var store = _db.Stores.ToList();
             foreach (var item in store)
             {
-                Button button = new Button();
+                ToggleButton button = new ToggleButton();
+                //Button button = new Button();
                 button.Style = (Style)Resources["Button_Book"];
                 string content = $"{item.Product.Book.Name}\n" +
                                  $"{item.Product.Book.Autor.Name}\n";
                                  button.Content = content;
+                                 button.Click += SelectButton_Click;
                 panel.Children.Add(button);
             }
         }
@@ -85,6 +88,12 @@ namespace Bookstore.GUI
             MainWindow window = new MainWindow();
             window.Show();
             Close();
+        }
+
+        //Метод для изменения внешнего вида кнопки при выделении
+        private void SelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as ToggleButton).IsChecked = true;
         }
 
         #endregion

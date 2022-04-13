@@ -179,7 +179,7 @@
         </Style>
 
         <!-- wrap panel второй вариант-->
-        <Style x:Key="Button_Book" TargetType="Button">
+        <Style x:Key="Button_Book" TargetType="ToggleButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="ToolTip" Value="{Binding ElementName=Prompt}"/>
@@ -193,7 +193,7 @@
             <!-- отредактировать отступы в рабочем коде, когда будет заполнен контент  -->
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate TargetType="ToggleButton">
                         <Border x:Name="Border" CornerRadius="10" BorderBrush="#FF004040" 
                                 TextBlock.Foreground="#FFFFEEA0"  TextBlock.FontSize="10"
                                 BorderThickness="2">
