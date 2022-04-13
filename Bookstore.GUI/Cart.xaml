@@ -142,9 +142,9 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1" Background="#FFFFEEA1">
-            <Button x:Name="Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
+            <Button x:Name="Button_Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
                     Width="100" Height="46" Margin="676,4,124,0"/>
-            <Button x:Name="Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
+            <Button x:Name="Button_Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
                     Width="100" Height="46" Margin="548,4,252,0"/>
         </Grid>
 

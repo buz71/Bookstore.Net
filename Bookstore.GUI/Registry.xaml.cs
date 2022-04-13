@@ -98,7 +98,7 @@ namespace Bookstore.GUI
         //метод позволяет закрыть окно "крестиком"
         private void Window_Reg_Close(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Close();
         }
 
     }
