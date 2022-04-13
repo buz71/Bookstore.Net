@@ -41,5 +41,17 @@ namespace Bookstore.GUI
         {
             Application.Current.Shutdown();
         }
+
+        //удаление книги из корзины
+        private void Delete_Book(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Оформить заказ
+        private void Checkout_Book(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

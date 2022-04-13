@@ -11,9 +11,142 @@
         WindowStyle="None"
         MouseDown="Drag"
         Title="Cart">
-    <Grid>
 
-        <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
-                        Click="Window_Cart_Close" Width="20" Height="20" Margin="773,10,7,420"/>
+    <Window.Resources>
+        <Style x:Key="Button_Add" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border TextBlock.Foreground="#FFFFEEA0" CornerRadius="15"
+                                BorderThickness="1"
+                                x:Name="Border">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.0,0" EndPoint="0.0,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#FF004040" Offset="0"/>
+                                        <GradientStop Color="#FF004040" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ComStat">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        <VisualTransition GeneratedDuration="0" To="Pressed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FFF3724C"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MousePressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Border.Background" 
+                                                                          Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF037B7B"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="900"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+        </Grid>
+
+
+
+        <Grid Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2">
+            <Image x:Name="Picture" Height="102" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top" Margin="0,-2,0,0">
+                <Image.Clip>
+                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                </Image.Clip>
+            </Image>
+        </Grid>
+
+
+
+        <Grid Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" Background="#FFFFEEA1">
+        </Grid>
+
+
+
+        <Grid Grid.Row="0" Grid.Column="1" Background="#FFFFEEA1">
+            <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+                        Click="Window_Cart_Close" Width="20" Height="20" Margin="874,10,6,70"/>
+
+            <Label x:Name="Name_title" Content="Корзина покупок" Margin="50,0,85,0" VerticalAlignment="Center" Background="#FFFFEEA1"
+                       FontFamily="AngryBirds" FontSize="50" Height="60" Padding="0,0,0,0" HorizontalContentAlignment="Center" Width="400" />
+        </Grid>
+
+
+
+        <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
+            <StackPanel>
+                <DataGrid x:Name="Cart_Books" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF004040"
+                          RowBackground="#FF004040" AlternatingRowBackground="#FFFFEEA0" RowHeight="30"
+                          ColumnHeaderHeight="30" GridLinesVisibility="All">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Width="50" Binding="{Binding Path=Number}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Наименование книги" Width="275" Binding="{Binding Path=Name_book}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Автор" Width="275" Binding="{Binding Path=Author_Book}"/>
+                        <DataGridTextColumn Header="Цена" Width="100" Binding="{Binding Path=Price_Book}"/>
+                        <DataGridTextColumn Header="Количество" Width="100" Binding="{Binding Path=Amount}"/>
+                        <DataGridTextColumn Header="Итого" Width="100" Binding="{Binding Path=Total_Price}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" Background="#FFFFEEA1">
+            <Button x:Name="Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
+                    Width="100" Height="46" Margin="676,4,124,0"/>
+            <Button x:Name="Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
+                    Width="100" Height="46" Margin="548,4,252,0"/>
+        </Grid>
+
     </Grid>
 </Window>

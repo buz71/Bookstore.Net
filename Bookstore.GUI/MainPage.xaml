@@ -286,14 +286,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="650"/>
-
-
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="1100"/>
-
         </Grid.ColumnDefinitions>
 
 
