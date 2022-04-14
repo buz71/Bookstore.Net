@@ -120,7 +120,7 @@
             </Setter>
         </Style>
 
-        <!-- Стиль кнопки wrap panel-->
+        <!-- (не используется) Стиль кнопки wrap panel-->
         <Style x:Key="Button_Wrap_Panel" TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -182,8 +182,6 @@
         <Style x:Key="Button_Book" TargetType="ToggleButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="ToolTip" Value="{Binding ElementName=Prompt}"/>
-            <!-- уточнить метод -->
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="150"/>
             <Setter Property="Margin" Value="10"/>
@@ -204,7 +202,53 @@
                             </ContentPresenter>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                            <EventTrigger RoutedEvent="MouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="12,12,10,10"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="10,10,10,10"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- стиль нажатой кнопки -->
+        <Style x:Key="Button_press" TargetType="ToggleButton">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Foreground" Value="#FFFFEEA0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!-- отредактировать отступы в рабочем коде, когда будет заполнен контент  -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Border" CornerRadius="10" BorderBrush="#FF004040" 
+                                TextBlock.Foreground="#FFFFEEA0"  TextBlock.FontSize="10"
+                                BorderThickness="2">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/press_book.jpg"/>
+                            </Border.Background>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseDown">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ThicknessAnimation Storyboard.TargetProperty="Margin"
@@ -349,8 +393,8 @@
             <WrapPanel Grid.ColumnSpan="2" x:Name="panel"/>
             <Button x:Name="Add_Book" Click="Add_Book_Cart" Style="{StaticResource Button_Add}" Content="Добавить" 
                     Width="100" Height="50" Margin="890,530,90,70"/>
+            
 
-         
 
         </Grid>
 

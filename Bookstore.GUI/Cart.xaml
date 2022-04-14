@@ -65,6 +65,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="Stack_Text" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFFFEEA0"/>
+            <Setter Property="Background" Value="#FF004040"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
     </Window.Resources>
 
 
@@ -94,12 +104,14 @@
 
 
 
-        <Grid Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" Background="#FFFFEEA1">
+        <Grid Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >
+            <Border CornerRadius="0,0,0,20" Background="#FFFFEEA1"/>
         </Grid>
 
 
 
-        <Grid Grid.Row="0" Grid.Column="1" Background="#FFFFEEA1">
+        <Grid Grid.Row="0" Grid.Column="1" >
+            <Border CornerRadius="0,20,0,0" Background="#FFFFEEA1"/>
             <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
                         Click="Window_Cart_Close" Width="20" Height="20" Margin="874,10,6,70"/>
 
@@ -110,42 +122,23 @@
 
 
         <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
-            <StackPanel>
-                <DataGrid x:Name="Cart_Books" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF004040"
-                          RowBackground="#FF004040" AlternatingRowBackground="#FFFFEEA0" RowHeight="30"
-                          ColumnHeaderHeight="30" GridLinesVisibility="All">
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Width="50" Binding="{Binding Path=Number}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Наименование книги" Width="275" Binding="{Binding Path=Name_book}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Автор" Width="275" Binding="{Binding Path=Author_Book}"/>
-                        <DataGridTextColumn Header="Цена" Width="100" Binding="{Binding Path=Price_Book}"/>
-                        <DataGridTextColumn Header="Количество" Width="100" Binding="{Binding Path=Amount}"/>
-                        <DataGridTextColumn Header="Итого" Width="100" Binding="{Binding Path=Total_Price}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30">
+                <TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="40"/>
+                <TextBlock x:Name="Book_Name" Text="Название книги" Style="{StaticResource Stack_Text}" Width="275"/>
+                <TextBlock x:Name="Author" Text="Автор" Style="{StaticResource Stack_Text}" Width="275"/>
+                <TextBlock x:Name="Price" Text="Цена" Style="{StaticResource Stack_Text}" Width="100"/>
+                <TextBlock x:Name="Amount" Text="Количество" Style="{StaticResource Stack_Text}" Width="100"/>
+                <TextBlock x:Name="Total" Text="Итого" Style="{StaticResource Stack_Text}" Width="95"/>
             </StackPanel>
 
         </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="1" Background="#FFFFEEA1">
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Border CornerRadius="0,0,20,0" Background="#FFFFEEA1"/>
             <Button x:Name="Button_Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
-                    Width="100" Height="46" Margin="676,4,124,0"/>
+                    Width="100" Height="46" Margin="730,4,70,0"/>
             <Button x:Name="Button_Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
-                    Width="100" Height="46" Margin="548,4,252,0"/>
+                    Width="100" Height="46" Margin="600,4,200,0"/>
         </Grid>
 
     </Grid>
