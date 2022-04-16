@@ -11,8 +11,8 @@ namespace Bookstrore.MControl.Control
     /// </summary>
     public static class Store
     {
-        //Метод заполнения главного окна магазина 
-        public static void Fill() { }
+        //TODO: метод для добавления в корзину
+        public static void AddToBasket() { }
 
 
     }
