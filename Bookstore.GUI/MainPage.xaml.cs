@@ -102,9 +102,6 @@ namespace Bookstore.GUI
                 (sender as ToggleButton).IsChecked = true;
                 (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
             }
-            
-
-
         }
 
         #endregion
