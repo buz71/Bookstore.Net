@@ -26,7 +26,7 @@ namespace Bookstore.GUI
         private static MainPage Window;
         private BookstoreDb _db;
         public SMTP smtp;
-        private Account _account; 
+        private Account _account;
         #endregion
         #region Properties
         public BookstoreDb Db
@@ -52,8 +52,8 @@ namespace Bookstore.GUI
                 button.Style = (Style)Resources["Button_Book"];
                 string content = $"{item.Product.Book.Name}\n" +
                                  $"{item.Product.Book.Autor.Name}\n";
-                                 button.Content = content;
-                                 button.Click += SelectButton_Click;
+                button.Content = content;
+                button.Click += SelectButton_Click;
                 panel.Children.Add(button);
             }
         }
@@ -93,7 +93,15 @@ namespace Bookstore.GUI
         //Метод для изменения внешнего вида кнопки при выделении
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-            (sender as ToggleButton).IsChecked = true;
+            if ((sender as ToggleButton).IsChecked == false)
+            {
+                (sender as ToggleButton).Style = (Style)Resources["Button_press"];
+            }
+            else
+            {
+                (sender as ToggleButton).IsChecked = true;
+                (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
+            }
         }
 
         #endregion
@@ -119,6 +127,6 @@ namespace Bookstore.GUI
         }
 
 
-      
+
     }
 }
