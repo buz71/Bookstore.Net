@@ -19,6 +19,10 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class Cart : Window
     {
+        //TODO: Добавить список для хранения ссылок на товары добавленные в корзину
+        //TODO: Добавить метод проверки количества, доступного для заказа товара
+        //TODO: Добавить метод для оформления заказа
+
         public static Cart Window;
         public Cart()
         {

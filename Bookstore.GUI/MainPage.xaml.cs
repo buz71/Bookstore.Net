@@ -23,6 +23,7 @@ namespace Bookstore.GUI
     public partial class MainPage : Window
     {
         #region Fields
+        //TODO: Добавить поле для экземпляра корзины
         private static MainPage Window;
         private BookstoreDb _db;
         public SMTP smtp;
@@ -121,6 +122,7 @@ namespace Bookstore.GUI
 
         public MainPage()
         {
+            //TODO: Добавить создание экземпляра корзины
             InitializeComponent();
             Window = this;
         }
