@@ -178,7 +178,7 @@
             </Setter>
         </Style>
 
-        <!-- wrap panel второй вариант-->
+        <!-- wrap panel рабочий вариант-->
         <Style x:Key="Button_Book" TargetType="ToggleButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -188,7 +188,6 @@
             <Setter Property="Foreground" Value="#FFFFEEA0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <!-- отредактировать отступы в рабочем коде, когда будет заполнен контент  -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
@@ -196,36 +195,18 @@
                                 TextBlock.Foreground="#FFFFEEA0"  TextBlock.FontSize="10"
                                 BorderThickness="2">
                             <Border.Background>
-                                <ImageBrush ImageSource="/one_book.jpg"/>
+                                <ImageBrush ImageSource="/one_book.jpg" Stretch="None" Opacity="1" ViewboxUnits="RelativeToBoundingBox"/>
                             </Border.Background>
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
                             </ContentPresenter>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="MouseDown">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To="12,12,10,10"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="PreviewMouseUp">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To="10,10,10,10"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <!-- стиль нажатой кнопки -->
-        <Style x:Key="Button_press" TargetType="ToggleButton">
+        <!-- wrap panel кнопка при нажатии -->
+        <Style x:Key="Button_Press" TargetType="ToggleButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Width" Value="100"/>
@@ -234,7 +215,6 @@
             <Setter Property="Foreground" Value="#FFFFEEA0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <!-- отредактировать отступы в рабочем коде, когда будет заполнен контент  -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
@@ -242,34 +222,43 @@
                                 TextBlock.Foreground="#FFFFEEA0"  TextBlock.FontSize="10"
                                 BorderThickness="2">
                             <Border.Background>
-                                <ImageBrush ImageSource="/press_book.jpg"/>
+                                <ImageBrush ImageSource="/press_book.jpg" Stretch="None" Viewbox="0,0,1,1" Opacity="1"/>
                             </Border.Background>
                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
                             </ContentPresenter>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="MouseDown">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To="12,12,10,10"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="PreviewMouseUp">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To="10,10,10,10"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
+        <!-- wrap panel при нажатии красная рамка -->
+        <Style x:Key="Button_Book_Press" TargetType="ToggleButton">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Foreground" Value="#FFFFEEA0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Border" CornerRadius="10" BorderBrush="#FFF50D0D" BorderThickness="5"
+                                TextBlock.Foreground="#FFFFEEA0"  TextBlock.FontSize="10"
+                               >
+                            <Border.Background>
+                                <ImageBrush ImageSource="/one_book.jpg" Stretch="None" Opacity="1" ViewboxUnits="RelativeToBoundingBox"/>
+                            </Border.Background>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <!-- Кнопка добавить -->
         <Style x:Key="Button_Add" TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -393,18 +382,8 @@
             <WrapPanel Grid.ColumnSpan="2" x:Name="panel"/>
             <Button x:Name="Add_Book" Click="Add_Book_Cart" Style="{StaticResource Button_Add}" Content="Добавить" 
                     Width="100" Height="50" Margin="890,530,90,70"/>
-            
 
-
-        </Grid>
-
-
-
-
-
-
-
-
+                   </Grid>
 
     </Grid>
 </Window>
