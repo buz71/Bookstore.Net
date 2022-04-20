@@ -93,13 +93,13 @@ namespace Bookstore.GUI
         //Метод для изменения внешнего вида кнопки при выделении
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((sender as ToggleButton).Style == (Style)Resources["Button_press"])
+            if ((sender as ToggleButton).Style == (Style)Resources["Button_Book_Press"])
             {
                 (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
             }
             else
             {
-                (sender as ToggleButton).Style = (Style)Resources["Button_press"];
+                (sender as ToggleButton).Style = (Style)Resources["Button_Book_Press"];
             }
         }
 
