@@ -23,6 +23,10 @@ namespace Bookstore.GUI
         //TODO: Добавить метод проверки количества, доступного для заказа товара
         //TODO: Добавить метод для оформления заказа
 
+        /// <summary>
+        /// Переменная для хранения ссылки на окно, из которого мы получаем данные для корзины
+        /// </summary>
+        public MainPage MainPage;
         public static Cart Window;
         public Cart()
         {
