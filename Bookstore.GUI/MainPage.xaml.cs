@@ -23,11 +23,16 @@ namespace Bookstore.GUI
     public partial class MainPage : Window
     {
         #region Fields
-        //TODO: Добавить поле для экземпляра корзины
         private static MainPage Window;
         private BookstoreDb _db;
-        public SMTP smtp;
         private Account _account;
+
+        /// <summary>
+        /// Переменная для хранения экземпляра корзины
+        /// </summary>
+        public Cart basket;
+        public SMTP smtp;
+        
         #endregion
         #region Properties
         public BookstoreDb Db
@@ -112,7 +117,7 @@ namespace Bookstore.GUI
         }
         private void Button_cart(object sender, RoutedEventArgs e)
         {
-
+            basket.ShowDialog();
         }
         private void Button_persona(object sender, RoutedEventArgs e)
         {

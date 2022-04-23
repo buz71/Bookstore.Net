@@ -47,7 +47,7 @@ namespace Bookstore.GUI
         //метод позволяет закрыть окно "крестиком"
         private void Window_Cart_Close(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Hide();
         }
 
         //удаление книги из корзины
