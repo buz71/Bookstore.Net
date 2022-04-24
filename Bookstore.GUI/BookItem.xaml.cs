@@ -22,7 +22,6 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class BookItem : UserControl
     {
-        public Style BookStyle { get; set; }
         public bool IsChecked { get; set; }
         public string bookName { get; set; }
         public string Author { get; set; }
