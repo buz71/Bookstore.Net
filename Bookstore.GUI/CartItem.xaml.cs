@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for BookItem.xaml
+    /// Interaction logic for CartItem.xaml
     /// </summary>
-    public partial class BookItem : UserControl
+    public partial class CartItem : UserControl
     {
         public string bookName { get; set; }
         public string Author { get; set; }
@@ -28,7 +28,7 @@ namespace Bookstore.GUI
         public int Action { get; set; }
         public int Tag { get; set; }
 
-        public BookItem(string name, string author, int year, double price, int quantity, int action, int tag)
+        public CartItem(string name, string author, int year, double price, int quantity, int action, int tag)
         {
             bookName = name;
             Author = author;
@@ -39,7 +39,8 @@ namespace Bookstore.GUI
             Tag = tag;
             InitializeComponent();
         }
-        public BookItem()
+
+        public CartItem()
         {
             InitializeComponent();
         }
