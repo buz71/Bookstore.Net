@@ -55,13 +55,7 @@ namespace Bookstore.GUI
             foreach (var item in store)
             {
                 BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name,(int)item.Product.Year,item.Price,(int)item.Quantity,(int)item.ActionId,(int)item.TagId);
-                //bookItem.Field_Book.Text = bookItem.bookName;
-                //bookItem.Field_Author.Text = bookItem.Author;
-                //bookItem.Field_Price.Text = bookItem.Price.ToString();
-                //bookItem.Field_Quntity.Text = bookItem.Quantity.ToString();
                 panel.Children.Add(bookItem);
-
-
                 //ToggleButton button = new ToggleButton();
                 //Button button = new Button();
                 //button.Style = (Style)Resources["Button_Book"];
@@ -158,7 +152,6 @@ namespace Bookstore.GUI
 
         public MainPage()
         {
-            //TODO: Добавить создание экземпляра корзины
             InitializeComponent();
             Window = this;
         }
