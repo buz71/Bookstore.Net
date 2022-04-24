@@ -54,10 +54,9 @@ namespace Bookstore.GUI
             var store = _db.Stores.ToList();
             foreach (var item in store)
             {
-                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name,(int)item.Product.Year,item.Price,(int)item.Quantity,(int)item.ActionId,(int)item.TagId);
+                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
                 panel.Children.Add(bookItem);
                 //ToggleButton button = new ToggleButton();
-                //Button button = new Button();
                 //button.Style = (Style)Resources["Button_Book"];
                 //string content = $"{item.Product.Book.Name}\n" +
                 //                 $"{item.Product.Book.Autor.Name}\n";
