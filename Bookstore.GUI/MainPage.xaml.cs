@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bookstore.MControl;
 using Bookstrore.MControl.Model;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Bookstore.GUI
 {
@@ -53,14 +54,15 @@ namespace Bookstore.GUI
             var store = _db.Stores.ToList();
             foreach (var item in store)
             {
-                ToggleButton button = new ToggleButton();
-                //Button button = new Button();
-                button.Style = (Style)Resources["Button_Book"];
-                string content = $"{item.Product.Book.Name}\n" +
-                                 $"{item.Product.Book.Autor.Name}\n";
-                button.Content = content;
-                button.Click += SelectButton_Click;
-                panel.Children.Add(button);
+                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
+                panel.Children.Add(bookItem);
+                //ToggleButton button = new ToggleButton();
+                //button.Style = (Style)Resources["Button_Book"];
+                //string content = $"{item.Product.Book.Name}\n" +
+                //                 $"{item.Product.Book.Autor.Name}\n";
+                //button.Content = content;
+                //button.Click += SelectButton_Click;
+                //panel.Children.Add(button);
             }
         }
         //void UpdateStore(BookstoreDB db, WrapPanel panel)
@@ -149,7 +151,6 @@ namespace Bookstore.GUI
 
         public MainPage()
         {
-            //TODO: Добавить создание экземпляра корзины
             InitializeComponent();
             Window = this;
         }
