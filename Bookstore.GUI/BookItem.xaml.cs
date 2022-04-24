@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,8 +29,17 @@ namespace Bookstore.GUI
         public int Action { get; set; }
         public int Tag { get; set; }
 
+        private void FillTextBox()
+        {
+            Field_Book.Text = bookName;
+            Field_Author.Text = Author;
+            Field_Price.Text = Price.ToString();
+            Field_Quntity.Text = Quantity.ToString();
+        }
+
         public BookItem(string name, string author, int year, double price, int quantity, int action, int tag)
         {
+            InitializeComponent();
             bookName = name;
             Author = author;
             Year = year;
@@ -37,7 +47,7 @@ namespace Bookstore.GUI
             Quantity = quantity;
             Action = action;
             Tag = tag;
-            InitializeComponent();
+            FillTextBox();
         }
         public BookItem()
         {

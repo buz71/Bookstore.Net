@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bookstore.MControl;
 using Bookstrore.MControl.Model;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Bookstore.GUI
 {
@@ -53,11 +54,11 @@ namespace Bookstore.GUI
             var store = _db.Stores.ToList();
             foreach (var item in store)
             {
-                BookItem bookItem = new BookItem();
-                bookItem.Field_Author.Text = item.Product.Book.Autor.Name;
-                bookItem.Field_Book.Text = item.Product.Book.Name;
-                bookItem.Field_Price.Text = item.Price.ToString();
-                bookItem.Field_Quntity.Text = item.Quantity.ToString();
+                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name,(int)item.Product.Year,item.Price,(int)item.Quantity,(int)item.ActionId,(int)item.TagId);
+                //bookItem.Field_Book.Text = bookItem.bookName;
+                //bookItem.Field_Author.Text = bookItem.Author;
+                //bookItem.Field_Price.Text = bookItem.Price.ToString();
+                //bookItem.Field_Quntity.Text = bookItem.Quantity.ToString();
                 panel.Children.Add(bookItem);
 
 

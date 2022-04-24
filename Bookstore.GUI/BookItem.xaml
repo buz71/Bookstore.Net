@@ -38,9 +38,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="КНИГА" Foreground="Crimson" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="1" x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"/>
-        <TextBox Grid.Row="2" x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"/>
-        <TextBox Grid.Row="3" x:Name="Field_Price" Style="{StaticResource TextBlock_Book}"/>
+        <TextBox Grid.Row="1" x:Name="Field_Author" Style="{StaticResource TextBlock_Book}" />
+        <TextBox Grid.Row="2" x:Name="Field_Book" Style="{StaticResource TextBlock_Book}" />
+        <TextBox Grid.Row="3" x:Name="Field_Price" Style="{StaticResource TextBlock_Book}" />
         <TextBox Grid.Row="4" x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}"/>
     </Grid>
 </UserControl>
