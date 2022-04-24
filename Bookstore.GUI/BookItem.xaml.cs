@@ -20,6 +20,18 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class BookItem : UserControl
     {
+        public string bookName { get; set; }
+        public string Author { get; set; }
+        public int Year { get; set; }
+        public double Price { get; set; }
+        public int Quantity { get; set; }
+        public int Action { get; set; }
+        public int Tag { get; set; }
+
+        public BookItem(string name, string author, int year, double price, int quantity, int action, int tag)
+        {
+            InitializeComponent();
+        }
         public BookItem()
         {
             InitializeComponent();

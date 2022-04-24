@@ -56,7 +56,7 @@ namespace Bookstore.GUI
                 BookItem bookItem = new BookItem();
                 bookItem.Field_Author.Text = item.Product.Book.Autor.Name;
                 bookItem.Field_Book.Text = item.Product.Book.Name;
-                bookItem.Field_Price.Text = item.Product.CostPrice.ToString();
+                bookItem.Field_Price.Text = item.Price.ToString();
                 bookItem.Field_Quntity.Text = item.Quantity.ToString();
                 panel.Children.Add(bookItem);
 
