@@ -5,20 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bookstore.GUI"
              mc:Ignorable="d" 
-             d:DesignHeight="130" d:DesignWidth="100">
+             Width="80"
+             Height="200"
+             Margin="10"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch">
     <UserControl.Resources>
         <Style x:Key="Button_Book" TargetType="Grid">
             <Setter Property="Background" Value="YellowGreen"/>
         </Style>
+        <Style x:Key="TextBlock_Book" TargetType="TextBox">
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
     </UserControl.Resources>
     <Grid Style="{StaticResource Button_Book}">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="КНИГА" Foreground="Crimson" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Width="70" Height="10" Background="Beige" TextAlignment="Center"/>
-        <TextBlock Grid.Row="2" Width="70" Height="10" Background="Beige" TextAlignment="Center"/>
+        <TextBox Grid.Row="1" x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"/>
+        <TextBox Grid.Row="2" x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"/>
+        <TextBox Grid.Row="3" x:Name="Field_Price" Style="{StaticResource TextBlock_Book}"/>
+        <TextBox Grid.Row="4" x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}"/>
     </Grid>
 </UserControl>
