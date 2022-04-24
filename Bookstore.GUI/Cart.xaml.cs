@@ -19,10 +19,12 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class Cart : Window
     {
-        //TODO: Добавить список для хранения ссылок на товары добавленные в корзину
         //TODO: Добавить метод проверки количества, доступного для заказа товара
         //TODO: Добавить метод для оформления заказа
-
+        /// <summary>
+        /// Переменная для хранения ссылки на окно, из которого мы получаем данные для корзины
+        /// </summary>
+        public MainPage MainPage;
         public static Cart Window;
         public Cart()
         {
@@ -43,7 +45,7 @@ namespace Bookstore.GUI
         //метод позволяет закрыть окно "крестиком"
         private void Window_Cart_Close(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Hide();
         }
 
         //удаление книги из корзины

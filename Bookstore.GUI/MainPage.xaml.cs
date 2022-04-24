@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bookstore.MControl;
 using Bookstrore.MControl.Model;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Bookstore.GUI
 {
@@ -23,11 +24,16 @@ namespace Bookstore.GUI
     public partial class MainPage : Window
     {
         #region Fields
-        //TODO: Добавить поле для экземпляра корзины
         private static MainPage Window;
         private BookstoreDb _db;
-        public SMTP smtp;
         private Account _account;
+
+        /// <summary>
+        /// Переменная для хранения экземпляра корзины
+        /// </summary>
+        public Cart basket;
+        public SMTP smtp;
+        
         #endregion
         #region Properties
         public BookstoreDb Db
@@ -48,14 +54,15 @@ namespace Bookstore.GUI
             var store = _db.Stores.ToList();
             foreach (var item in store)
             {
-                ToggleButton button = new ToggleButton();
-                //Button button = new Button();
-                button.Style = (Style)Resources["Button_Book"];
-                string content = $"{item.Product.Book.Name}\n" +
-                                 $"{item.Product.Book.Autor.Name}\n";
-                button.Content = content;
-                button.Click += SelectButton_Click;
-                panel.Children.Add(button);
+                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
+                panel.Children.Add(bookItem);
+                //ToggleButton button = new ToggleButton();
+                //button.Style = (Style)Resources["Button_Book"];
+                //string content = $"{item.Product.Book.Name}\n" +
+                //                 $"{item.Product.Book.Autor.Name}\n";
+                //button.Content = content;
+                //button.Click += SelectButton_Click;
+                //panel.Children.Add(button);
             }
         }
         //void UpdateStore(BookstoreDB db, WrapPanel panel)
@@ -79,8 +86,30 @@ namespace Bookstore.GUI
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Метод добавления товаров в корзину
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Book_Cart(object sender, RoutedEventArgs e)
         {
+            List<ToggleButton> buttonList = new List<ToggleButton>();
+            foreach (var item in panel.Children)
+            {
+                buttonList.Add(item as ToggleButton);
+            }
+
+            foreach (var item in buttonList)
+            {
+                if (item.IsChecked==true)
+                {
+                    item.IsChecked = false;
+                    item.Style = (Style)Resources["Button_Book"];
+                    ToggleButton basketItem = new ToggleButton();
+                    basketItem.Content = item.Content;
+                    basket.StackPanel_Basket.Children.Add(basketItem);
+                }
+            }
 
         }
 
@@ -112,7 +141,7 @@ namespace Bookstore.GUI
         }
         private void Button_cart(object sender, RoutedEventArgs e)
         {
-
+            basket.ShowDialog();
         }
         private void Button_persona(object sender, RoutedEventArgs e)
         {
@@ -122,7 +151,6 @@ namespace Bookstore.GUI
 
         public MainPage()
         {
-            //TODO: Добавить создание экземпляра корзины
             InitializeComponent();
             Window = this;
         }
