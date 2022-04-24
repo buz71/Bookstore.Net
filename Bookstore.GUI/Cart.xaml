@@ -122,13 +122,13 @@
 
 
         <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30">
-                <TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="40"/>
+            <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10 10 40 10"  >
+                <!--<TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="40"/>
                 <TextBlock x:Name="Book_Name" Text="Название книги" Style="{StaticResource Stack_Text}" Width="275"/>
                 <TextBlock x:Name="Author" Text="Автор" Style="{StaticResource Stack_Text}" Width="275"/>
                 <TextBlock x:Name="Price" Text="Цена" Style="{StaticResource Stack_Text}" Width="100"/>
                 <TextBlock x:Name="Amount" Text="Количество" Style="{StaticResource Stack_Text}" Width="100"/>
-                <TextBlock x:Name="Total" Text="Итого" Style="{StaticResource Stack_Text}" Width="95"/>
+                <TextBlock x:Name="Total" Text="Итого" Style="{StaticResource Stack_Text}" Width="95"/>-->
             </StackPanel>
 
         </Grid>

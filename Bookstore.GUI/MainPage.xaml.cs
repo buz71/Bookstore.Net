@@ -84,8 +84,30 @@ namespace Bookstore.GUI
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Метод добавления товаров в корзину
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Book_Cart(object sender, RoutedEventArgs e)
         {
+            List<ToggleButton> buttonList = new List<ToggleButton>();
+            foreach (var item in panel.Children)
+            {
+                buttonList.Add(item as ToggleButton);
+            }
+
+            foreach (var item in buttonList)
+            {
+                if (item.IsChecked==true)
+                {
+                    item.IsChecked = false;
+                    item.Style = (Style)Resources["Button_Book"];
+                    ToggleButton basketItem = new ToggleButton();
+                    basketItem.Content = item.Content;
+                    basket.StackPanel_Basket.Children.Add(basketItem);
+                }
+            }
 
         }
 
