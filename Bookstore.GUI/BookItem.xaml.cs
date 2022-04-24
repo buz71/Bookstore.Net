@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -21,6 +22,8 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class BookItem : UserControl
     {
+        public Style BookStyle { get; set; }
+        public bool IsChecked { get; set; }
         public string bookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
@@ -29,14 +32,28 @@ namespace Bookstore.GUI
         public int Action { get; set; }
         public int Tag { get; set; }
 
+        /// <summary>
+        /// Метод для заполнения полей BookItem
+        /// </summary>
         private void FillTextBox()
         {
+            IsChecked = false;
             Field_Book.Text = bookName;
             Field_Author.Text = Author;
             Field_Price.Text = Price.ToString();
             Field_Quntity.Text = Quantity.ToString();
         }
 
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="author"></param>
+        /// <param name="year"></param>
+        /// <param name="price"></param>
+        /// <param name="quantity"></param>
+        /// <param name="action"></param>
+        /// <param name="tag"></param>
         public BookItem(string name, string author, int year, double price, int quantity, int action, int tag)
         {
             InitializeComponent();
