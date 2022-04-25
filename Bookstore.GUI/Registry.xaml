@@ -67,7 +67,8 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Border BorderBrush="#FF004040" BorderThickness="2" CornerRadius="20">
+        <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -209,5 +210,5 @@
 
         </Grid>
     </Grid>
-
+        </Border>
 </Window>
