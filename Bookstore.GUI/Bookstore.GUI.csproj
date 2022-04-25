@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="books2.jpg" />
+    <None Remove="books3.jpg" />
     <None Remove="one_book.jpg" />
     <None Remove="press_book.jpg" />
   </ItemGroup>
@@ -23,6 +24,7 @@
 
   <ItemGroup>
     <Resource Include="books2.jpg" />
+    <Resource Include="books3.jpg" />
     <Resource Include="one_book.jpg" />
     <Resource Include="press_book.jpg" />
   </ItemGroup>

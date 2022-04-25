@@ -77,69 +77,70 @@
         </Style>
     </Window.Resources>
 
+    <Border BorderBrush="#FF004040" BorderThickness="2" CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="450"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="900"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0">
-        </Grid>
-
-
-
-        <Grid Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2">
-            <Image x:Name="Picture" Height="102" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top" Margin="0,-2,0,0">
-                <Image.Clip>
-                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
-                </Image.Clip>
-            </Image>
-        </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="900"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+            </Grid>
 
 
 
-        <Grid Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >
-            <Border CornerRadius="0,0,0,20" Background="#FFFFEEA1"/>
-        </Grid>
+            <Grid Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2">
+                <Image x:Name="Picture" Height="102" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top" Margin="0,2,0,0">
+                    <Image.Clip>
+                        <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                    </Image.Clip>
+                </Image>
+            </Grid>
 
 
 
-        <Grid Grid.Row="0" Grid.Column="1" >
-            <Border CornerRadius="0,20,0,0" Background="#FFFFEEA1"/>
-            <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+            <Grid Grid.Row="1" Grid.Column="0"  Grid.RowSpan="2" >
+                <Border CornerRadius="0,0,0,20" Background="#FFFFEEA1"/>
+            </Grid>
+
+
+
+            <Grid Grid.Row="0" Grid.Column="1" >
+                <Border CornerRadius="0,20,0,0" Background="#FFFFEEA1"/>
+                <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
                         Click="Window_Cart_Close" Width="20" Height="20" Margin="874,10,6,70"/>
 
-            <Label x:Name="Name_title" Content="Корзина покупок" Margin="50,0,85,0" VerticalAlignment="Center" Background="#FFFFEEA1"
+                <Label x:Name="Name_title" Content="Корзина покупок" Margin="50,0,85,0" VerticalAlignment="Center" Background="#FFFFEEA1"
                        FontFamily="AngryBirds" FontSize="50" Height="60" Padding="0,0,0,0" HorizontalContentAlignment="Center" Width="400" />
-        </Grid>
+            </Grid>
 
 
 
-        <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
-            <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10 10 40 10"  >
-                <!--<TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="40"/>
+            <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
+                <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10 10 40 10"  >
+                    <!--<TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="40"/>
                 <TextBlock x:Name="Book_Name" Text="Название книги" Style="{StaticResource Stack_Text}" Width="275"/>
                 <TextBlock x:Name="Author" Text="Автор" Style="{StaticResource Stack_Text}" Width="275"/>
                 <TextBlock x:Name="Price" Text="Цена" Style="{StaticResource Stack_Text}" Width="100"/>
                 <TextBlock x:Name="Amount" Text="Количество" Style="{StaticResource Stack_Text}" Width="100"/>
                 <TextBlock x:Name="Total" Text="Итого" Style="{StaticResource Stack_Text}" Width="95"/>-->
-            </StackPanel>
+                </StackPanel>
 
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="1">
-            <Border CornerRadius="0,0,20,0" Background="#FFFFEEA1"/>
-            <Button x:Name="Button_Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Border CornerRadius="0,0,20,0" Background="#FFFFEEA1"/>
+                <Button x:Name="Button_Delete_Book" Click="Delete_Book" Style="{StaticResource Button_Add}" Content="Удалить" 
                     Width="100" Height="46" Margin="730,4,70,0"/>
-            <Button x:Name="Button_Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
+                <Button x:Name="Button_Checkout_Book" Click=" Checkout_Book" Style="{StaticResource Button_Add}" Content="Заказать" 
                     Width="100" Height="46" Margin="600,4,200,0"/>
-        </Grid>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

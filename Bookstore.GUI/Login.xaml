@@ -123,66 +123,71 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="210"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
+    <Border BorderBrush="#FF004040" BorderThickness="2" CornerRadius="20">
 
-        <Grid Grid.Row="0" >
-            <Grid>
-                <Image x:Name="Picture" Height="80" Source="books2.jpg" Width="250" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
-                    <Image.Clip>
-                        <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
-                    </Image.Clip>
-                </Image>
+        <Grid>
 
-                <Label x:Name="Name_title" Content="Книжный магазин" Margin="0,80,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
-                       FontFamily="AngryBirds" FontSize="22" Width="250" Height="35" Padding="0,0,0,0" HorizontalContentAlignment="Center" >
-                </Label>
 
-                <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="240"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" >
+                <Grid>
+                    <Image x:Name="Picture" Height="81" Width="250" Source="books2.jpg" Visibility="Visible"
+                           Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Image.Clip>
+                            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                        </Image.Clip>
+                    </Image>
+
+                    <Label x:Name="Name_title" Content="Книжный магазин" Margin="0,80,0,0" VerticalAlignment="Top" Background="#FFFFEEA1"
+                       FontFamily="AngryBirds" FontSize="22" Height="35" Padding="0,0,0,0" HorizontalContentAlignment="Center" />
+
+                    <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
                         Click="Window_Log_Close" Width="20" Height="20" Margin="226,6,6,84"/>
+                </Grid>
             </Grid>
-        </Grid>
 
-        <Grid Grid.Row="1" Background="#FF004040"  Width="250" Height="200" Margin="0,0,0,10">
-            <Grid>
-                <TextBox x:Name="Box_user" TextWrapping="Wrap" Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,90,50,70" />
-                <PasswordBox x:Name="Box_pass"  Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="50,150,50,10"/>
-                <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" 
+            <Grid Grid.Row="1" Background="#FF004040" Height="240">
+                <Grid>
+                    <TextBox x:Name="Box_user" TextWrapping="Wrap" Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="51,100,51,110" />
+                    <PasswordBox x:Name="Box_pass"  Width="150" Height="30" FontSize="22" FontFamily="Times New Roman" Margin="51,160,51,50"/>
+                    <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" 
                            Width="150" Foreground="#FFFFEEA0"/>
-                <Label x:Name="UserName" Content="Пользователь" HorizontalAlignment="Left" Margin="45,60,0,0"
+                    <Label x:Name="UserName" Content="Пользователь" HorizontalAlignment="Left" Margin="45,70,0,0"
                            VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="150" Foreground="#FFFFEEA0" FontStyle="Normal" Height="35"/>
-                <Label x:Name="Password" Content="Пароль" HorizontalAlignment="Left" Margin="45,120,0,0"
+                    <Label x:Name="Password" Content="Пароль" HorizontalAlignment="Left" Margin="45,130,0,0"
                        VerticalAlignment="Top" FontFamily="AngryBirds" FontSize="22" Width="120" Foreground="#FFFFEEA0" FontStyle="Normal" Height="36"/>
+                </Grid>
             </Grid>
-        </Grid>
 
-        <Grid Grid.Row="1" Background="#FF004040" Height="90" Width="250" Margin="0,200,0,20" Grid.RowSpan="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="37*"/>
-                <ColumnDefinition Width="13*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="Login" Click="Button_Login_OnClick" Style="{StaticResource Button_log}" Content="Вход" 
+            <Grid Grid.Row="1" Background="#FF004040" Height="90" Margin="0,220,0,0" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Login" Click="Button_Login_OnClick" Style="{StaticResource Button_log}" Content="Вход" 
                     Height="35" Width="80"  Background="#FFFFEEA0" Margin="85,0,20,55" Foreground="#FF004040"
                     FontFamily="Arial" FontSize="22" FontStyle="Italic"/>
 
 
-            <Button x:Name="registry" Click="Button_Registry_OnClick" Content="Регистрация" Style="{StaticResource Button_reg}" 
+                <Button x:Name="registry" Click="Button_Registry_OnClick" Content="Регистрация" Style="{StaticResource Button_reg}" 
                         Height="30" Width="100" Background="#FF004040" 
                         FontFamily="Arial" FontWeight="Bold" FontSize="14" Foreground="#FFFFEEA0" Margin="75,43,10,17"/>
 
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Row="3" Width="250" Height="30">
-            <Border Background="#FFFFEEA0" CornerRadius="0,0,20,20"/>
-        </Grid>
+            <Grid Grid.Row="3" Width="250" Height="30">
+                <Border Background="#FFFFEEA0" CornerRadius="0,0,20,20"/>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </Border>
 </Window>
 
 
