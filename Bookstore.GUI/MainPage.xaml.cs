@@ -102,6 +102,7 @@ namespace Bookstore.GUI
         //Метод для изменения внешнего вида кнопки при выделении
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            //TODO: Добавить изменения стилей
             if ((sender as ToggleButton).Style == (Style)Resources["Button_Book_Press"])
             {
                 (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
