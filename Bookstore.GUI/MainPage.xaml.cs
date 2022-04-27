@@ -25,7 +25,7 @@ namespace Bookstore.GUI
     {
         #region Fields
         private static MainPage Window;
-        public BookstoreDb _db;
+        private BookstoreDb _db;
         private Account _account;
 
         /// <summary>
