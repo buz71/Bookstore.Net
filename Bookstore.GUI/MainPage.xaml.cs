@@ -49,27 +49,6 @@ namespace Bookstore.GUI
         }
         #endregion
         #region Methods
-        public void FillStore(WrapPanel panel)
-        {
-            var store = _db.Stores.ToList();
-            foreach (var item in store)
-            {
-                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
-                panel.Children.Add(bookItem);
-                //ToggleButton button = new ToggleButton();
-                //button.Style = (Style)Resources["Button_Book"];
-                //string content = $"{item.Product.Book.Name}\n" +
-                //                 $"{item.Product.Book.Autor.Name}\n";
-                //button.Content = content;
-                //button.Click += SelectButton_Click;
-                //panel.Children.Add(button);
-            }
-        }
-        //void UpdateStore(BookstoreDB db, WrapPanel panel)
-        //{
-        //    panel.Children.Clear();
-        //    FillStore(db, panel);
-        //} 
 
         // метод позволяет двигать окно мышкой
         private void Drag(object sender, RoutedEventArgs e)
@@ -123,6 +102,7 @@ namespace Bookstore.GUI
         //Метод для изменения внешнего вида кнопки при выделении
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            //TODO: Добавить изменения стилей
             if ((sender as ToggleButton).Style == (Style)Resources["Button_Book_Press"])
             {
                 (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
