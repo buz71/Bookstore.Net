@@ -32,7 +32,25 @@ namespace Bookstore.GUI
         /// <param name="cart"></param>
         public static void AddToBasket(MainPage mainPage, Cart cart)
         {
+            List<BookItem> bookItems = new List<BookItem>();
+            foreach (var item in mainPage.panel.Children)
+            {
+                bookItems.Add(item as BookItem);
+            }
 
+            foreach (var bookItem in bookItems)
+            {
+                if (bookItem.IsChecked==true)
+                {
+                    bookItem.IsChecked = false;
+                    //TODO: Добавить изменение стиля
+                    //bookItem.Style = 
+                    CartItem cartItem = new CartItem();
+                    //TODO: Добавить метод копирования полей из BookItem в CartItem
+                    //
+                    cart.StackPanel_Basket.Children.Add(cartItem);
+                }
+            }
         }
         /// <summary>
         /// Метод для создания заказа
