@@ -99,17 +99,22 @@ namespace Bookstore.GUI
             Close();
         }
 
-        //Метод для изменения внешнего вида кнопки при выделении
+        /// <summary>
+        /// Метод для изменения внешнего вида кнопки при выделении
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Добавить изменения стилей
-            if ((sender as ToggleButton).Style == (Style)Resources["Button_Book_Press"])
+            if ((sender as BookItem).IsChecked==false)
             {
-                (sender as ToggleButton).Style = (Style)Resources["Button_Book"];
+                (sender as BookItem).Border_BookItem.BorderBrush=new SolidColorBrush(Colors.Red);
+                (sender as BookItem).IsChecked=true;
             }
             else
             {
-                (sender as ToggleButton).Style = (Style)Resources["Button_Book_Press"];
+                (sender as BookItem).Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                (sender as BookItem).IsChecked = false;
             }
         }
 

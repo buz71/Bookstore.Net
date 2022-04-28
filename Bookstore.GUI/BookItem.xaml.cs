@@ -65,10 +65,33 @@ namespace Bookstore.GUI
             Tag = tag;
             FillTextBox();
         }
+
         public BookItem()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод для выделения книги при нажатии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Border_BookItem_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                if (IsChecked == false)
+                {
+                    Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Red);
+                    IsChecked = true;
+                }
+                else
+                {
+                    Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                    IsChecked = false;
+                }
+            }
+
+        }
     }
 }
