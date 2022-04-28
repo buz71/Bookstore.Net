@@ -8,7 +8,7 @@ namespace Bookstore.xUnitTest
         [Fact]
         public void Test1()
         {
-
+            var expected = new CardIem;
         }
     }
 }
