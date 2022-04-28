@@ -40,7 +40,7 @@ namespace Bookstrore.MControl.Model
 
         }
 
-        private void SendMessage(string theme,string message)
+        public void SendMessage(string theme,string message)
         {
             ConfigSMTPClient();
             ConfigMessage(theme,message);
