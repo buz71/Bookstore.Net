@@ -77,7 +77,6 @@ namespace Bookstore.GUI
             {
                 bookItems.Add(item as BookItem);
             }
-
             foreach (var item in bookItems)
             {
                 if (item.IsChecked==true)
