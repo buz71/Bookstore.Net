@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bookstrore.MControl.Control;
 
 namespace Bookstore.GUI
 {
@@ -48,6 +49,7 @@ namespace Bookstore.GUI
             }
             orderString += $"\n Сумма Вашего заказа: {orderSum}";
             MainPage.smtp.SendMessage("Заказ BookStore.NET", orderString);
+            Logger.WriteLog(MainPage.Account.Name,"Оформлен заказ");
         }
 
         public Cart()
