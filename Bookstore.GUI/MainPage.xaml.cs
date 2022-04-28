@@ -72,21 +72,20 @@ namespace Bookstore.GUI
         /// <param name="e"></param>
         private void Add_Book_Cart(object sender, RoutedEventArgs e)
         {
-            List<ToggleButton> buttonList = new List<ToggleButton>();
+            List<BookItem> bookItems = new List<BookItem>();
             foreach (var item in panel.Children)
             {
-                buttonList.Add(item as ToggleButton);
+                bookItems.Add(item as BookItem);
             }
 
-            foreach (var item in buttonList)
+            foreach (var item in bookItems)
             {
                 if (item.IsChecked==true)
                 {
                     item.IsChecked = false;
-                    item.Style = (Style)Resources["Button_Book"];
-                    ToggleButton basketItem = new ToggleButton();
-                    basketItem.Content = item.Content;
-                    basket.StackPanel_Basket.Children.Add(basketItem);
+                    item.Border_BookItem.BorderBrush=new SolidColorBrush(Colors.Black);
+                    CartItem cartItem =new CartItem();
+                    basket.StackPanel_Basket.Children.Add(cartItem);
                 }
             }
 
