@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for CartItem.xaml
+    /// Interaction logic for Border_CartItem.xaml
     /// </summary>
     public partial class CartItem : UserControl
     {
