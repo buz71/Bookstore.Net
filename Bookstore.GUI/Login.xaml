@@ -10,7 +10,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         MouseDown="Drag"
-        Title="Bookstore">
+        Title="Bookstore"
+        Background="Transparent">
 
     <Window.Resources>
         <!-- стиль кнопки "Вход"-->

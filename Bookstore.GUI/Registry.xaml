@@ -10,7 +10,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         MouseDown="Drag"
-        Title="Registr">
+        Title="Registr"
+        Background="Transparent">
 
     <Window.Resources>
         <Style x:Key="Button_save" TargetType="Button">
