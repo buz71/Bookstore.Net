@@ -83,7 +83,7 @@ namespace Bookstore.GUI
                 {
                     item.IsChecked = false;
                     item.Border_BookItem.BorderBrush=new SolidColorBrush(Colors.Black);
-                    CartItem cartItem =new CartItem();
+                    CartItem cartItem =new CartItem(item.Name,item.Author,item.Year,item.Price,item.Quantity,item.Action,item.Tag);
                     basket.StackPanel_Basket.Children.Add(cartItem);
                 }
             }
