@@ -11,7 +11,8 @@
         AllowsTransparency="True"
         WindowStyle="None"
         MouseDown="Drag"
-        Title="MainPage" >
+        Title="MainPage"
+        Background="Transparent">
 
     <Window.Resources>
         <!-- Стиль зеленой кнопки -->
