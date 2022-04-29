@@ -46,7 +46,7 @@ namespace Bookstore.GUI
                     //TODO: Добавить изменение стиля
                     //bookItem.Style = 
                     CartItem cartItem = new CartItem();
-                    //TODO: Добавить метод копирования полей из BookItem в CartItem
+                    //TODO: Добавить метод копирования полей из BookItem в Border_CartItem
                     //
                     cart.StackPanel_Basket.Children.Add(cartItem);
                 }

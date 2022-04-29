@@ -27,7 +27,7 @@
         </Style>
     </UserControl.Resources>
     
-    <Border x:Name="CartItem" BorderBrush="Black" BorderThickness="0.5" Background="#FF004040">
+    <Border x:Name="Border_CartItem" BorderBrush="Black" BorderThickness="0.5" Background="#FF004040">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
