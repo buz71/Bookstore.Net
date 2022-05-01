@@ -20,6 +20,7 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class CartItem : UserControl
     {
+        public bool IsChecked { get; set; }
         public string BookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
@@ -31,6 +32,7 @@ namespace Bookstore.GUI
         public CartItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
             InitializeComponent();
+            IsChecked = false;
             BookName = bookName;
             Author = author;
             Year = year;
@@ -47,6 +49,23 @@ namespace Bookstore.GUI
         public CartItem()
         {
             InitializeComponent();
+        }
+
+        private void Border_CartItem_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton==MouseButton.Left)
+            {
+                if (IsChecked==false)
+                {
+                    Border_CartItem.BorderBrush = new SolidColorBrush(Colors.Red);
+                    IsChecked = true;
+                }
+                else
+                {
+                    Border_CartItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                    IsChecked = false;
+                }
+            }
         }
     }
 }
