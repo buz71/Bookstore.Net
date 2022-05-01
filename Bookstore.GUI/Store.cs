@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using Bookstore.MControl;
 
 namespace Bookstore.GUI
@@ -37,18 +38,16 @@ namespace Bookstore.GUI
             {
                 bookItems.Add(item as BookItem);
             }
-
-            foreach (var bookItem in bookItems)
+            foreach (var item in bookItems)
             {
-                if (bookItem.IsChecked==true)
+                if (item.IsChecked == true)
                 {
-                    bookItem.IsChecked = false;
-                    //TODO: Добавить изменение стиля
-                    //bookItem.Style = 
-                    CartItem cartItem = new CartItem();
-                    //TODO: Добавить метод копирования полей из BookItem в Border_CartItem
-                    //
+                    item.IsChecked = false;
+                    item.Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                    CartItem cartItem = new CartItem(item.BookBookName, item.Author, item.Year, item.Price, item.Quantity, item.Action, item.Tag);
+                    //TODO: Добавить заполнение текстовых полей
                     cart.StackPanel_Basket.Children.Add(cartItem);
+                    
                 }
             }
         }

@@ -44,7 +44,7 @@ namespace Bookstore.GUI
             //2. Формируем сообщение заказа
             foreach (var item in cartItems)
             {
-                orderString += $"\nКнига:{item.bookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
+                orderString += $"\nКнига:{item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
                 orderSum += item.Price;
             }
             orderString += $"\n Сумма Вашего заказа: {orderSum}";
