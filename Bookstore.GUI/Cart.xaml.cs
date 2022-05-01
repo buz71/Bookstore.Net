@@ -77,7 +77,19 @@ namespace Bookstore.GUI
         //удаление книги из корзины
         private void Delete_Book(object sender, RoutedEventArgs e)
         {
+            List<CartItem> cartItems = new List<CartItem>();
+            foreach (CartItem cartItem in StackPanel_Basket.Children)
+            {
+                if (cartItem.IsChecked==true)
+                {
+                    cartItems.Add(cartItem);
+                }
+            }
 
+            foreach (CartItem cartItem in cartItems)
+            {
+                StackPanel_Basket.Children.Remove(cartItem);
+            }
         }
 
         /// <summary>
