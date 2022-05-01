@@ -27,6 +27,7 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
             Window = this;
+            AllowsTransparency = true;           //прозрачность фона windows
         }
 
         private void Button_Login_OnClick(object sender, RoutedEventArgs e)

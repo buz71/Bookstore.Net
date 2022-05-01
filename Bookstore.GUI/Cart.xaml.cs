@@ -27,6 +27,7 @@ namespace Bookstore.GUI
         public MainPage MainPage;
         public static Cart Window;
 
+
         /// <summary>
         /// Метод оформления заказа
         /// </summary>
@@ -56,6 +57,7 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
             Window = this;
+            AllowsTransparency = true;      //прозрачность фона windows
         }
 
 

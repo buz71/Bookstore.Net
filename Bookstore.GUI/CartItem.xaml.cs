@@ -44,6 +44,7 @@ namespace Bookstore.GUI
             Field_Book.Text=bookName;
             Field_Price.Text = price.ToString();
             Field_Quntity.Text = "1";
+            Field_Total.Text = price.ToString();
         }
 
         public CartItem()

@@ -139,10 +139,10 @@
 
             <Grid Grid.Row="0" >
                 <Grid>
-                    <Image x:Name="Picture" Height="81" Width="250" Source="books2.jpg" Visibility="Visible"
+                    <Image x:Name="Picture" Height="81" Width="252" Source="books2.jpg" Visibility="Visible"
                            Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <Image.Clip>
-                            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
+                            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,252,200"/>
                         </Image.Clip>
                     </Image>
 
@@ -183,7 +183,7 @@
 
             </Grid>
 
-            <Grid Grid.Row="3" Width="250" Height="30">
+            <Grid Grid.Row="3" Width="252" Height="30">
                 <Border Background="#FFFFEEA0" CornerRadius="0,0,20,20"/>
             </Grid>
 
