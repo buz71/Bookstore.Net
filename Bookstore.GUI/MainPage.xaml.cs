@@ -72,23 +72,7 @@ namespace Bookstore.GUI
         /// <param name="e"></param>
         private void Add_Book_Cart(object sender, RoutedEventArgs e)
         {
-            List<BookItem> bookItems = new List<BookItem>();
-            foreach (var item in panel.Children)
-            {
-                bookItems.Add(item as BookItem);
-            }
-            foreach (var item in bookItems)
-            {
-                if (item.IsChecked==true)
-                {
-                    item.IsChecked = false;
-                    item.Border_BookItem.BorderBrush=new SolidColorBrush(Colors.Black);
-                    CartItem cartItem=new CartItem(item.Name,item.Author,item.Year,item.Price,item.Quantity,item.Action,item.Tag);
-                    //TODO: Добавить заполнение текстовых полей
-                    basket.StackPanel_Basket.Children.Add(cartItem);
-                }
-            }
-
+            Store.AddToBasket(this,basket);
         }
 
         private void LogOff_Click(object sender, RoutedEventArgs e)
