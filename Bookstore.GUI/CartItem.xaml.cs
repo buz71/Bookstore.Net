@@ -20,7 +20,7 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class CartItem : UserControl
     {
-        public string bookName { get; set; }
+        public string BookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
         public double Price { get; set; }
@@ -28,16 +28,20 @@ namespace Bookstore.GUI
         public int Action { get; set; }
         public int Tag { get; set; }
 
-        public CartItem(string name, string author, int year, double price, int quantity, int action, int tag)
+        public CartItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
-            bookName = name;
+            InitializeComponent();
+            BookName = bookName;
             Author = author;
             Year = year;
             Price = price;
             Quantity = quantity;
             Action = action;
             Tag = tag;
-            InitializeComponent();
+            Field_Author.Text = author;
+            Field_Book.Text=bookName;
+            Field_Price.Text = price.ToString();
+            Field_Quntity.Text = "1";
         }
 
         public CartItem()

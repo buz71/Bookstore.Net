@@ -23,7 +23,7 @@ namespace Bookstore.GUI
     public partial class BookItem : UserControl
     {
         public bool IsChecked { get; set; }
-        public string bookName { get; set; }
+        public string BookBookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
         public double Price { get; set; }
@@ -37,7 +37,7 @@ namespace Bookstore.GUI
         private void FillTextBox()
         {
             IsChecked = false;
-            Field_Book.Text = bookName;
+            Field_Book.Text = BookBookName;
             Field_Author.Text = Author;
             Field_Price.Text = Price.ToString();
             Field_Quntity.Text = Quantity.ToString();
@@ -46,17 +46,17 @@ namespace Bookstore.GUI
         /// <summary>
         /// Конструктор с параметрами
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="author"></param>
-        /// <param name="year"></param>
-        /// <param name="price"></param>
-        /// <param name="quantity"></param>
-        /// <param name="action"></param>
-        /// <param name="tag"></param>
-        public BookItem(string name, string author, int year, double price, int quantity, int action, int tag)
+        /// <param bookName="bookName"></param>
+        /// <param bookName="author"></param>
+        /// <param bookName="year"></param>
+        /// <param bookName="price"></param>
+        /// <param bookName="quantity"></param>
+        /// <param bookName="action"></param>
+        /// <param bookName="tag"></param>
+        public BookItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
             InitializeComponent();
-            bookName = name;
+            BookBookName = bookName;
             Author = author;
             Year = year;
             Price = price;
@@ -74,8 +74,8 @@ namespace Bookstore.GUI
         /// <summary>
         /// Метод для выделения книги при нажатии
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param bookName="sender"></param>
+        /// <param bookName="e"></param>
         private void Border_BookItem_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
