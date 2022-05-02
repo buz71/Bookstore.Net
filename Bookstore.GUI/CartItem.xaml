@@ -5,58 +5,78 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bookstore.GUI"
            mc:Ignorable="d" 
-             Width="400"
-             Height="30"
+             Width="820"
+             Height="40"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch" Margin="2">
-    
+
     <UserControl.Resources>
-        <Style x:Key="TextBlock_Book" TargetType="TextBox">
-            <Setter Property="BorderBrush" Value="#FF004040"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Height" Value="29"/>
+        <Style x:Key="TextBox_Book" TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
             <Setter Property="Background" Value="#FFFFEEA1"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+        </Style>
+
+        <Style x:Key="TextBlock_Book" TargetType="TextBlock">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Background" Value="#FFFFEEA1"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+            
         </Style>
     </UserControl.Resources>
-    
-    <Border x:Name="Border_CartItem" BorderBrush="Black" BorderThickness="4" Background="#FF004040" MouseDown="Border_CartItem_OnMouseDown">
+
+    <Border x:Name="Border_CartItem" BorderBrush="#FF004040" BorderThickness="6" Background="#FF004040" MouseDown="Border_CartItem_OnMouseDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" >
-                <TextBox x:Name="Field_No" Style="{StaticResource TextBlock_Book}" Width="39" Margin="1,0,0,0" />
+                <TextBlock x:Name="Field_No" Style="{StaticResource TextBlock_Book}" 
+                           Padding="3" Width="39"/>
             </Grid>
-            
+
             <Grid Grid.Column="1">
-                <TextBox x:Name="Field_Author" Style="{StaticResource TextBlock_Book}" Width="89"/>
+                <TextBlock x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"
+                           Padding="3" Width="224"/>
             </Grid>
-            
+
             <Grid Grid.Column="2">
-                <TextBox x:Name="Field_Book" Style="{StaticResource TextBlock_Book}" Width="89"/>
+                <TextBlock x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"
+                           Padding="3" Width="224"/>
             </Grid>
-            
+
             <Grid Grid.Column="3">
-                <TextBox x:Name="Field_Price" Style="{StaticResource TextBlock_Book}" Width="89"/>
+                <TextBlock x:Name="Field_Price" Style="{StaticResource TextBlock_Book}"
+                           Padding="3" Width="109"/>
             </Grid>
-            
+
             <Grid Grid.Column="4">
-                <TextBox x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}" Width="88" Margin="0,0,2,0"/>
+                <TextBox x:Name="Field_Quntity" Style="{StaticResource TextBox_Book}"
+                         Padding="2" Width="109"/>
             </Grid>
-        
+
+            <Grid Grid.Column="5">
+                <TextBox x:Name="Field_Total" Style="{StaticResource TextBox_Book}"
+                         Padding="2" Width="109"/>
+            </Grid>
+
         </Grid>
     </Border>
 </UserControl>
