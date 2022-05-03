@@ -78,6 +78,20 @@
             <Setter Property="Height" Value="30"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
+
+        <Style x:Key="Stack_Sum" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFFFEEA0"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
     </Window.Resources>
 
     <Border BorderBrush="#FF004040" BorderThickness="2" CornerRadius="20">
@@ -121,7 +135,7 @@
 
             <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
                 <StackPanel Orientation="Horizontal" Margin="25, 0, 40, 10" VerticalAlignment="Top">
-                    <TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="41" Padding="0,5,0,0"/>
+                    <TextBlock x:Name="Number" Text="№" Style="{StaticResource Stack_Text}" Width="42" Padding="0,5,0,0"/>
                     <TextBlock x:Name="Author" Text="Автор" Style="{StaticResource Stack_Text}" Width="224" Padding="0,5,0,0"/>
                     <TextBlock x:Name="Book_Name" Text="Название книги" Style="{StaticResource Stack_Text}" Width="223" Padding="0,5,0,0"/>
                     <TextBlock x:Name="Price" Text="Цена" Style="{StaticResource Stack_Text}" Width="108" Padding="0,5,0,0"/>
@@ -130,6 +144,13 @@
                 </StackPanel>
 
                 <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10, 40, 40, 10"/>
+
+                <StackPanel VerticalAlignment="Bottom" Height="50">
+                    <Border BorderBrush="#FF004040" BorderThickness="4"  Width="120" Height="46"
+                            Margin="0,0,58,0"  HorizontalAlignment="Right">
+                        <TextBlock x:Name="Total_Sum" Style="{StaticResource Stack_Sum}" HorizontalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="1">

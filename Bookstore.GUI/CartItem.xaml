@@ -69,12 +69,12 @@
 
             <Grid Grid.Column="4">
                 <TextBox x:Name="Field_Quntity" Style="{StaticResource TextBox_Book}"
-                         Padding="2" Width="109"/>
+                         Padding="2" Width="109" Margin="0,-1,0,-9"/>
             </Grid>
 
             <Grid Grid.Column="5">
-                <TextBox x:Name="Field_Total" Style="{StaticResource TextBox_Book}"
-                         Padding="2" Width="109"/>
+                <TextBlock x:Name="Field_Total" Style="{StaticResource TextBlock_Book}"
+                         Padding="3" Width="109"/>
             </Grid>
 
         </Grid>
