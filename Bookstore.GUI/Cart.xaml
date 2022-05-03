@@ -148,7 +148,7 @@
                 <StackPanel VerticalAlignment="Bottom" Height="50">
                     <Border BorderBrush="#FF004040" BorderThickness="4"  Width="120" Height="46"
                             Margin="0,0,58,0"  HorizontalAlignment="Right">
-                        <TextBlock x:Name="Total_Sum" Style="{StaticResource Stack_Sum}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="TextBlock_Total_Sum" Style="{StaticResource Stack_Sum}" HorizontalAlignment="Center"/>
                     </Border>
                 </StackPanel>
             </Grid>

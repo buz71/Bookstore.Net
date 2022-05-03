@@ -26,6 +26,7 @@ namespace Bookstore.GUI
         /// </summary>
         public MainPage MainPage;
         public static Cart Window;
+        public double TotalSum { get; set; }
 
 
         /// <summary>
@@ -33,6 +34,8 @@ namespace Bookstore.GUI
         /// </summary>
         public void CreateOrder()
         {
+            //TODO:Переместить метод в класс STORE
+
             // 1.Сначала создаем список из элементов в StackPanel
             List<CartItem> cartItems = new List<CartItem>();
             foreach (var item in StackPanel_Basket.Children)
@@ -56,6 +59,7 @@ namespace Bookstore.GUI
         public Cart()
         {
             InitializeComponent();
+            TotalSum = 0;
             Window = this;
             AllowsTransparency = true;      //прозрачность фона windows
         }
@@ -92,6 +96,8 @@ namespace Bookstore.GUI
             {
                 StackPanel_Basket.Children.Remove(cartItem);
             }
+
+            Store.SetTotalSum(this);
         }
 
         /// <summary>
