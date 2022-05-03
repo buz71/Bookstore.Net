@@ -46,9 +46,9 @@ namespace Bookstore.GUI
                     item.Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
                     CartItem cartItem = new CartItem(item.BookBookName, item.Author, item.Year, item.Price, item.Quantity, item.Action, item.Tag);
                     cart.StackPanel_Basket.Children.Add(cartItem);
-                    
                 }
             }
+            SetTotalSum(cart);
         }
         /// <summary>
         /// Метод для создания заказа
@@ -68,5 +68,18 @@ namespace Bookstore.GUI
             return 0;
         }
 
+        /// <summary>
+        /// Метод для расчета суммы заказа
+        /// </summary>
+        /// <param name="cart"></param>
+        public static void SetTotalSum(Cart cart)
+        {
+            cart.TotalSum = 0;
+            foreach (CartItem item in cart.StackPanel_Basket.Children)
+            {
+                cart.TotalSum += item.Price;
+            }
+            cart.TextBlock_Total_Sum.Text= cart.TotalSum.ToString();
+        }
     }
 }
