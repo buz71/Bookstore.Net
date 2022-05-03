@@ -63,7 +63,7 @@ namespace Bookstore.GUI
                 }
                 else
                 {
-                    Border_CartItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                    Border_CartItem.BorderBrush = new SolidColorBrush(Color.FromArgb(255,0,64,64));
                     IsChecked = false;
                 }
             }
