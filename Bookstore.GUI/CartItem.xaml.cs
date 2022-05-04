@@ -31,6 +31,7 @@ namespace Bookstore.GUI
 
         public CartItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
+            //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
             IsChecked = false;
             BookName = bookName;
@@ -66,6 +67,17 @@ namespace Bookstore.GUI
                     Border_CartItem.BorderBrush = new SolidColorBrush(Color.FromArgb(255,0,64,64));
                     IsChecked = false;
                 }
+            }
+        }
+
+//TODO: Неработающий метод
+        private void Field_Quntity_OnTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int oldQuant=Int32.Parse(Field_Quntity.Text);
+            if (Quantity<oldQuant)
+            {
+                MessageBox.Show("Ошибка", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
         }
     }
