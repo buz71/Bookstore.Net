@@ -19,7 +19,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for mainPage.xaml
     /// </summary>
     public partial class MainPage : Window
     {

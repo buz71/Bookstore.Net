@@ -24,37 +24,9 @@ namespace Bookstore.GUI
         /// <summary>
         /// Переменная для хранения ссылки на окно, из которого мы получаем данные для корзины
         /// </summary>
-        public MainPage MainPage;
+        public MainPage mainPage;
         public static Cart Window;
         public double TotalSum { get; set; }
-
-
-        /// <summary>
-        /// Метод оформления заказа
-        /// </summary>
-        public void CreateOrder()
-        {
-            //TODO:Переместить метод в класс STORE
-
-            // 1.Сначала создаем список из элементов в StackPanel
-            List<CartItem> cartItems = new List<CartItem>();
-            foreach (var item in StackPanel_Basket.Children)
-            {
-                cartItems.Add(item as CartItem);
-            }
-            double orderSum = 0;
-            string orderString = "Ваш заказ:";
-
-            //2. Формируем сообщение заказа
-            foreach (var item in cartItems)
-            {
-                orderString += $"\nКнига:{item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
-                orderSum += item.Price;
-            }
-            orderString += $"\n Сумма Вашего заказа: {orderSum}";
-            MainPage.smtp.SendMessage("Заказ BookStore.NET", orderString);
-            Logger.WriteLog(MainPage.Account.Name,"Оформлен заказ");
-        }
 
         public Cart()
         {
@@ -109,7 +81,9 @@ namespace Bookstore.GUI
         {
             try
             {
-                CreateOrder();
+                Store.CreateOrder(mainPage,this);
+                Store.SetTotalSum(this);
+                MessageBox.Show("Ваш заказ успешно оформлен", "Оформление заказа", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
