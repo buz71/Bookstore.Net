@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Bookstore.MControl;
+using Bookstrore.MControl.Control;
 
 namespace Bookstore.GUI
 {
@@ -54,9 +55,26 @@ namespace Bookstore.GUI
         /// Метод для создания заказа
         /// </summary>
         /// <param name="cart"></param>
-        public static void CreateOrder(Cart cart)
+        public static void CreateOrder(MainPage mainPage, Cart cart)
         {
+            List<CartItem> cartItems = new List<CartItem>();
+            foreach (var item in cart.StackPanel_Basket.Children)
+            {
+                cartItems.Add(item as CartItem);
+            }
+            double orderSum = 0;
+            string orderString = "Ваш заказ:";
 
+            //2. Формируем сообщение заказа
+            foreach (var item in cartItems)
+            {
+                orderString += $"\nКнига:{item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
+                orderSum += item.Price;
+            }
+            orderString += $"\n Сумма Вашего заказа: {orderSum}";
+            mainPage.smtp.SendMessage("Заказ BookStore.NET", orderString);
+            cart.StackPanel_Basket.Children.Clear();
+            Logger.WriteLog(mainPage.Account.Name, "Оформлен заказ");
         }
         /// <summary>
         /// Метод для проверки количества доступного для покупки товара
