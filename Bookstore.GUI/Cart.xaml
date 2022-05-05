@@ -88,9 +88,10 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="FontFamily" Value="Times New Roman"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FFF50D0D"/>
         </Style>
     </Window.Resources>
 
@@ -130,7 +131,7 @@
                         Click="Window_Cart_Close" Width="20" Height="20" Margin="874,10,6,70"/>
 
                 <Label x:Name="Name_title" Content="Корзина покупок" Margin="50,0,85,0" VerticalAlignment="Center" Background="#FFFFEEA1"
-                       FontFamily="AngryBirds" FontSize="50" Height="60" Padding="0,0,0,0" HorizontalContentAlignment="Center" Width="400" />
+                       FontFamily="AngryBirds" FontSize="50" Height="60" HorizontalContentAlignment="Center" Width="400" />
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFEEA1">
@@ -143,14 +144,18 @@
                     <TextBlock x:Name="Total" Text="Итого" Style="{StaticResource Stack_Text}" Width="104" Padding="0,5,0,0"/>
                 </StackPanel>
 
-                <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10, 40, 40, 10"/>
+                <StackPanel x:Name="StackPanel_Basket" Orientation="Vertical" Margin="10, 40, 0, 10"/>
 
-                <StackPanel VerticalAlignment="Bottom" Height="50">
+                <StackPanel VerticalAlignment="Bottom" Height="50" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="Итоговая сумма:" FontSize="20" Foreground="#FF004040" FontWeight="Bold" Padding="0,10,20,0"/>
                     <Border BorderBrush="#FF004040" BorderThickness="4"  Width="120" Height="46"
                             Margin="0,0,58,0"  HorizontalAlignment="Right">
-                        <TextBlock x:Name="TextBlock_Total_Sum" Style="{StaticResource Stack_Sum}" HorizontalAlignment="Center"/>
+                       
+                        <TextBlock x:Name="TextBlock_Total_Sum" Style="{StaticResource Stack_Sum}" HorizontalAlignment="Center"
+                                   Margin="0,7,0,0" VerticalAlignment="Top" />
                     </Border>
                 </StackPanel>
+
             </Grid>
 
             <Grid Grid.Row="2" Grid.Column="1">
