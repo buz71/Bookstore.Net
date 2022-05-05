@@ -55,7 +55,7 @@ namespace Bookstore.GUI
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Пользователь уже зарегистрирован", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

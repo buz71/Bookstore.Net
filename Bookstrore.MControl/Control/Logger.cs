@@ -11,8 +11,7 @@ namespace Bookstrore.MControl.Control
     {
         private static void CreateFile(string accName)
         {
-            using StreamWriter writer = new StreamWriter($"{accName}.txt", true);
-            writer.WriteLine($"{DateTime.Now}==> Аккаунт зарегистрирован");
+            File.Create($"{accName}.txt");
         }
 
         private static bool CheckFile(string fileName)
