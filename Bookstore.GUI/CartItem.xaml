@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bookstore.GUI"
            mc:Ignorable="d" 
-             Width="820"
+             Width="870"
              Height="40"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch" Margin="2">
@@ -32,51 +32,66 @@
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
-            
+
         </Style>
     </UserControl.Resources>
-
-    <Border x:Name="Border_CartItem" BorderBrush="#FF004040" BorderThickness="6" Background="#FF004040" MouseDown="Border_CartItem_OnMouseDown">
+    <StackPanel Orientation="Horizontal">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="225"/>
-                <ColumnDefinition Width="225"/>
-                <ColumnDefinition Width="110"/>
-                <ColumnDefinition Width="110"/>
-                <ColumnDefinition Width="110"/>
-            </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Border_CartItem" BorderBrush="#FF004040" BorderThickness="6"
+                    Background="#FF004040" MouseDown="Border_CartItem_OnMouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="225"/>
+                        <ColumnDefinition Width="225"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                    </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" >
-                <TextBlock x:Name="Field_No" Style="{StaticResource TextBlock_Book}" 
+                    <Grid Grid.Column="0" >
+                        <TextBlock x:Name="Field_No" Style="{StaticResource TextBlock_Book}" 
                            Padding="3" Width="39"/>
-            </Grid>
+                    </Grid>
 
-            <Grid Grid.Column="1">
-                <TextBlock x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"
+                    <Grid Grid.Column="1">
+                        <TextBlock x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"
                            Padding="3" Width="224"/>
-            </Grid>
+                    </Grid>
 
-            <Grid Grid.Column="2">
-                <TextBlock x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"
+                    <Grid Grid.Column="2">
+                        <TextBlock x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"
                            Padding="3" Width="224"/>
-            </Grid>
+                    </Grid>
 
-            <Grid Grid.Column="3">
-                <TextBlock x:Name="Field_Price" Style="{StaticResource TextBlock_Book}"
+                    <Grid Grid.Column="3">
+                        <TextBlock x:Name="Field_Price" Style="{StaticResource TextBlock_Book}"
                            Padding="3" Width="109"/>
-            </Grid>
+                    </Grid>
 
-            <Grid Grid.Column="4">
-                <TextBox x:Name="Field_Quntity" Style="{StaticResource TextBox_Book}" TextInput="Field_Quntity_OnTextInput"
-                         Padding="2" Width="109" Margin="0,-1,0,-9"/>
-            </Grid>
+                    <Grid Grid.Column="4">
+                        <TextBlock x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}" TextInput="Field_Quntity_OnTextInput"
+                         Padding="3" Width="109" />
+                    </Grid>
 
-            <Grid Grid.Column="5">
-                <TextBlock x:Name="Field_Total" Style="{StaticResource TextBlock_Book}"
+                    <Grid Grid.Column="5">
+                        <TextBlock x:Name="Field_Total" Style="{StaticResource TextBlock_Book}"
                          Padding="3" Width="109"/>
-            </Grid>
+                    </Grid>
+
+                </Grid>
+            </Border>
 
         </Grid>
-    </Border>
+        
+       
+            <StackPanel VerticalAlignment="Center" Margin="10,0,0,0" >
+                <Button Width="20" Height="17" FontSize="20" Content="+" Foreground="Green"
+                        VerticalContentAlignment="Top" Padding="-8" Margin="1"/>
+            <Button Width="20" Height="17" FontSize="22" Content="-" Foreground="Red"
+                    VerticalContentAlignment="Top" Padding="-9" Margin="1"/>
+            </StackPanel>
+        
+    </StackPanel>
 </UserControl>
