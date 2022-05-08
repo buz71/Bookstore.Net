@@ -19,9 +19,26 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class Persona : Window
     {
+        public static Persona Window;
         public Persona()
         {
             InitializeComponent();
+            Window = this;
+            AllowsTransparency = true;           //прозрачность фона windows
+        }
+        // метод позволяет двигать окно мышкой
+        private void Drag(object sender, RoutedEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                MainWindow.Window.DragMove();
+            }
+        }
+
+        //метод позволяет закрыть окно "крестиком"
+        private void Window_Log_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

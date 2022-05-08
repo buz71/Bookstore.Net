@@ -12,6 +12,10 @@
     <None Remove="books3.jpg" />
     <None Remove="one_book.jpg" />
     <None Remove="press_book.jpg" />
+    <None Remove="Ист_заказов.bmp" />
+    <None Remove="Контакты.bmp" />
+    <None Remove="Корзина.bmp" />
+    <None Remove="Лич_данные.bmp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +31,10 @@
     <Resource Include="books3.jpg" />
     <Resource Include="one_book.jpg" />
     <Resource Include="press_book.jpg" />
+    <Resource Include="Ист_заказов.bmp" />
+    <Resource Include="Контакты.bmp" />
+    <Resource Include="Корзина.bmp" />
+    <Resource Include="Лич_данные.bmp" />
   </ItemGroup>
 
 </Project>
