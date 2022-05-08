@@ -21,7 +21,7 @@
             <Setter Property="Visibility" Value="Visible"/>
             <Setter Property="Stretch" Value="Fill"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Margin" Value="10,10,10,0"/>
+
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
@@ -58,7 +58,7 @@
             <Grid Grid.Row="0" Grid.Column="1">
                 <Border CornerRadius="0,20,0,0" Background="#FFFFEEA1"/>
                 <Button Content="X" Background="#FF004040" Foreground="#FFFFEEA0" FontWeight="Bold"
-                        Click="Window_Cart_Close" Width="20" Height="20" Margin="720,10,10,70"/>
+                        Click="Window_Persona_Close" Width="20" Height="20" Margin="720,10,10,70"/>
                 <TextBlock Text="Личный кабинет"  Margin="210,0,140,0" VerticalAlignment="Center"
                        FontFamily="AngryBirds" FontSize="50" Height="60" Width="400"/>
             </Grid>
@@ -67,38 +67,55 @@
                 <Border CornerRadius="0,0,20,0" Background="#FFFFEEA1"/>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Image x:Name="History" Source="/Ист_заказов.bmp" Style="{StaticResource Image}" >
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
-                        <Image x:Name="Action" Source="/Тек_заказ.bmp" Style="{StaticResource Image}">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
-                        <Image x:Name="Cart" Source="/Корзина.bmp" Style="{StaticResource Image}">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="History" Source="/Ист_заказов.bmp" Style="{StaticResource Image}" >
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
+
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="Action" Source="/Тек_заказ.bmp" Style="{StaticResource Image}">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
+
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="Cart" Source="/Корзина.bmp" Style="{StaticResource Image}">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
                     </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal">
-                        <Image x:Name="Personal" Source="/Лич_данные.bmp" Style="{StaticResource Image}">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
-                        <Image x:Name="Account" Source="/Лич_счет.bmp" Style="{StaticResource Image}">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
-                        <Image x:Name="Contact" Source="/Контакты.bmp" Style="{StaticResource Image}">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
-                            </Image.Clip>
-                        </Image>
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="Personal" Source="/Лич_данные.bmp" Style="{StaticResource Image}">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
+
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="Account" Source="/Лич_счет.bmp" Style="{StaticResource Image}">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
+
+                        <Button Margin="8" Background="Transparent">
+                            <Image x:Name="Contact" Source="/Контакты.bmp" Style="{StaticResource Image}">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
+                                </Image.Clip>
+                            </Image>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </Grid>

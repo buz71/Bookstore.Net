@@ -16,6 +16,8 @@
     <None Remove="Контакты.bmp" />
     <None Remove="Корзина.bmp" />
     <None Remove="Лич_данные.bmp" />
+    <None Remove="Лич_счет.bmp" />
+    <None Remove="Тек_заказ.bmp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,8 @@
     <Resource Include="Контакты.bmp" />
     <Resource Include="Корзина.bmp" />
     <Resource Include="Лич_данные.bmp" />
+    <Resource Include="Лич_счет.bmp" />
+    <Resource Include="Тек_заказ.bmp" />
   </ItemGroup>
 
 </Project>

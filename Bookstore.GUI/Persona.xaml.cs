@@ -31,12 +31,12 @@ namespace Bookstore.GUI
         {
             if (Mouse.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Window.DragMove();
+                Persona.Window.DragMove();
             }
         }
 
         //метод позволяет закрыть окно "крестиком"
-        private void Window_Log_Close(object sender, RoutedEventArgs e)
+        private void Window_Persona_Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
