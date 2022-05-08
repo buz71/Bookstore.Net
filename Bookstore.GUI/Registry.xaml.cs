@@ -50,12 +50,11 @@ namespace Bookstore.GUI
                 MessageBox.Show("Вы успешно зарегистрированы", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
                 SMTP.SendMessage(mail, "Регистрация в Bookstore.NET", "Спасибо за регистрацию в книжном магазине Bookstore.NET");
                 Logger.CreateLog(login);
-                Logger.WriteLog($"{login}.txt", "Пользователь зарегистрирован");
                 RegWindow.Close();
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Пользователь уже зарегистрирован", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

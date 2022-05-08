@@ -11,8 +11,7 @@ namespace Bookstrore.MControl.Control
     {
         private static void CreateFile(string accName)
         {
-            using StreamWriter writer = new StreamWriter($"{accName}.txt", true);
-            writer.WriteLine($"{DateTime.Now}==> Аккаунт зарегистрирован");
+            File.Create($"{accName}.txt");
         }
 
         private static bool CheckFile(string fileName)
@@ -36,6 +35,7 @@ namespace Bookstrore.MControl.Control
         public static async void CreateLog(string accName)
         {
             await Task.Run(() => CreateFile(accName));
+            WriteMess($"{accName}.txt","Пользователь зарегистрирован");
         }
 
         public static async void WriteLog(string path, string message)
