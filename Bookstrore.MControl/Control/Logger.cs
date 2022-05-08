@@ -35,6 +35,7 @@ namespace Bookstrore.MControl.Control
         public static async void CreateLog(string accName)
         {
             await Task.Run(() => CreateFile(accName));
+            WriteMess($"{accName}.txt","Пользователь зарегистрирован");
         }
 
         public static async void WriteLog(string path, string message)
