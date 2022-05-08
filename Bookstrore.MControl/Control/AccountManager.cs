@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Bookstore.MControl;
@@ -19,6 +21,7 @@ namespace Bookstrore.MControl.Control
 
             if (existsByMail is not null || existsByLogin is not null)
             {
+                //TODO: нафик тут ексепшн?
                 throw new SqliteException("Пользователь с таким именем уже зарегистрирован",4);
             }
             else

@@ -69,16 +69,5 @@ namespace Bookstore.GUI
                 }
             }
         }
-
-//TODO: Неработающий метод
-        private void Field_Quntity_OnTextInput(object sender, TextCompositionEventArgs e)
-        {
-            int oldQuant=Int32.Parse(Field_Quntity.Text);
-            if (Quantity<oldQuant)
-            {
-                MessageBox.Show("Ошибка", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-        }
     }
 }
