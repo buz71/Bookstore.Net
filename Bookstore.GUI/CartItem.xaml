@@ -71,7 +71,7 @@
                     </Grid>
 
                     <Grid Grid.Column="4">
-                        <TextBlock x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}" TextInput="Field_Quntity_OnTextInput"
+                        <TextBlock x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}" 
                          Padding="3" Width="109" />
                     </Grid>
 

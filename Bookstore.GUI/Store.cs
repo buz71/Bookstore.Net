@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
+using Castle.Components.DictionaryAdapter;
 
 namespace Bookstore.GUI
 {
@@ -23,10 +24,25 @@ namespace Bookstore.GUI
             var store = db.Stores.ToList();
             foreach (var item in store)
             {
-                BookItem bookItem = new BookItem(item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
+                BookItem bookItem = new BookItem(item.ProductId, item.Product.Book.Name, item.Product.Book.Autor.Name, (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
                 mainPage.panel.Children.Add(bookItem);
             }
         }
+
+        /// <summary>
+        /// Метод проверки наличия объектов в корзине
+        /// </summary>
+        /// <param name="cart"></param>
+        /// <returns></returns>
+        private static bool CheckBasketIsEmpty(Cart cart)
+        {
+            if (cart.StackPanel_Basket.Children.Count != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Метод для добавления выбранного товара в корзину
         /// </summary>
@@ -34,21 +50,54 @@ namespace Bookstore.GUI
         /// <param name="cart"></param>
         public static void AddToBasket(MainPage mainPage, Cart cart)
         {
-            List<BookItem> bookItems = new List<BookItem>();
-            foreach (var item in mainPage.panel.Children)
+            EditableList<BookItem> bookItems = new EditableList<BookItem>();
+            EditableList<CartItem> cartItems = new EditableList<CartItem>();
+            foreach (BookItem bookItem in mainPage.panel.Children)
             {
-                bookItems.Add(item as BookItem);
-            }
-            foreach (var item in bookItems)
-            {
-                if (item.IsChecked == true)
+                if (bookItem.IsChecked)
                 {
-                    item.IsChecked = false;
-                    item.Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
-                    CartItem cartItem = new CartItem(item.BookBookName, item.Author, item.Year, item.Price, item.Quantity, item.Action, item.Tag);
-                    cart.StackPanel_Basket.Children.Add(cartItem);
+                    bookItems.Add(bookItem);
                 }
             }
+
+            if (!CheckBasketIsEmpty(cart))
+            {
+                foreach (CartItem cartItem in cart.StackPanel_Basket.Children)
+                {
+                    cartItems.Add(cartItem);
+                }
+
+            }
+
+            cart.StackPanel_Basket.Children.Clear();
+
+            if (!CheckBasketIsEmpty(cart))
+            {
+                foreach (CartItem cartItem in cartItems)
+                {
+                    foreach (BookItem bookItem in bookItems)
+                    {
+                        if (bookItem.Id==cartItem.Id)
+                        {
+                            //TODO: Где то тут кроется проблема
+                            //cartItem.CartQuantity++;
+                            //cartItem.Field_Quntity.Text = cartItem.CartQuantity.ToString();
+                            cart.StackPanel_Basket.Children.Add(cartItem);
+                            bookItems.Remove(bookItem);
+                        }
+                    }
+                }
+            }
+
+            foreach (BookItem bookItem in bookItems)
+            {
+                bookItem.IsChecked = false;
+                bookItem.Border_BookItem.BorderBrush = new SolidColorBrush(Colors.Black);
+                CartItem cartItem = new CartItem(bookItem.Id, bookItem.BookBookName, bookItem.Author, bookItem.Year, bookItem.Price, bookItem.Quantity, bookItem.Action, bookItem.Tag);
+                cart.StackPanel_Basket.Children.Add(cartItem);
+
+            }
+
             SetTotalSum(cart);
         }
         /// <summary>
@@ -95,9 +144,9 @@ namespace Bookstore.GUI
             cart.TotalSum = 0;
             foreach (CartItem item in cart.StackPanel_Basket.Children)
             {
-                cart.TotalSum += item.Price;
+                cart.TotalSum += (item.Price*item.CartQuantity);
             }
-            cart.TextBlock_Total_Sum.Text= cart.TotalSum.ToString();
+            cart.TextBlock_Total_Sum.Text = cart.TotalSum.ToString();
         }
     }
 }
