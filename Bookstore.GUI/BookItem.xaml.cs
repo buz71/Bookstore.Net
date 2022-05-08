@@ -22,6 +22,7 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class BookItem : UserControl
     {
+        public long Id { get; set; }
         public bool IsChecked { get; set; }
         public string BookBookName { get; set; }
         public string Author { get; set; }
@@ -53,9 +54,10 @@ namespace Bookstore.GUI
         /// <param bookName="quantity"></param>
         /// <param bookName="action"></param>
         /// <param bookName="tag"></param>
-        public BookItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
+        public BookItem(long id, string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
             InitializeComponent();
+            Id = id;
             BookBookName = bookName;
             Author = author;
             Year = year;

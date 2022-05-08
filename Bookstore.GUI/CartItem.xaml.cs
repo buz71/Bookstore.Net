@@ -21,30 +21,34 @@ namespace Bookstore.GUI
     public partial class CartItem : UserControl
     {
         public bool IsChecked { get; set; }
+        public long Id { get; set; }
         public string BookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
         public double Price { get; set; }
+        public int CartQuantity { get; set; }
         public int Quantity { get; set; }
         public int Action { get; set; }
         public int Tag { get; set; }
 
-        public CartItem(string bookName, string author, int year, double price, int quantity, int action, int tag)
+        public CartItem(long id, string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
             //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
             IsChecked = false;
+            Id = id;
             BookName = bookName;
             Author = author;
             Year = year;
             Price = price;
+            CartQuantity = 1;
             Quantity = quantity;
             Action = action;
             Tag = tag;
             Field_Author.Text = author;
             Field_Book.Text=bookName;
             Field_Price.Text = price.ToString();
-            Field_Quntity.Text = "1";
+            Field_Quntity.Text = CartQuantity.ToString();
             Field_Total.Text = price.ToString();
         }
 
