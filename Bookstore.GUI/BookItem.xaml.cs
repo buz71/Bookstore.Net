@@ -19,12 +19,12 @@ namespace Bookstore.GUI
 {
     /// <summary>
     /// Interaction logic for BookItem.xaml
-    /// </summary>
+    /// </summary>BookName
     public partial class BookItem : UserControl
     {
         public long Id { get; set; }
         public bool IsChecked { get; set; }
-        public string BookBookName { get; set; }
+        public string BookName { get; set; }
         public string Author { get; set; }
         public int Year { get; set; }
         public double Price { get; set; }
@@ -38,7 +38,7 @@ namespace Bookstore.GUI
         private void FillTextBox()
         {
             IsChecked = false;
-            Field_Book.Text = BookBookName;
+            Field_Book.Text = BookName;
             Field_Author.Text = Author;
             Field_Price.Text = Price.ToString();
             Field_Quntity.Text = Quantity.ToString();
@@ -58,7 +58,7 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
             Id = id;
-            BookBookName = bookName;
+            BookName = bookName;
             Author = author;
             Year = year;
             Price = price;
