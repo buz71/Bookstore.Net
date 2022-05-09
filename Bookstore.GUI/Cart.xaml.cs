@@ -17,7 +17,7 @@ using Bookstrore.MControl.Control;
 namespace Bookstore.GUI
 {
     /// <summary>
-    /// Interaction logic for Cart.xaml
+    /// Interaction logic for ItemCart.xaml
     /// </summary>
     public partial class Cart : Window
     {

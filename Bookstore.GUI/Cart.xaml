@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         MouseDown="Drag"
-        Title="Cart"
+        Title="ItemCart"
         Background="Transparent">
 
     <Window.Resources>
