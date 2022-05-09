@@ -21,7 +21,6 @@ namespace Bookstrore.MControl.Control
 
             if (existsByMail is not null || existsByLogin is not null)
             {
-                //TODO: нафик тут ексепшн?
                 throw new SqliteException("Пользователь с таким именем уже зарегистрирован",4);
             }
             else
