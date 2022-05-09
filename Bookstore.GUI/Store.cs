@@ -52,6 +52,8 @@ namespace Bookstore.GUI
         {
             EditableList<BookItem> bookItems = new EditableList<BookItem>();
             EditableList<CartItem> cartItems = new EditableList<CartItem>();
+            bool BasketIsEmpty = CheckBasketIsEmpty(cart);
+
             foreach (BookItem bookItem in mainPage.panel.Children)
             {
                 if (bookItem.IsChecked)
@@ -60,14 +62,26 @@ namespace Bookstore.GUI
                 }
             }
 
-            if (!CheckBasketIsEmpty(cart))
+            if (!BasketIsEmpty)
             {
                 foreach (CartItem cartItem in cart.StackPanel_Basket.Children)
                 {
+                    foreach (BookItem bookItem in bookItems)
+                    {
+                        if (cartItem.Id==bookItem.Id)
+                        {
+                            bookItems.Remove(bookItem);
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
                     cartItems.Add(cartItem);
                 }
 
             }
+
 
             cart.StackPanel_Basket.Children.Clear();
 
@@ -77,7 +91,7 @@ namespace Bookstore.GUI
                 {
                     foreach (BookItem bookItem in bookItems)
                     {
-                        if (bookItem.Id==cartItem.Id)
+                        if (bookItem.Id == cartItem.Id)
                         {
                             //TODO: Где то тут кроется проблема
                             //cartItem.CartQuantity++;
@@ -144,7 +158,7 @@ namespace Bookstore.GUI
             cart.TotalSum = 0;
             foreach (CartItem item in cart.StackPanel_Basket.Children)
             {
-                cart.TotalSum += (item.Price*item.CartQuantity);
+                cart.TotalSum += (item.Price * item.CartQuantity);
             }
             cart.TextBlock_Total_Sum.Text = cart.TotalSum.ToString();
         }
