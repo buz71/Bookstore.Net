@@ -72,6 +72,7 @@ namespace Bookstore.GUI
                 foreach (BookItem bookItem in bookItems)
                 {
                     CartItem cartItem = new CartItem(bookItem);
+                    cartItem.ItemCart = mainPage.basket;
                     cart.StackPanel_Basket.Children.Add(cartItem);
                 }
 
@@ -156,6 +157,7 @@ namespace Bookstore.GUI
         public static void SetTotalSum(Cart cart)
         {
             cart.TotalSum = 0;
+
             foreach (CartItem item in cart.StackPanel_Basket.Children)
             {
                 cart.TotalSum += (item.Price * item.CartQuantity);

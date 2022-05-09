@@ -20,7 +20,7 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class CartItem : UserControl
     {
-        public Cart ItemCart;
+        public Cart ItemCart { get; set; }
         public bool IsChecked { get; set; }
         public long Id { get; set; }
         public string BookName { get; set; }
@@ -36,6 +36,7 @@ namespace Bookstore.GUI
         {
             InitializeComponent();
             IsChecked = false;
+            ItemCart = new Cart();
             Id = bookItem.Id;
             BookName = bookItem.BookName;
             Author = bookItem.Author;
