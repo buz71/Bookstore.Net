@@ -20,6 +20,7 @@ namespace Bookstore.GUI
     /// </summary>
     public partial class CartItem : UserControl
     {
+        public Cart ItemCart;
         public bool IsChecked { get; set; }
         public long Id { get; set; }
         public string BookName { get; set; }
@@ -55,6 +56,7 @@ namespace Bookstore.GUI
         {
             //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
+            ItemCart = itemCart;
             IsChecked = false;
             Id = id;
             BookName = bookName;
@@ -92,6 +94,24 @@ namespace Bookstore.GUI
                     IsChecked = false;
                 }
             }
+        }
+
+        private void Button_QuantittyIncrement_OnClick(object sender, RoutedEventArgs e)
+        {
+            CartQuantity++;
+            Field_Quntity.Text = CartQuantity.ToString();
+            Store.SetTotalSum(ItemCart);
+        }
+
+        private void Button_QuntityDecrement_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (CartQuantity==1)
+            {
+                return;
+            }
+            CartQuantity--;
+            Field_Quntity.Text = CartQuantity.ToString();
+            Store.SetTotalSum(ItemCart);
         }
     }
 }
