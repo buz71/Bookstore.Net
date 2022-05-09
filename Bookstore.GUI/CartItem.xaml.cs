@@ -56,7 +56,6 @@ namespace Bookstore.GUI
         {
             //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
-            ItemCart = itemCart;
             IsChecked = false;
             Id = id;
             BookName = bookName;
