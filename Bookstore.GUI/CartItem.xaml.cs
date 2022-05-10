@@ -28,6 +28,7 @@ namespace Bookstore.GUI
         public int Year { get; set; }
         public double Price { get; set; }
         public int CartQuantity { get; set; }
+        public double TotalSum { get; set; }
         public int Quantity { get; set; }
         public int Action { get; set; }
         public int Tag { get; set; }
@@ -43,6 +44,7 @@ namespace Bookstore.GUI
             Year = bookItem.Year;
             Price = bookItem.Price;
             CartQuantity = 1;
+            TotalSum = CartQuantity * Price;
             Quantity = bookItem.Quantity;
             Action = bookItem.Action;
             Tag = bookItem.Tag;
@@ -64,6 +66,7 @@ namespace Bookstore.GUI
             Year = year;
             Price = price;
             CartQuantity = 1;
+            TotalSum = CartQuantity * Price;
             Quantity = quantity;
             Action = action;
             Tag = tag;
@@ -100,6 +103,7 @@ namespace Bookstore.GUI
         {
             CartQuantity++;
             Field_Quntity.Text = CartQuantity.ToString();
+            Store.SetCartItemTotalSum(this);
             Store.SetTotalSum(ItemCart);
         }
 
@@ -111,6 +115,7 @@ namespace Bookstore.GUI
             }
             CartQuantity--;
             Field_Quntity.Text = CartQuantity.ToString();
+            Store.SetCartItemTotalSum(this);
             Store.SetTotalSum(ItemCart);
         }
     }
