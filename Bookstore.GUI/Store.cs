@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
@@ -25,7 +26,7 @@ namespace Bookstore.GUI
             foreach (var item in store)
             {
                 BookItem bookItem = new BookItem(item.ProductId, item.Product.Book.Name, item.Product.Book.Autor.Name,
-                    (int) item.Product.Year, item.Price, (int) item.Quantity, (int) item.ActionId, (int) item.TagId);
+                    (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
                 mainPage.panel.Children.Add(bookItem);
             }
         }
@@ -53,7 +54,7 @@ namespace Bookstore.GUI
         public static void AddToBasket(MainPage mainPage, Cart cart)
         {
             EditableList<BookItem> bookItems = new EditableList<BookItem>();
-            EditableList<CartItem> cartItems_old = new EditableList<CartItem>(); 
+            EditableList<CartItem> cartItems_old = new EditableList<CartItem>();
             EditableList<CartItem> cartItems_new = new EditableList<CartItem>();
             bool IsBasketEmpty = CheckBasketIsEmpty(cart);
 
@@ -78,7 +79,7 @@ namespace Bookstore.GUI
 
             }
 
-            else 
+            else
             {
                 foreach (BookItem bookItem in mainPage.panel.Children)
                 {
@@ -97,7 +98,7 @@ namespace Bookstore.GUI
 
                 foreach (BookItem bookItem in bookItems)
                 {
-                    if ((from item in cartItems_old where bookItem.Id==item.Id select item).FirstOrDefault() is null)
+                    if ((from item in cartItems_old where bookItem.Id == item.Id select item).FirstOrDefault() is null)
                     {
                         cartItems_new.Add(new CartItem(bookItem));
                     }
@@ -120,6 +121,43 @@ namespace Bookstore.GUI
             SetTotalSum(cart);
         }
 
+        private static bool CheckQuantity(CartItem item)
+        {
+            int newQuantity = item.CartQuantity + 1;
+            if (newQuantity > item.Quantity)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static void SetQuantityInc(CartItem item)
+        {
+            if (CheckQuantity(item))
+            {
+                item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Black);
+                item.CartQuantity++;
+                item.Field_Quntity.Text = item.CartQuantity.ToString();
+            }
+            else
+            {
+                item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Red);
+                throw new Exception("Выбранное количество товара недоступно");
+            }
+        }
+
+        public static void SetQuantityDec(CartItem item)
+        {
+
+            item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Black);
+            item.CartQuantity--;
+            item.Field_Quntity.Text = item.CartQuantity.ToString();
+
+        }
+
         /// <summary>
         /// Метод оформления заказа
         /// </summary>
@@ -128,9 +166,13 @@ namespace Bookstore.GUI
         public static void CreateOrder(MainPage mainPage, Cart cart)
         {
             List<CartItem> cartItems = new List<CartItem>();
-            foreach (var item in cart.StackPanel_Basket.Children)
+            foreach (CartItem item in cart.StackPanel_Basket.Children)
             {
-                cartItems.Add(item as CartItem);
+                if (!CheckQuantity(item))
+                {
+                    throw new Exception("Выбранное количество товара недоступно");
+                }
+                cartItems.Add(item);
             }
 
             double orderSum = 0;
@@ -169,11 +211,11 @@ namespace Bookstore.GUI
         public static void SetCartItemTotalSum(CartItem item)
         {
             item.TotalSum = item.CartQuantity * item.Price;
-            item.Field_Total.Text= item.TotalSum.ToString();
+            item.Field_Total.Text = item.TotalSum.ToString();
         }
     }
 
-    
+
 }
 
 
