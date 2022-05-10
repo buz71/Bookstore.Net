@@ -165,6 +165,12 @@ namespace Bookstore.GUI
 
             cart.TextBlock_Total_Sum.Text = cart.TotalSum.ToString();
         }
+
+        public static void SetCartItemTotalSum(CartItem item)
+        {
+            item.TotalSum = item.CartQuantity * item.Price;
+            item.Field_Total.Text= item.TotalSum.ToString();
+        }
     }
 
     
