@@ -88,7 +88,7 @@
        
             <StackPanel VerticalAlignment="Center" Margin="10,0,0,0" >
                 <Button x:Name="Button_QuantittyIncrement" Width="20" Height="17" FontSize="20" Content="+" Foreground="Green"
-                        VerticalContentAlignment="Top" Padding="-8" Margin="1" Click="Button_QuantittyIncrement_OnClick"/>
+                        VerticalContentAlignment="Top" Padding="-8" Margin="1" Click="Button_QuantityIncrement_OnClick"/>
             <Button x:Name="Button_QuntityDecrement" Width="20" Height="17" FontSize="22" Content="-" Foreground="Red"
                     VerticalContentAlignment="Top" Padding="-9" Margin="1" Click="Button_QuntityDecrement_OnClick"/>
             </StackPanel>

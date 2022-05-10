@@ -99,7 +99,7 @@ namespace Bookstore.GUI
             }
         }
 
-        private void Button_QuantittyIncrement_OnClick(object sender, RoutedEventArgs e)
+        private void Button_QuantityIncrement_OnClick(object sender, RoutedEventArgs e)
         {
             CartQuantity++;
             Field_Quntity.Text = CartQuantity.ToString();
