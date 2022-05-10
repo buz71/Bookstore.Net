@@ -57,7 +57,6 @@ namespace Bookstore.GUI
 
         public CartItem(long id, string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
-            //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
             IsChecked = false;
             Id = id;
