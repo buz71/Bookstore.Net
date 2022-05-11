@@ -121,6 +121,11 @@ namespace Bookstore.GUI
             SetTotalSum(cart);
         }
 
+        /// <summary>
+        /// Метод проверки доступного для заказа количества книг
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private static bool CheckQuantity(CartItem item)
         {
             int newQuantity = item.CartQuantity + 1;
@@ -134,6 +139,11 @@ namespace Bookstore.GUI
             }
         }
 
+        /// <summary>
+        /// Метод для увеличения количества товара в корзине
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="Exception"></exception>
         public static void SetQuantityInc(CartItem item)
         {
             if (CheckQuantity(item))
@@ -149,6 +159,10 @@ namespace Bookstore.GUI
             }
         }
 
+        /// <summary>
+        /// Метод для уменьшения количества товара в корзине
+        /// </summary>
+        /// <param name="item"></param>
         public static void SetQuantityDec(CartItem item)
         {
 
@@ -208,6 +222,10 @@ namespace Bookstore.GUI
             cart.TextBlock_Total_Sum.Text = cart.TotalSum.ToString();
         }
 
+        /// <summary>
+        /// Метод для изменения информации в окошке "Итого"
+        /// </summary>
+        /// <param name="item"></param>
         public static void SetCartItemTotalSum(CartItem item)
         {
             item.TotalSum = item.CartQuantity * item.Price;
