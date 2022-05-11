@@ -202,7 +202,7 @@ namespace Bookstore.GUI
             foreach (var item in cartItems)
             {
                 orderString +=
-                    $"\nКнига:{item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
+                    $"\n| Книга: {item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price} |";
                 orderSum += item.Price;
             }
 
