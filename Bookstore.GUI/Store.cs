@@ -238,13 +238,20 @@ namespace Bookstore.GUI
             item.Field_Total.Text = item.TotalSum.ToString();
         }
 
+        /// <summary>
+        /// Метод для записи в БД информации о заказе, а так же об изменении доступного для заказа количества товара
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="mainPage"></param>
+        /// <param name="cartItem"></param>
         public static void InsertOrderIntoDB(BookstoreDb db,MainPage mainPage , CartItem cartItem)
         {
             var client = (from c in db.Clients where c.Mail==mainPage.Account.Mail select c).FirstOrDefault();
+            var product =(from p in db.Stores where  p.Id==cartItem.Id select p).FirstOrDefault();
+            product.Quantity=cartItem.Quantity-cartItem.CartQuantity;
             db.Sales.Add(new Sale
             {
-                Id = client.Id, Date = (DateTime.Now.ToString()), Price = cartItem.Price,
-                Quantity = cartItem.CartQuantity
+                ClientId = client.Id,ProductId = cartItem.Id,Price = cartItem.Price,Quantity = cartItem.CartQuantity,Date = (DateTime.Now.ToString())
             });
             db.SaveChanges();
             mainPage.panel.Children.Clear();
