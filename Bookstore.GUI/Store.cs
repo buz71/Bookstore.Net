@@ -189,10 +189,16 @@ namespace Bookstore.GUI
                 cartItems.Add(item);
             }
 
+            //2. Заносим изменения в DB
+            foreach (CartItem cartItem in cartItems)
+            {
+                InsertOrderIntoDB(mainPage.Db,mainPage,cartItem);   
+            }
+
             double orderSum = 0;
             string orderString = "Ваш заказ:";
 
-            //2. Формируем сообщение заказа
+            //3. Формируем сообщение заказа
             foreach (var item in cartItems)
             {
                 orderString +=
@@ -241,6 +247,8 @@ namespace Bookstore.GUI
                 Quantity = cartItem.CartQuantity
             });
             db.SaveChanges();
+            mainPage.panel.Children.Clear();
+            FillStore(mainPage,db);
         }
     }
 

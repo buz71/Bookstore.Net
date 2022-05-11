@@ -25,8 +25,8 @@ namespace Bookstore.GUI
     {
         #region Fields
         private static MainPage Window;
-        private BookstoreDb _db;
-        private Account _account;
+        public BookstoreDb Db { get; set; }
+        public Account Account { get; set; }
 
         /// <summary>
         /// Переменная для хранения экземпляра корзины
@@ -36,17 +36,17 @@ namespace Bookstore.GUI
         
         #endregion
         #region Properties
-        public BookstoreDb Db
-        {
-            get { return _db; }
-            set { _db = value; }
-        }
+        //public BookstoreDb Db
+        //{
+        //    get { return Db; }
+        //    set { Db = value; }
+        //}
 
-        public Account Account
-        {
-            get { return _account; }
-            set { _account = value; }
-        }
+        //public Account Account
+        //{
+        //    get { return Account; }
+        //    set { Account = value; }
+        //}
         #endregion
         #region Methods
 
