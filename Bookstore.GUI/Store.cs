@@ -231,6 +231,17 @@ namespace Bookstore.GUI
             item.TotalSum = item.CartQuantity * item.Price;
             item.Field_Total.Text = item.TotalSum.ToString();
         }
+
+        public static void InsertOrderIntoDB(BookstoreDb db,MainPage mainPage , CartItem cartItem)
+        {
+            var client = (from c in db.Clients where c.Mail==mainPage.Account.Mail select c).FirstOrDefault();
+            db.Sales.Add(new Sale
+            {
+                Id = client.Id, Date = (DateTime.Now.ToString()), Price = cartItem.Price,
+                Quantity = cartItem.CartQuantity
+            });
+            db.SaveChanges();
+        }
     }
 
 
