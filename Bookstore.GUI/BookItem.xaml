@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bookstore.GUI"
              mc:Ignorable="d" 
-             Width="90"
-             Height="200"
+             Width="120"
+             Height="240"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch" Margin="10">
     <UserControl.Resources>
         <Style x:Key="TextBlock_Book" TargetType="TextBox">
-            <Setter Property="Width" Value="81"/>
-            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="111"/>
+            <Setter Property="Height" Value="37"/>
             <Setter Property="Background" Value="#FFFFEEA1"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontSize" Value="13"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -26,8 +26,9 @@
             <Setter Property="Foreground" Value="Crimson"/>
         </Style>
     </UserControl.Resources>
-    <Border  x:Name="Border_BookItem" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Background="#FF004040" Width="90" MouseDown="Border_BookItem_OnMouseDown">
-         <Grid>
+    <Border  x:Name="Border_BookItem" BorderBrush="Black" BorderThickness="2" 
+             CornerRadius="10" Background="#FF004040" Width="120" MouseDown="Border_BookItem_OnMouseDown">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -35,34 +36,34 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image x:Name="Picture" Height="34" Width="90" Source="/books3.jpg" Visibility="Visible"
+            <Image x:Name="Picture" Height="37" Width="120" Source="/books3.jpg" Visibility="Visible"
                    Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <Image.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,86,50"/>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,116,50"/>
                 </Image.Clip>
             </Image>
             <!--  <TextBlock Text="КНИГА" Foreground="Crimson" Height="20" Width="46" HorizontalAlignment="Center"
                FontSize="16" FontWeight="Bold" FontFamily="AngryBirds" VerticalAlignment="Center" />
             -->
             <Grid Grid.Row="1">
-                <TextBox x:Name="Field_Author" Style="{StaticResource TextBlock_Book}"/>
+                <TextBox x:Name="Field_Author" Style="{StaticResource TextBlock_Book}" Margin="2,5,2,5"/>
                 <TextBlock Text="Автор" Width="50" Height="20" VerticalAlignment="Top"
-                           Foreground="#FFFFEEA1" FontSize="9" Margin="30,-7,6,0" />
+                           Foreground="#FFFFEEA1" FontSize="11" Margin="45,-9,21,0" />
             </Grid>
             <Grid Grid.Row="2">
-                <TextBox x:Name="Field_Book" Style="{StaticResource TextBlock_Book}"/>
+                <TextBox x:Name="Field_Book" Style="{StaticResource TextBlock_Book}" Margin="2,6,2,4"/>
                 <TextBlock Text="Книга" Width="50" Height="20" VerticalAlignment="Top"
-                           Foreground="#FFFFEEA1" FontSize="9" Margin="32,-7,4,0" />
+                           Foreground="#FFFFEEA1" FontSize="11" Margin="32,-7,4,0" />
             </Grid>
             <Grid Grid.Row="3">
-                <TextBox x:Name="Field_Price" Style="{StaticResource TextBlock_Book}" />
+                <TextBox x:Name="Field_Price" Style="{StaticResource TextBlock_Book}" Margin="2,6,2,4" />
                 <TextBlock Text="Цена" Width="50" Height="20" VerticalAlignment="Top"
-                           Foreground="#FFFFEEA1" FontSize="9" Margin="33,-7,3,0" />
+                           Foreground="#FFFFEEA1" FontSize="11" Margin="33,-7,3,0" />
             </Grid>
             <Grid Grid.Row="4">
                 <TextBox x:Name="Field_Quntity" Style="{StaticResource TextBlock_Book}"/>
                 <TextBlock Text="В наличии" Width="70" Height="20" VerticalAlignment="Top"
-                           Foreground="#FFFFEEA1" FontSize="9" Margin="22,-7,-6,0" />
+                           Foreground="#FFFFEEA1" FontSize="11" Margin="22,-7,-6,0" />
             </Grid>
         </Grid>
     </Border>
