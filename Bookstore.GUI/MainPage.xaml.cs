@@ -25,28 +25,13 @@ namespace Bookstore.GUI
     {
         #region Fields
         private static MainPage Window;
-        private BookstoreDb _db;
-        private Account _account;
-
+        public BookstoreDb Db { get; set; }
+        public Account Account { get; set; }
         /// <summary>
         /// Переменная для хранения экземпляра корзины
         /// </summary>
         public Cart basket;
         public SMTP smtp;
-        
-        #endregion
-        #region Properties
-        public BookstoreDb Db
-        {
-            get { return _db; }
-            set { _db = value; }
-        }
-
-        public Account Account
-        {
-            get { return _account; }
-            set { _account = value; }
-        }
         #endregion
         #region Methods
 

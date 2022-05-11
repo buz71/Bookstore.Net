@@ -49,7 +49,7 @@ namespace Bookstore.GUI
             Action = bookItem.Action;
             Tag = bookItem.Tag;
             Field_Author.Text = Author;
-            Field_Book.Text =BookName;
+            Field_Book.Text = BookName;
             Field_Price.Text = Price.ToString();
             Field_Quntity.Text = CartQuantity.ToString();
             Field_Total.Text = Price.ToString();
@@ -57,7 +57,6 @@ namespace Bookstore.GUI
 
         public CartItem(long id, string bookName, string author, int year, double price, int quantity, int action, int tag)
         {
-            //TODO: Добавить порядковый номер в корзине
             InitializeComponent();
             IsChecked = false;
             Id = id;
@@ -71,7 +70,7 @@ namespace Bookstore.GUI
             Action = action;
             Tag = tag;
             Field_Author.Text = author;
-            Field_Book.Text=bookName;
+            Field_Book.Text = bookName;
             Field_Price.Text = price.ToString();
             Field_Quntity.Text = CartQuantity.ToString();
             Field_Total.Text = price.ToString();
@@ -84,39 +83,46 @@ namespace Bookstore.GUI
 
         private void Border_CartItem_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton==MouseButton.Left)
+            if (e.ChangedButton == MouseButton.Left)
             {
-                if (IsChecked==false)
+                if (IsChecked == false)
                 {
                     Border_CartItem.BorderBrush = new SolidColorBrush(Colors.Red);
                     IsChecked = true;
                 }
                 else
                 {
-                    Border_CartItem.BorderBrush = new SolidColorBrush(Color.FromArgb(255,0,64,64));
+                    Border_CartItem.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 0, 64, 64));
                     IsChecked = false;
                 }
             }
         }
 
-        private void Button_QuantittyIncrement_OnClick(object sender, RoutedEventArgs e)
+        private void Button_QuantityIncrement_OnClick(object sender, RoutedEventArgs e)
         {
-            CartQuantity++;
-            Field_Quntity.Text = CartQuantity.ToString();
-            Store.SetCartItemTotalSum(this);
-            Store.SetTotalSum(ItemCart);
+            try
+            {
+                Store.SetQuantityInc(this);
+                Store.SetCartItemTotalSum(this);
+                Store.SetTotalSum(ItemCart);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
-        private void Button_QuntityDecrement_OnClick(object sender, RoutedEventArgs e)
+        private void Button_QuantityDecrement_OnClick(object sender, RoutedEventArgs e)
         {
             if (CartQuantity==1)
             {
                 return;
             }
-            CartQuantity--;
-            Field_Quntity.Text = CartQuantity.ToString();
+            Store.SetQuantityDec(this);
             Store.SetCartItemTotalSum(this);
             Store.SetTotalSum(ItemCart);
+
         }
     }
 }
