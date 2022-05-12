@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
@@ -25,7 +26,7 @@ namespace Bookstore.GUI
             foreach (var item in store)
             {
                 BookItem bookItem = new BookItem(item.ProductId, item.Product.Book.Name, item.Product.Book.Autor.Name,
-                    (int) item.Product.Year, item.Price, (int) item.Quantity, (int) item.ActionId, (int) item.TagId);
+                    (int)item.Product.Year, item.Price, (int)item.Quantity, (int)item.ActionId, (int)item.TagId);
                 mainPage.panel.Children.Add(bookItem);
             }
         }
@@ -53,7 +54,7 @@ namespace Bookstore.GUI
         public static void AddToBasket(MainPage mainPage, Cart cart)
         {
             EditableList<BookItem> bookItems = new EditableList<BookItem>();
-            EditableList<CartItem> cartItems_old = new EditableList<CartItem>(); 
+            EditableList<CartItem> cartItems_old = new EditableList<CartItem>();
             EditableList<CartItem> cartItems_new = new EditableList<CartItem>();
             bool IsBasketEmpty = CheckBasketIsEmpty(cart);
 
@@ -78,7 +79,7 @@ namespace Bookstore.GUI
 
             }
 
-            else 
+            else
             {
                 foreach (BookItem bookItem in mainPage.panel.Children)
                 {
@@ -97,7 +98,7 @@ namespace Bookstore.GUI
 
                 foreach (BookItem bookItem in bookItems)
                 {
-                    if ((from item in cartItems_old where bookItem.Id==item.Id select item).FirstOrDefault() is null)
+                    if ((from item in cartItems_old where bookItem.Id == item.Id select item).FirstOrDefault() is null)
                     {
                         cartItems_new.Add(new CartItem(bookItem));
                     }
@@ -121,6 +122,57 @@ namespace Bookstore.GUI
         }
 
         /// <summary>
+        /// Метод проверки доступного для заказа количества книг
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private static bool CheckQuantity(CartItem item)
+        {
+            int newQuantity = item.CartQuantity + 1;
+            if (newQuantity > item.Quantity)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Метод для увеличения количества товара в корзине
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="Exception"></exception>
+        public static void SetQuantityInc(CartItem item)
+        {
+            if (CheckQuantity(item))
+            {
+                item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Black);
+                item.CartQuantity++;
+                item.Field_Quntity.Text = item.CartQuantity.ToString();
+            }
+            else
+            {
+                item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Red);
+                throw new Exception("Выбранное количество товара недоступно");
+            }
+        }
+
+        /// <summary>
+        /// Метод для уменьшения количества товара в корзине
+        /// </summary>
+        /// <param name="item"></param>
+        public static void SetQuantityDec(CartItem item)
+        {
+
+            item.Field_Quntity.Foreground = new SolidColorBrush(Colors.Black);
+            item.CartQuantity--;
+            item.Field_Quntity.Text = item.CartQuantity.ToString();
+
+        }
+
+        /// <summary>
         /// Метод оформления заказа
         /// </summary>
         /// <param name="mainPage"></param>
@@ -128,19 +180,29 @@ namespace Bookstore.GUI
         public static void CreateOrder(MainPage mainPage, Cart cart)
         {
             List<CartItem> cartItems = new List<CartItem>();
-            foreach (var item in cart.StackPanel_Basket.Children)
+            foreach (CartItem item in cart.StackPanel_Basket.Children)
             {
-                cartItems.Add(item as CartItem);
+                if (!CheckQuantity(item))
+                {
+                    throw new Exception("Выбранное количество товара недоступно");
+                }
+                cartItems.Add(item);
+            }
+
+            //2. Заносим изменения в DB
+            foreach (CartItem cartItem in cartItems)
+            {
+                InsertOrderIntoDB(mainPage.Db,mainPage,cartItem);   
             }
 
             double orderSum = 0;
             string orderString = "Ваш заказ:";
 
-            //2. Формируем сообщение заказа
+            //3. Формируем сообщение заказа
             foreach (var item in cartItems)
             {
                 orderString +=
-                    $"\nКнига:{item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price}";
+                    $"\n| Книга: {item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price} |";
                 orderSum += item.Price;
             }
 
@@ -166,14 +228,38 @@ namespace Bookstore.GUI
             cart.TextBlock_Total_Sum.Text = cart.TotalSum.ToString();
         }
 
+        /// <summary>
+        /// Метод для изменения информации в окошке "Итого"
+        /// </summary>
+        /// <param name="item"></param>
         public static void SetCartItemTotalSum(CartItem item)
         {
             item.TotalSum = item.CartQuantity * item.Price;
-            item.Field_Total.Text= item.TotalSum.ToString();
+            item.Field_Total.Text = item.TotalSum.ToString();
+        }
+
+        /// <summary>
+        /// Метод для записи в БД информации о заказе, а так же об изменении доступного для заказа количества товара
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="mainPage"></param>
+        /// <param name="cartItem"></param>
+        public static void InsertOrderIntoDB(BookstoreDb db,MainPage mainPage , CartItem cartItem)
+        {
+            var client = (from c in db.Clients where c.Mail==mainPage.Account.Mail select c).FirstOrDefault();
+            var product =(from p in db.Stores where  p.Id==cartItem.Id select p).FirstOrDefault();
+            product.Quantity=cartItem.Quantity-cartItem.CartQuantity;
+            db.Sales.Add(new Sale
+            {
+                ClientId = client.Id,ProductId = cartItem.Id,Price = cartItem.Price,Quantity = cartItem.CartQuantity,Date = (DateTime.Now.ToString())
+            });
+            db.SaveChanges();
+            mainPage.panel.Children.Clear();
+            FillStore(mainPage,db);
         }
     }
 
-    
+
 }
 
 
