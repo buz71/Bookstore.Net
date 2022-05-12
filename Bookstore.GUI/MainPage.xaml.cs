@@ -37,18 +37,7 @@ namespace Bookstore.GUI
         
         #endregion
         #region Properties
-        public BookstoreDb Db
-        {
-            get { return _db; }
-            set { _db = value; }
-        }
 
-        public Account Account
-        {
-            get { return _account; }
-            set { _account = value; }
-        }
-       
         #endregion
         #region Methods
 

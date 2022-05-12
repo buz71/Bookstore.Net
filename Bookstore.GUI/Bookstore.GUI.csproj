@@ -8,16 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="books2.jpg" />
-    <None Remove="books3.jpg" />
     <None Remove="one_book.jpg" />
     <None Remove="press_book.jpg" />
-    <None Remove="Ист_заказов.bmp" />
-    <None Remove="Контакты.bmp" />
-    <None Remove="Корзина.bmp" />
-    <None Remove="Лич_данные.bmp" />
-    <None Remove="Лич_счет.bmp" />
-    <None Remove="Тек_заказ.bmp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,8 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="books2.jpg" />
-    <Resource Include="books3.jpg" />
     <Resource Include="Resourses\books2.jpg" />
     <Resource Include="Resourses\books3.jpg" />
     <Resource Include="Resourses\one_book.jpg" />
@@ -41,12 +31,6 @@
     <Resource Include="Resourses\Лич_данные.bmp" />
     <Resource Include="Resourses\Лич_счет.bmp" />
     <Resource Include="Resourses\Тек_заказ.bmp" />
-    <Resource Include="Ист_заказов.bmp" />
-    <Resource Include="Контакты.bmp" />
-    <Resource Include="Корзина.bmp" />
-    <Resource Include="Лич_данные.bmp" />
-    <Resource Include="Лич_счет.bmp" />
-    <Resource Include="Тек_заказ.bmp" />
   </ItemGroup>
 
 </Project>
