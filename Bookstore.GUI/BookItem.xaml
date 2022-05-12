@@ -36,7 +36,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image x:Name="Picture" Height="37" Width="120" Source="/books3.jpg" Visibility="Visible"
+            <Image x:Name="Picture" Height="37" Width="120" Source="Resourses/books3.jpg" Visibility="Visible"
                    Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <Image.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,116,50"/>

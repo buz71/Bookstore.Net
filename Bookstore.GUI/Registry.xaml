@@ -81,7 +81,7 @@
             <Grid Grid.Row="0" >
                 <Border CornerRadius="0,0,20,20">
                     <Grid>
-                        <Image x:Name="Picture" Height="40" Source="books2.jpg" Width="250" Visibility="Visible" 
+                        <Image x:Name="Picture" Height="40" Source="Resourses/books2.jpg" Width="250" Visibility="Visible" 
                            Stretch="Fill" VerticalAlignment="Top" >
                             <Image.Clip>
                                 <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>

@@ -51,7 +51,7 @@
 
 
             <Grid Grid.Row="0"  Grid.Column="0">
-                <Image x:Name="Picture" Height="102" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Center">
+                <Image x:Name="Picture" Height="102" Source="Resourses/books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Center">
                     <Image.Clip>
                         <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
                     </Image.Clip>
@@ -76,7 +76,7 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource Button_Click}">
-                            <Image x:Name="History" Source="/Ист_заказов.bmp" Style="{StaticResource Image}" >
+                            <Image x:Name="History" Source="/Resourses/Ист_заказов.bmp" Style="{StaticResource Image}" >
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
@@ -84,7 +84,7 @@
                         </Button>
 
                         <Button Style="{StaticResource Button_Click}">
-                            <Image x:Name="Action" Source="/Тек_заказ.bmp" Style="{StaticResource Image}">
+                            <Image x:Name="Action" Source="/Resourses/Тек_заказ.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
@@ -92,7 +92,7 @@
                         </Button>
 
                         <Button x:Name="Cart" Click="Button_cart" Style="{StaticResource Button_Click}">
-                            <Image Source="/Корзина.bmp" Style="{StaticResource Image}">
+                            <Image Source="/Resourses/Корзина.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
@@ -102,7 +102,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource Button_Click}">
-                            <Image x:Name="Personal" Source="/Лич_данные.bmp" Style="{StaticResource Image}">
+                            <Image x:Name="Personal" Source="/Resourses/Лич_данные.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
@@ -110,7 +110,7 @@
                         </Button>
 
                         <Button Style="{StaticResource Button_Click}">
-                            <Image x:Name="Account" Source="/Лич_счет.bmp" Style="{StaticResource Image}">
+                            <Image x:Name="Account" Source="/Resourses/Лич_счет.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
@@ -118,7 +118,7 @@
                         </Button>
 
                         <Button Style="{StaticResource Button_Click}">
-                            <Image x:Name="Contact" Source="/Контакты.bmp" Style="{StaticResource Image}">
+                            <Image x:Name="Contact" Source="/Resourses/Контакты.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
