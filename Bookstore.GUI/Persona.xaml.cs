@@ -14,12 +14,14 @@ using System.Windows.Shapes;
 
 namespace Bookstore.GUI
 {
+    
     /// <summary>
     /// Interaction logic for Persona.xaml
     /// </summary>
     public partial class Persona : Window
     {
         public static Persona Window;
+        public Cart basket;
         public Persona()
         {
             InitializeComponent();
@@ -39,6 +41,11 @@ namespace Bookstore.GUI
         private void Window_Persona_Close(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Button_cart(object sender, RoutedEventArgs e)
+        {
+            basket.ShowDialog();
         }
     }
 }

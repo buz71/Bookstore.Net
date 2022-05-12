@@ -37,6 +37,9 @@ namespace Bookstore.GUI
                 //Для тестирования можно попробовать login:admin, password:admin
                 MainPage mainPage = new MainPage();
                 Cart cart = new Cart();
+                Persona persona = new Persona();
+                mainPage.persona = persona;
+                persona.basket = cart;
                 cart.mainPage = mainPage;
                 mainPage.basket = cart;
                 mainPage.Db = AccountManager.Autorization(Box_user.Text, Box_pass.Password);
