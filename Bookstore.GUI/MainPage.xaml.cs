@@ -32,6 +32,23 @@ namespace Bookstore.GUI
         /// </summary>
         public Cart basket;
         public SMTP smtp;
+
+        public Persona persona;
+        
+        #endregion
+        #region Properties
+        public BookstoreDb Db
+        {
+            get { return _db; }
+            set { _db = value; }
+        }
+
+        public Account Account
+        {
+            get { return _account; }
+            set { _account = value; }
+        }
+       
         #endregion
         #region Methods
 
@@ -98,7 +115,7 @@ namespace Bookstore.GUI
         }
         private void Button_persona(object sender, RoutedEventArgs e)
         {
-
+            persona.ShowDialog();
         }
         #endregion
 

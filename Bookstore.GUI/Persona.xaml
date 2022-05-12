@@ -21,8 +21,16 @@
             <Setter Property="Visibility" Value="Visible"/>
             <Setter Property="Stretch" Value="Fill"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-
             <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="Button_Click" TargetType="Button">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="230"/>
+            <Setter Property="Padding" Value="0,-1,-1,-1"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
     </Window.Resources>
 
@@ -67,7 +75,7 @@
                 <Border CornerRadius="0,0,20,0" Background="#FFFFEEA1"/>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Button Margin="8" Background="Transparent">
+                        <Button Style="{StaticResource Button_Click}">
                             <Image x:Name="History" Source="/Ист_заказов.bmp" Style="{StaticResource Image}" >
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
@@ -75,7 +83,7 @@
                             </Image>
                         </Button>
 
-                        <Button Margin="8" Background="Transparent">
+                        <Button Style="{StaticResource Button_Click}">
                             <Image x:Name="Action" Source="/Тек_заказ.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
@@ -83,17 +91,17 @@
                             </Image>
                         </Button>
 
-                        <Button Margin="8" Background="Transparent">
-                            <Image x:Name="Cart" Source="/Корзина.bmp" Style="{StaticResource Image}">
+                        <Button x:Name="Cart" Click="Button_cart" Style="{StaticResource Button_Click}">
+                            <Image Source="/Корзина.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
                                 </Image.Clip>
                             </Image>
                         </Button>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal">
-                        <Button Margin="8" Background="Transparent">
+                        <Button Style="{StaticResource Button_Click}">
                             <Image x:Name="Personal" Source="/Лич_данные.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
@@ -101,7 +109,7 @@
                             </Image>
                         </Button>
 
-                        <Button Margin="8" Background="Transparent">
+                        <Button Style="{StaticResource Button_Click}">
                             <Image x:Name="Account" Source="/Лич_счет.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
@@ -109,7 +117,7 @@
                             </Image>
                         </Button>
 
-                        <Button Margin="8" Background="Transparent">
+                        <Button Style="{StaticResource Button_Click}">
                             <Image x:Name="Contact" Source="/Контакты.bmp" Style="{StaticResource Image}">
                                 <Image.Clip>
                                     <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,230,230"/>
@@ -120,8 +128,7 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="1">
-            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1"/>
 
         </Grid>
     </Border>
