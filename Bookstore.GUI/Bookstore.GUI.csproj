@@ -31,8 +31,16 @@
   <ItemGroup>
     <Resource Include="books2.jpg" />
     <Resource Include="books3.jpg" />
-    <Resource Include="one_book.jpg" />
-    <Resource Include="press_book.jpg" />
+    <Resource Include="Resourses\books2.jpg" />
+    <Resource Include="Resourses\books3.jpg" />
+    <Resource Include="Resourses\one_book.jpg" />
+    <Resource Include="Resourses\press_book.jpg" />
+    <Resource Include="Resourses\Ист_заказов.bmp" />
+    <Resource Include="Resourses\Контакты.bmp" />
+    <Resource Include="Resourses\Корзина.bmp" />
+    <Resource Include="Resourses\Лич_данные.bmp" />
+    <Resource Include="Resourses\Лич_счет.bmp" />
+    <Resource Include="Resourses\Тек_заказ.bmp" />
     <Resource Include="Ист_заказов.bmp" />
     <Resource Include="Контакты.bmp" />
     <Resource Include="Корзина.bmp" />

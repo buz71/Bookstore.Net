@@ -349,7 +349,7 @@
             </Grid>
 
             <Grid Grid.Row="0"  Grid.Column="0" Grid.RowSpan="2">
-                <Image x:Name="Picture" Height="102" Source="books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
+                <Image x:Name="Picture" Height="102" Source="/books2.jpg" Visibility="Visible" Stretch="Fill" VerticalAlignment="Top">
                     <Image.Clip>
                         <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,250,200"/>
                     </Image.Clip>
@@ -380,7 +380,7 @@
                     FontFamily="Times New Roman" Foreground="#FFFFEEA1"/>
             </Grid>
 
-            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Background="#FFFFEEA0">
+            <Grid Grid.Column="1" Grid.Row="1" Background="#FFFFEEA0">
                 <ScrollViewer>
                     <StackPanel>
                         <WrapPanel x:Name="panel"/>
