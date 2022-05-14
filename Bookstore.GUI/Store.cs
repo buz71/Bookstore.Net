@@ -8,6 +8,7 @@ using System.Windows.Media;
 using Bookstore.MControl;
 using Bookstrore.MControl.Control;
 using Castle.Components.DictionaryAdapter;
+using static System.Double;
 
 namespace Bookstore.GUI
 {
@@ -202,8 +203,8 @@ namespace Bookstore.GUI
             foreach (var item in cartItems)
             {
                 orderString +=
-                    $"\n| Книга: {item.BookName}| Автор: {item.Author} | Количество: {item.Quantity} | Цена: {item.Price} |";
-                orderSum += item.Price;
+                    $"\n| Книга: {item.BookName}| Автор: {item.Author} | Количество: {item.CartQuantity} | Цена: {item.Field_Total.Text} |";
+                orderSum += Parse(item.Field_Total.Text);
             }
 
             orderString += $"\n Сумма Вашего заказа: {orderSum}";
